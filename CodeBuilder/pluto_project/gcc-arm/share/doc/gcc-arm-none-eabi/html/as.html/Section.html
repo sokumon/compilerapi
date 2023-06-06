@@ -2,7 +2,7 @@
 <html>
 <!-- This file documents the GNU Assembler "as".
 
-Copyright (C) 1991-2017 Free Software Foundation, Inc.
+Copyright (C) 1991-2021 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -11,16 +11,16 @@ with no Invariant Sections, with no Front-Cover Texts, and with no
 Back-Cover Texts.  A copy of the license is included in the
 section entitled "GNU Free Documentation License".
  -->
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Using as: Section</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Section (Using as)</title>
 
-<meta name="description" content="Using as: Section">
-<meta name="keywords" content="Using as: Section">
+<meta name="description" content="Section (Using as)">
+<meta name="keywords" content="Section (Using as)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="index.html#Top" rel="start" title="Top">
 <link href="AS-Index.html#AS-Index" rel="index" title="AS Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
@@ -30,16 +30,16 @@ section entitled "GNU Free Documentation License".
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -48,10 +48,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -59,7 +58,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Section"></a>
 <div class="header">
 <p>
@@ -67,7 +66,7 @@ Next: <a href="Set.html#Set" accesskey="n" rel="next">Set</a>, Previous: <a href
 </div>
 <hr>
 <a name="g_t_002esection-name"></a>
-<h3 class="section">7.78 <code>.section <var>name</var></code></h3>
+<h3 class="section">7.84 <code>.section <var>name</var></code></h3>
 
 <a name="index-named-section"></a>
 <p>Use the <code>.section</code> directive to assemble the following code into a section
@@ -179,8 +178,8 @@ exception_code
 
 <p>The two <code>exception_code</code> invocations above would create the
 <code>.text.exception</code> and <code>.init.exception</code> sections respectively.
-This is useful e.g. to discriminate between anciliary sections that are
-tied to setup code to be discarded after use from anciliary sections that
+This is useful e.g. to discriminate between ancillary sections that are
+tied to setup code to be discarded after use from ancillary sections that
 need to stay resident without having to define multiple <code>exception_code</code>
 macros just for that purpose.
 </p>
@@ -191,8 +190,15 @@ combination of the following characters:
 <dt><code>a</code></dt>
 <dd><p>section is allocatable
 </p></dd>
+<dt><code>d</code></dt>
+<dd><p>section is a GNU_MBIND section
+</p></dd>
 <dt><code>e</code></dt>
 <dd><p>section is excluded from executable and shared library.
+</p></dd>
+<dt><code>o</code></dt>
+<dd><p>section references a symbol defined in another section (the linked-to
+section) in the same file.
 </p></dd>
 <dt><code>w</code></dt>
 <dd><p>section is writable
@@ -215,6 +221,10 @@ combination of the following characters:
 <dt><code>?</code></dt>
 <dd><p>section is a member of the previously-current section&rsquo;s group, if any
 </p></dd>
+<dt><code>R</code></dt>
+<dd><p>retained section (apply SHF_GNU_RETAIN to prevent linker garbage
+collection, GNU ELF extension)
+</p></dd>
 <dt><code><code>&lt;number&gt;</code></code></dt>
 <dd><p>a numeric value indicating the bits to be set in the ELF section header&rsquo;s flags
 field.  Note - if one or more of the alphabetic characters described above is
@@ -231,7 +241,9 @@ a few exceptions to this rule however.  Processor and application specific
 flags can be added to an already defined section.  The <code>.interp</code>,
 <code>.strtab</code> and <code>.symtab</code> sections can have the allocate flag
 (<code>a</code>) set after they are initially defined, and the <code>.note-GNU-stack</code>
-section may have the executable (<code>x</code>) flag added.
+section may have the executable (<code>x</code>) flag added.  Also note that the
+<code>.attach_to_group</code> directive can be used to add a section to a group even
+if the section was not originally declared to be part of that group.
 </p>
 <p>The optional <var>type</var> argument may contain one of the following constants:
 </p>
@@ -290,6 +302,26 @@ which is a suffix of a larger string is considered a duplicate.  Thus
 <code>&quot;def&quot;</code> will be merged with <code>&quot;abcdef&quot;</code>;  A reference to the first
 <code>&quot;def&quot;</code> will be changed to a reference to <code>&quot;abcdef&quot;+3</code>.
 </p>
+<p>If <var>flags</var> contains the <code>o</code> flag, then the <var>type</var> argument
+must be present along with an additional field like this:
+</p>
+<div class="smallexample">
+<pre class="smallexample">.section <var>name</var>,&quot;<var>flags</var>&quot;o,@<var>type</var>,<var>SymbolName</var>|<var>SectionIndex</var>
+</pre></div>
+
+<p>The <var>SymbolName</var> field specifies the symbol name which the section
+references.  Alternatively a numeric <var>SectionIndex</var> can be provided.  This
+is not generally a good idea as section indicies are rarely known at assembly
+time, but the facility is provided for testing purposes.  An index of zero is
+allowed.  It indicates that the linked-to section has already been discarded.
+</p>
+<p>Note: If both the <var>M</var> and <var>o</var> flags are present, then the fields
+for the Merge flag should come first, like this:
+</p>
+<div class="smallexample">
+<pre class="smallexample">.section <var>name</var>,&quot;<var>flags</var>&quot;Mo,@<var>type</var>,<var>entsize</var>,<var>SymbolName</var>
+</pre></div>
+
 <p>If <var>flags</var> contains the <code>G</code> symbol then the <var>type</var> argument must
 be present along with an additional field like this:
 </p>
@@ -316,12 +348,31 @@ the Merge flag should come first, like this:
 <pre class="smallexample">.section <var>name</var> , &quot;<var>flags</var>&quot;MG, @<var>type</var>, <var>entsize</var>, <var>GroupName</var>[, <var>linkage</var>]
 </pre></div>
 
+<p>If both <code>o</code> flag and <code>G</code> flag are present, then the
+<var>SymbolName</var> field for <code>o</code> comes first, like this:
+</p>
+<div class="smallexample">
+<pre class="smallexample">.section <var>name</var>,&quot;<var>flags</var>&quot;oG,@<var>type</var>,<var>SymbolName</var>,<var>GroupName</var>[,<var>linkage</var>]
+</pre></div>
+
 <p>If <var>flags</var> contains the <code>?</code> symbol then it may not also contain the
 <code>G</code> symbol and the <var>GroupName</var> or <var>linkage</var> fields should not be
 present.  Instead, <code>?</code> says to consider the section that&rsquo;s current before
 this directive.  If that section used <code>G</code>, then the new section will use
 <code>G</code> with those same <var>GroupName</var> and <var>linkage</var> fields implicitly.
 If not, then the <code>?</code> symbol has no effect.
+</p>
+<p>The optional <var>unique,<code>&lt;number&gt;</code></var> argument must come last.  It
+assigns <var><code>&lt;number&gt;</code></var> as a unique section ID to distinguish
+different sections with the same section name like these:
+</p>
+<div class="smallexample">
+<pre class="smallexample">.section <var>name</var>,&quot;<var>flags</var>&quot;,@<var>type</var>,<var>unique,<code>&lt;number&gt;</code></var>
+.section <var>name</var>,&quot;<var>flags</var>&quot;G,@<var>type</var>,<var>GroupName</var>,[<var>linkage</var>],<var>unique,<code>&lt;number&gt;</code></var>
+.section <var>name</var>,&quot;<var>flags</var>&quot;MG,@<var>type</var>,<var>entsize</var>,<var>GroupName</var>[,<var>linkage</var>],<var>unique,<code>&lt;number&gt;</code></var>
+</pre></div>
+
+<p>The valid values of <var><code>&lt;number&gt;</code></var> are between 0 and 4294967295.
 </p>
 <p>If no flags are specified, the default flags depend upon the section name.  If
 the section name is not recognized, the default will be for the section to have

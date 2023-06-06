@@ -2,7 +2,7 @@
 <html>
 <!-- This file documents the GNU Assembler "as".
 
-Copyright (C) 1991-2017 Free Software Foundation, Inc.
+Copyright (C) 1991-2021 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -11,16 +11,16 @@ with no Invariant Sections, with no Front-Cover Texts, and with no
 Back-Cover Texts.  A copy of the license is included in the
 section entitled "GNU Free Documentation License".
  -->
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Using as: i386-Options</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>i386-Options (Using as)</title>
 
-<meta name="description" content="Using as: i386-Options">
-<meta name="keywords" content="Using as: i386-Options">
+<meta name="description" content="i386-Options (Using as)">
+<meta name="keywords" content="i386-Options (Using as)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="index.html#Top" rel="start" title="Top">
 <link href="AS-Index.html#AS-Index" rel="index" title="AS Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
@@ -30,16 +30,16 @@ section entitled "GNU Free Documentation License".
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -48,10 +48,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -59,15 +58,15 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="i386_002dOptions"></a>
 <div class="header">
 <p>
 Next: <a href="i386_002dDirectives.html#i386_002dDirectives" accesskey="n" rel="next">i386-Directives</a>, Up: <a href="i386_002dDependent.html#i386_002dDependent" accesskey="u" rel="up">i386-Dependent</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="AS-Index.html#AS-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <hr>
-<a name="Options-10"></a>
-<h4 class="subsection">9.15.1 Options</h4>
+<a name="Options-11"></a>
+<h4 class="subsection">9.16.1 Options</h4>
 
 <a name="index-options-for-i386"></a>
 <a name="index-options-for-x86_002d64"></a>
@@ -100,7 +99,8 @@ usage and use x86-64 as target platform).
 <dt><code>-n</code></dt>
 <dd><p>By default, x86 GAS replaces multiple nop instructions used for
 alignment within code sections with multi-byte nop instructions such
-as leal 0(%esi,1),%esi.  This switch disables the optimization.
+as leal 0(%esi,1),%esi.  This switch disables the optimization if a single
+byte nop (0x90) is explicitly specified as the fill byte for alignment.
 </p>
 <a name="index-_002d_002ddivide-option_002c-i386"></a>
 </dd>
@@ -150,6 +150,8 @@ processor names are recognized:
 <code>bdver3</code>,
 <code>bdver4</code>,
 <code>znver1</code>,
+<code>znver2</code>,
+<code>znver3</code>,
 <code>btver1</code>,
 <code>btver2</code>,
 <code>generic32</code> and
@@ -167,11 +169,16 @@ accept various extension mnemonics.  For example,
 <code>no287</code>,
 <code>no387</code>,
 <code>no687</code>,
+<code>cmov</code>,
+<code>nocmov</code>,
+<code>fxsr</code>,
+<code>nofxsr</code>,
 <code>mmx</code>,
 <code>nommx</code>,
 <code>sse</code>,
 <code>sse2</code>,
 <code>sse3</code>,
+<code>sse4a</code>,
 <code>ssse3</code>,
 <code>sse4.1</code>,
 <code>sse4.2</code>,
@@ -179,6 +186,7 @@ accept various extension mnemonics.  For example,
 <code>nosse</code>,
 <code>nosse2</code>,
 <code>nosse3</code>,
+<code>nosse4a</code>,
 <code>nossse3</code>,
 <code>nosse4.1</code>,
 <code>nosse4.2</code>,
@@ -195,10 +203,24 @@ accept various extension mnemonics.  For example,
 <code>sha</code>,
 <code>rdpid</code>,
 <code>ptwrite</code>,
+<code>cet</code>,
+<code>gfni</code>,
+<code>vaes</code>,
+<code>vpclmulqdq</code>,
 <code>prefetchwt1</code>,
 <code>clflushopt</code>,
 <code>se1</code>,
 <code>clwb</code>,
+<code>movdiri</code>,
+<code>movdir64b</code>,
+<code>enqcmd</code>,
+<code>serialize</code>,
+<code>tsxldtrk</code>,
+<code>kl</code>,
+<code>nokl</code>,
+<code>widekl</code>,
+<code>nowidekl</code>,
+<code>hreset</code>,
 <code>avx512f</code>,
 <code>avx512cd</code>,
 <code>avx512er</code>,
@@ -211,6 +233,13 @@ accept various extension mnemonics.  For example,
 <code>avx512_4fmaps</code>,
 <code>avx512_4vnniw</code>,
 <code>avx512_vpopcntdq</code>,
+<code>avx512_vbmi2</code>,
+<code>avx512_vnni</code>,
+<code>avx512_bitalg</code>,
+<code>avx512_vp2intersect</code>,
+<code>tdx</code>,
+<code>avx512_bf16</code>,
+<code>avx_vnni</code>,
 <code>noavx512f</code>,
 <code>noavx512cd</code>,
 <code>noavx512er</code>,
@@ -223,6 +252,24 @@ accept various extension mnemonics.  For example,
 <code>noavx512_4fmaps</code>,
 <code>noavx512_4vnniw</code>,
 <code>noavx512_vpopcntdq</code>,
+<code>noavx512_vbmi2</code>,
+<code>noavx512_vnni</code>,
+<code>noavx512_bitalg</code>,
+<code>noavx512_vp2intersect</code>,
+<code>notdx</code>,
+<code>noavx512_bf16</code>,
+<code>noavx_vnni</code>,
+<code>noenqcmd</code>,
+<code>noserialize</code>,
+<code>notsxldtrk</code>,
+<code>amx_int8</code>,
+<code>noamx_int8</code>,
+<code>amx_bf16</code>,
+<code>noamx_bf16</code>,
+<code>amx_tile</code>,
+<code>noamx_tile</code>,
+<code>nouintr</code>,
+<code>nohreset</code>,
 <code>vmx</code>,
 <code>vmfunc</code>,
 <code>smx</code>,
@@ -240,12 +287,21 @@ accept various extension mnemonics.  For example,
 <code>movbe</code>,
 <code>ept</code>,
 <code>lzcnt</code>,
+<code>popcnt</code>,
 <code>hle</code>,
 <code>rtm</code>,
 <code>invpcid</code>,
 <code>clflush</code>,
 <code>mwaitx</code>,
 <code>clzero</code>,
+<code>wbnoinvd</code>,
+<code>pconfig</code>,
+<code>waitpkg</code>,
+<code>uintr</code>,
+<code>cldemote</code>,
+<code>rdpru</code>,
+<code>mcommit</code>,
+<code>sev_es</code>,
 <code>lwp</code>,
 <code>fma4</code>,
 <code>xop</code>,
@@ -256,8 +312,10 @@ accept various extension mnemonics.  For example,
 <code>3dnowa</code>,
 <code>sse4a</code>,
 <code>sse5</code>,
-<code>svme</code>,
-<code>abm</code> and
+<code>snp</code>,
+<code>invlpgb</code>,
+<code>tlbsync</code>,
+<code>svme</code> and
 <code>padlock</code>.
 Note that rather than extending a basic instruction set, the extension
 mnemonics starting with <code>no</code> revoke the respective functionality.
@@ -308,6 +366,23 @@ AVX instructions with 128bit vector length, which is the default.
 <samp>-mavxscalar=<var>256</var></samp> will encode scalar AVX instructions
 with 256bit vector length.
 </p>
+<p>WARNING: Don&rsquo;t use this for production code - due to CPU errata the
+resulting code may not work on certain models.
+</p>
+<a name="index-_002dmvexwig_003d-option_002c-i386"></a>
+<a name="index-_002dmvexwig_003d-option_002c-x86_002d64"></a>
+</dd>
+<dt><code>-mvexwig=<var>0</var></code></dt>
+<dt><code>-mvexwig=<var>1</var></code></dt>
+<dd><p>These options control how the assembler should encode VEX.W-ignored (WIG)
+VEX instructions.  <samp>-mvexwig=<var>0</var></samp> will encode WIG VEX
+instructions with vex.w = 0, which is the default.
+<samp>-mvexwig=<var>1</var></samp> will encode WIG EVEX instructions with
+vex.w = 1.
+</p>
+<p>WARNING: Don&rsquo;t use this for production code - due to CPU errata the
+resulting code may not work on certain models.
+</p>
 <a name="index-_002dmevexlig_003d-option_002c-i386"></a>
 <a name="index-_002dmevexlig_003d-option_002c-x86_002d64"></a>
 </dd>
@@ -354,7 +429,7 @@ take precedent.
 <a name="index-_002dmnaked_002dreg-option_002c-x86_002d64"></a>
 </dd>
 <dt><code>-mnaked-reg</code></dt>
-<dd><p>This opetion specifies that registers don&rsquo;t require a &lsquo;<samp>%</samp>&rsquo; prefix.
+<dd><p>This option specifies that registers don&rsquo;t require a &lsquo;<samp>%</samp>&rsquo; prefix.
 The <code>.att_syntax</code> and <code>.intel_syntax</code> directives will take precedent.
 </p>
 <a name="index-_002dmadd_002dbnd_002dprefix-option_002c-i386"></a>
@@ -376,10 +451,11 @@ with default visibility can be preempted.  The resulting code is
 slightly bigger.  This option only affects the handling of branch
 instructions.
 </p>
+<a name="index-_002dmbig_002dobj-option_002c-i386"></a>
 <a name="index-_002dmbig_002dobj-option_002c-x86_002d64"></a>
 </dd>
 <dt><code>-mbig-obj</code></dt>
-<dd><p>On x86-64 PE/COFF target this option forces the use of big object file
+<dd><p>On PE/COFF target this option forces the use of big object file
 format, which allows more than 32768 sections.
 </p>
 <a name="index-_002dmomit_002dlock_002dprefix_003d-option_002c-i386"></a>
@@ -421,6 +497,107 @@ R_X86_64_REX_GOTPCRELX, in 64-bit mode.
 relocations.  The default can be controlled by a configure option
 <samp>--enable-x86-relax-relocations</samp>.
 </p>
+<a name="index-_002dmalign_002dbranch_002dboundary_003d-option_002c-i386"></a>
+<a name="index-_002dmalign_002dbranch_002dboundary_003d-option_002c-x86_002d64"></a>
+</dd>
+<dt><code>-malign-branch-boundary=<var>NUM</var></code></dt>
+<dd><p>This option controls how the assembler should align branches with segment
+prefixes or NOP.  <var>NUM</var> must be a power of 2.  It should be 0 or
+no less than 16.  Branches will be aligned within <var>NUM</var> byte
+boundary.  <samp>-malign-branch-boundary=0</samp>, which is the default,
+doesn&rsquo;t align branches.
+</p>
+<a name="index-_002dmalign_002dbranch_003d-option_002c-i386"></a>
+<a name="index-_002dmalign_002dbranch_003d-option_002c-x86_002d64"></a>
+</dd>
+<dt><code>-malign-branch=<var>TYPE</var>[+<var>TYPE</var>...]</code></dt>
+<dd><p>This option specifies types of branches to align. <var>TYPE</var> is
+combination of &lsquo;<samp>jcc</samp>&rsquo;, which aligns conditional jumps,
+&lsquo;<samp>fused</samp>&rsquo;, which aligns fused conditional jumps, &lsquo;<samp>jmp</samp>&rsquo;,
+which aligns unconditional jumps, &lsquo;<samp>call</samp>&rsquo; which aligns calls,
+&lsquo;<samp>ret</samp>&rsquo;, which aligns rets, &lsquo;<samp>indirect</samp>&rsquo;, which aligns indirect
+jumps and calls.  The default is <samp>-malign-branch=jcc+fused+jmp</samp>.
+</p>
+<a name="index-_002dmalign_002dbranch_002dprefix_002dsize_003d-option_002c-i386"></a>
+<a name="index-_002dmalign_002dbranch_002dprefix_002dsize_003d-option_002c-x86_002d64"></a>
+</dd>
+<dt><code>-malign-branch-prefix-size=<var>NUM</var></code></dt>
+<dd><p>This option specifies the maximum number of prefixes on an instruction
+to align branches.  <var>NUM</var> should be between 0 and 5.  The default
+<var>NUM</var> is 5.
+</p>
+<a name="index-_002dmbranches_002dwithin_002d32B_002dboundaries-option_002c-i386"></a>
+<a name="index-_002dmbranches_002dwithin_002d32B_002dboundaries-option_002c-x86_002d64"></a>
+</dd>
+<dt><code>-mbranches-within-32B-boundaries</code></dt>
+<dd><p>This option aligns conditional jumps, fused conditional jumps and
+unconditional jumps within 32 byte boundary with up to 5 segment prefixes
+on an instruction.  It is equivalent to
+<samp>-malign-branch-boundary=32</samp>
+<samp>-malign-branch=jcc+fused+jmp</samp>
+<samp>-malign-branch-prefix-size=5</samp>.
+The default doesn&rsquo;t align branches.
+</p>
+<a name="index-_002dmlfence_002dafter_002dload_003d-option_002c-i386"></a>
+<a name="index-_002dmlfence_002dafter_002dload_003d-option_002c-x86_002d64"></a>
+</dd>
+<dt><code>-mlfence-after-load=<var>no</var></code></dt>
+<dt><code>-mlfence-after-load=<var>yes</var></code></dt>
+<dd><p>These options control whether the assembler should generate lfence
+after load instructions.  <samp>-mlfence-after-load=<var>yes</var></samp> will
+generate lfence.  <samp>-mlfence-after-load=<var>no</var></samp> will not generate
+lfence, which is the default.
+</p>
+<a name="index-_002dmlfence_002dbefore_002dindirect_002dbranch_003d-option_002c-i386"></a>
+<a name="index-_002dmlfence_002dbefore_002dindirect_002dbranch_003d-option_002c-x86_002d64"></a>
+</dd>
+<dt><code>-mlfence-before-indirect-branch=<var>none</var></code></dt>
+<dt><code>-mlfence-before-indirect-branch=<var>all</var></code></dt>
+<dt><code>-mlfence-before-indirect-branch=<var>register</var></code></dt>
+<dt><code>-mlfence-before-indirect-branch=<var>memory</var></code></dt>
+<dd><p>These options control whether the assembler should generate lfence
+before indirect near branch instructions.
+<samp>-mlfence-before-indirect-branch=<var>all</var></samp> will generate lfence
+before indirect near branch via register and issue a warning before
+indirect near branch via memory.
+It also implicitly sets <samp>-mlfence-before-ret=<var>shl</var></samp> when
+there&rsquo;s no explicit <samp>-mlfence-before-ret=</samp>.
+<samp>-mlfence-before-indirect-branch=<var>register</var></samp> will generate
+lfence before indirect near branch via register.
+<samp>-mlfence-before-indirect-branch=<var>memory</var></samp> will issue a
+warning before indirect near branch via memory.
+<samp>-mlfence-before-indirect-branch=<var>none</var></samp> will not generate
+lfence nor issue warning, which is the default.  Note that lfence won&rsquo;t
+be generated before indirect near branch via register with
+<samp>-mlfence-after-load=<var>yes</var></samp> since lfence will be generated
+after loading branch target register.
+</p>
+<a name="index-_002dmlfence_002dbefore_002dret_003d-option_002c-i386"></a>
+<a name="index-_002dmlfence_002dbefore_002dret_003d-option_002c-x86_002d64"></a>
+</dd>
+<dt><code>-mlfence-before-ret=<var>none</var></code></dt>
+<dt><code>-mlfence-before-ret=<var>shl</var></code></dt>
+<dt><code>-mlfence-before-ret=<var>or</var></code></dt>
+<dt><code>-mlfence-before-ret=<var>yes</var></code></dt>
+<dt><code>-mlfence-before-ret=<var>not</var></code></dt>
+<dd><p>These options control whether the assembler should generate lfence
+before ret.  <samp>-mlfence-before-ret=<var>or</var></samp> will generate
+generate or instruction with lfence.
+<samp>-mlfence-before-ret=<var>shl/yes</var></samp> will generate shl instruction
+with lfence. <samp>-mlfence-before-ret=<var>not</var></samp> will generate not
+instruction with lfence. <samp>-mlfence-before-ret=<var>none</var></samp> will not
+generate lfence, which is the default.
+</p>
+<a name="index-_002dmx86_002dused_002dnote_003d-option_002c-i386"></a>
+<a name="index-_002dmx86_002dused_002dnote_003d-option_002c-x86_002d64"></a>
+</dd>
+<dt><code>-mx86-used-note=<var>no</var></code></dt>
+<dt><code>-mx86-used-note=<var>yes</var></code></dt>
+<dd><p>These options control whether the assembler should generate
+GNU_PROPERTY_X86_ISA_1_USED and GNU_PROPERTY_X86_FEATURE_2_USED
+GNU property notes.  The default can be controlled by the
+<samp>--enable-x86-used-note</samp> configure option.
+</p>
 <a name="index-_002dmevexrcig_003d-option_002c-i386"></a>
 <a name="index-_002dmevexrcig_003d-option_002c-x86_002d64"></a>
 </dd>
@@ -441,7 +618,43 @@ with 01, 10 and 11 RC bits, respectively.
 <dt><code>-mamd64</code></dt>
 <dt><code>-mintel64</code></dt>
 <dd><p>This option specifies that the assembler should accept only AMD64 or
-Intel64 ISA in 64-bit mode.  The default is to accept both.
+Intel64 ISA in 64-bit mode.  The default is to accept common, Intel64
+only and AMD64 ISAs.
+</p>
+<a name="index-_002dO0-option_002c-i386"></a>
+<a name="index-_002dO0-option_002c-x86_002d64"></a>
+<a name="index-_002dO-option_002c-i386"></a>
+<a name="index-_002dO-option_002c-x86_002d64"></a>
+<a name="index-_002dO1-option_002c-i386"></a>
+<a name="index-_002dO1-option_002c-x86_002d64"></a>
+<a name="index-_002dO2-option_002c-i386"></a>
+<a name="index-_002dO2-option_002c-x86_002d64"></a>
+<a name="index-_002dOs-option_002c-i386"></a>
+<a name="index-_002dOs-option_002c-x86_002d64"></a>
+</dd>
+<dt><code>-O0 | -O | -O1 | -O2 | -Os</code></dt>
+<dd><p>Optimize instruction encoding with smaller instruction size.  &lsquo;<samp>-O</samp>&rsquo;
+and &lsquo;<samp>-O1</samp>&rsquo; encode 64-bit register load instructions with 64-bit
+immediate as 32-bit register load instructions with 31-bit or 32-bits
+immediates, encode 64-bit register clearing instructions with 32-bit
+register clearing instructions, encode 256-bit/512-bit VEX/EVEX vector
+register clearing instructions with 128-bit VEX vector register
+clearing instructions, encode 128-bit/256-bit EVEX vector
+register load/store instructions with VEX vector register load/store
+instructions, and encode 128-bit/256-bit EVEX packed integer logical
+instructions with 128-bit/256-bit VEX packed integer logical.
+</p>
+<p>&lsquo;<samp>-O2</samp>&rsquo; includes &lsquo;<samp>-O1</samp>&rsquo; optimization plus encodes
+256-bit/512-bit EVEX vector register clearing instructions with 128-bit
+EVEX vector register clearing instructions.  In 64-bit mode VEX encoded
+instructions with commutative source operands will also have their
+source operands swapped if this allows using the 2-byte VEX prefix form
+instead of the 3-byte one.  Certain forms of AND as well as OR with the
+same (register) operand specified twice will also be changed to TEST.
+</p>
+<p>&lsquo;<samp>-Os</samp>&rsquo; includes &lsquo;<samp>-O2</samp>&rsquo; optimization plus encodes 16-bit, 32-bit
+and 64-bit register tests with immediate as 8-bit register test with
+immediate.  &lsquo;<samp>-O0</samp>&rsquo; turns off this optimization.
 </p>
 </dd>
 </dl>

@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Copyright (C) 1987-2016 Free Software Foundation, Inc.
+<!-- Copyright (C) 1987-2020 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -20,16 +20,16 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>The C Preprocessor: Common Predefined Macros</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Common Predefined Macros (The C Preprocessor)</title>
 
-<meta name="description" content="The C Preprocessor: Common Predefined Macros">
-<meta name="keywords" content="The C Preprocessor: Common Predefined Macros">
+<meta name="description" content="Common Predefined Macros (The C Preprocessor)">
+<meta name="keywords" content="Common Predefined Macros (The C Preprocessor)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="index.html#Top" rel="start" title="Top">
 <link href="Index-of-Directives.html#Index-of-Directives" rel="index" title="Index of Directives">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
@@ -39,16 +39,16 @@ You have freedom to copy and modify this GNU Manual, like GNU
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -57,10 +57,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -68,7 +67,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Common-Predefined-Macros"></a>
 <div class="header">
 <p>
@@ -103,20 +102,17 @@ which use it.  Otherwise, the precompiled headers will not be used.
 <dd><p>These macros are defined by all GNU compilers that use the C
 preprocessor: C, C++, Objective-C and Fortran.  Their values are the major
 version, minor version, and patch level of the compiler, as integer
-constants.  For example, GCC 3.2.1 will define <code>__GNUC__</code> to 3,
-<code>__GNUC_MINOR__</code> to 2, and <code>__GNUC_PATCHLEVEL__</code> to 1.  These
+constants.  For example, GCC version <var>x</var>.<var>y</var>.<var>z</var>
+defines <code>__GNUC__</code> to <var>x</var>, <code>__GNUC_MINOR__</code> to <var>y</var>,
+and <code>__GNUC_PATCHLEVEL__</code> to <var>z</var>.  These
 macros are also defined if you invoke the preprocessor directly.
-</p>
-<p><code>__GNUC_PATCHLEVEL__</code> is new to GCC 3.0; it is also present in the
-widely-used development snapshots leading up to 3.0 (which identify
-themselves as GCC 2.96 or 2.97, depending on which snapshot you have).
 </p>
 <p>If all you need to know is whether or not your program is being compiled
 by GCC, or a non-GCC compiler that claims to accept the GNU C dialects,
 you can simply test <code>__GNUC__</code>.  If you need to write code
 which depends on a specific version, you must be more careful.  Each
 time the minor version is increased, the patch level is reset to zero;
-each time the major version is increased (which happens rarely), the
+each time the major version is increased, the
 minor version and patch level are reset.  If you wish to use the
 predefined macros directly in the conditional, you will need to write it
 like this:
@@ -153,9 +149,8 @@ testing <code><span class="nolinebreak">(__GNUC__</span>&nbsp;&amp;&amp;&nbsp;<s
 <dd><p>GCC defines this macro if and only if the <samp>-ansi</samp> switch, or a
 <samp>-std</samp> switch specifying strict conformance to some version of ISO C
 or ISO C++, was specified when GCC was invoked.  It is defined to &lsquo;<samp>1</samp>&rsquo;.
-This macro exists primarily to direct GNU libc&rsquo;s header files to
-restrict their definitions to the minimal set found in the 1989 C
-standard.
+This macro exists primarily to direct GNU libc&rsquo;s header files to use only
+definitions found in standard C.
 </p>
 </dd>
 <dt><code>__BASE_FILE__</code></dt>
@@ -210,17 +205,13 @@ definitions of any functions declared <code>extern inline</code>.
 </dd>
 <dt><code>__GNUC_STDC_INLINE__</code></dt>
 <dd><p>GCC defines this macro if functions declared <code>inline</code> will be
-handled according to the ISO C99 standard.  Object files will contain
+handled according to the ISO C99 or later standards.  Object files will contain
 externally visible definitions of all functions declared <code>extern
 inline</code>.  They will not contain definitions of any functions declared
 <code>inline</code> without <code>extern</code>.
 </p>
 <p>If this macro is defined, GCC supports the <code>gnu_inline</code> function
-attribute as a way to always get the gnu90 behavior.  Support for
-this and <code>__GNUC_GNU_INLINE__</code> was added in GCC 4.1.3.  If
-neither macro is defined, an older version of GCC is being used:
-<code>inline</code> functions will be compiled in gnu90 mode, and the
-<code>gnu_inline</code> function attribute will not be recognized.
+attribute as a way to always get the gnu90 behavior.
 </p>
 </dd>
 <dt><code>__CHAR_UNSIGNED__</code></dt>
@@ -395,6 +386,34 @@ of these macros may not be defined on particular systems if GCC does
 not provide a <samp>stdint.h</samp> header on those systems.
 </p>
 </dd>
+<dt><code>__SCHAR_WIDTH__</code></dt>
+<dt><code>__SHRT_WIDTH__</code></dt>
+<dt><code>__INT_WIDTH__</code></dt>
+<dt><code>__LONG_WIDTH__</code></dt>
+<dt><code>__LONG_LONG_WIDTH__</code></dt>
+<dt><code>__PTRDIFF_WIDTH__</code></dt>
+<dt><code>__SIG_ATOMIC_WIDTH__</code></dt>
+<dt><code>__SIZE_WIDTH__</code></dt>
+<dt><code>__WCHAR_WIDTH__</code></dt>
+<dt><code>__WINT_WIDTH__</code></dt>
+<dt><code>__INT_LEAST8_WIDTH__</code></dt>
+<dt><code>__INT_LEAST16_WIDTH__</code></dt>
+<dt><code>__INT_LEAST32_WIDTH__</code></dt>
+<dt><code>__INT_LEAST64_WIDTH__</code></dt>
+<dt><code>__INT_FAST8_WIDTH__</code></dt>
+<dt><code>__INT_FAST16_WIDTH__</code></dt>
+<dt><code>__INT_FAST32_WIDTH__</code></dt>
+<dt><code>__INT_FAST64_WIDTH__</code></dt>
+<dt><code>__INTPTR_WIDTH__</code></dt>
+<dt><code>__INTMAX_WIDTH__</code></dt>
+<dd><p>Defined to the bit widths of the corresponding types.  They exist to
+make the implementations of <samp>limits.h</samp> and <samp>stdint.h</samp> behave
+correctly.  You should not use these macros directly; instead, include
+the appropriate headers.  Some of these macros may not be defined on
+particular systems if GCC does not provide a <samp>stdint.h</samp> header on
+those systems.
+</p>
+</dd>
 <dt><code>__SIZEOF_INT__</code></dt>
 <dt><code>__SIZEOF_LONG__</code></dt>
 <dt><code>__SIZEOF_LONG_LONG__</code></dt>
@@ -469,11 +488,13 @@ handling.
 </p>
 </dd>
 <dt><code>__GXX_EXPERIMENTAL_CXX0X__</code></dt>
-<dd><p>This macro is defined when compiling a C++ source file with the option
-<samp>-std=c++0x</samp> or <samp>-std=gnu++0x</samp>. It indicates that some
-features likely to be included in C++0x are available. Note that these
-features are experimental, and may change or be removed in future
-versions of GCC.
+<dd><p>This macro is defined when compiling a C++ source file with C++11 features
+enabled, i.e., for all C++ language dialects except <samp>-std=c++98</samp>
+and <samp>-std=gnu++98</samp>. This macro is obsolete, but can be used to
+detect experimental C++0x features in very old versions of GCC. Since
+GCC 4.7.0 the <code>__cplusplus</code> macro is defined correctly, so most
+code should test <code>__cplusplus &gt;= 201103L</code> instead of using this
+macro.
 </p>
 </dd>
 <dt><code>__GXX_WEAK__</code></dt>
@@ -526,6 +547,10 @@ in use.
 or <samp>-fsanitize=kernel-address</samp> are in use.
 </p>
 </dd>
+<dt><code>__SANITIZE_THREAD__</code></dt>
+<dd><p>This macro is defined, with value 1, when <samp>-fsanitize=thread</samp> is in use.
+</p>
+</dd>
 <dt><code>__TIMESTAMP__</code></dt>
 <dd><p>This macro expands to a string constant that describes the date and time
 of the last modification of the current source file. The string constant
@@ -547,6 +572,11 @@ If the day of the month is less than 10, it is padded with a space on the left.
 and swap operations on operands 1, 2, 4, 8 or 16 bytes in length, respectively.
 </p>
 </dd>
+<dt><code>__HAVE_SPECULATION_SAFE_VALUE</code></dt>
+<dd><p>This macro is defined with the value 1 to show that this version of GCC
+supports <code>__builtin_speculation_safe_value</code>.
+</p>
+</dd>
 <dt><code>__GCC_HAVE_DWARF2_CFI_ASM</code></dt>
 <dd><p>This macro is defined when the compiler is emitting DWARF CFI directives
 to the assembler.  When this is defined, it is possible to emit those same
@@ -561,6 +591,22 @@ directives in inline assembly.
 the include file <samp>math.h</samp> can define the macros
 <code>FP_FAST_FMA</code>, <code>FP_FAST_FMAF</code>, and <code>FP_FAST_FMAL</code>
 for compatibility with the 1999 C standard.
+</p>
+</dd>
+<dt><code>__FP_FAST_FMAF16</code></dt>
+<dt><code>__FP_FAST_FMAF32</code></dt>
+<dt><code>__FP_FAST_FMAF64</code></dt>
+<dt><code>__FP_FAST_FMAF128</code></dt>
+<dt><code>__FP_FAST_FMAF32X</code></dt>
+<dt><code>__FP_FAST_FMAF64X</code></dt>
+<dt><code>__FP_FAST_FMAF128X</code></dt>
+<dd><p>These macros are defined with the value 1 if the backend supports the
+<code>fma</code> functions using the additional <code>_Float<var>n</var></code> and
+<code>_Float<var>n</var>x</code> types that are defined in ISO/IEC TS
+18661-3:2015.  The include file <samp>math.h</samp> can define the
+<code>FP_FAST_FMAF<var>n</var></code> and <code>FP_FAST_FMAF<var>n</var>x</code> macros if
+the user defined <code>__STDC_WANT_IEC_60559_TYPES_EXT__</code> before
+including <samp>math.h</samp>.
 </p>
 </dd>
 <dt><code>__GCC_IEC_559</code></dt>

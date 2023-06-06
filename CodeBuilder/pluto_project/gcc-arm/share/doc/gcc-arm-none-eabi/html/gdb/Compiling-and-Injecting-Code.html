@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Copyright (C) 1988-2017 Free Software Foundation, Inc.
+<!-- Copyright (C) 1988-2021 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -12,16 +12,16 @@ and with the Back-Cover Texts as in (a) below.
 (a) The FSF's Back-Cover Text is: "You are free to copy and modify
 this GNU Manual.  Buying copies from GNU Press supports the FSF in
 developing GNU and promoting software freedom." -->
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Debugging with GDB: Compiling and Injecting Code</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Compiling and Injecting Code (Debugging with GDB)</title>
 
-<meta name="description" content="Debugging with GDB: Compiling and Injecting Code">
-<meta name="keywords" content="Debugging with GDB: Compiling and Injecting Code">
+<meta name="description" content="Compiling and Injecting Code (Debugging with GDB)">
+<meta name="keywords" content="Compiling and Injecting Code (Debugging with GDB)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="index.html#Top" rel="start" title="Top">
 <link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
@@ -31,16 +31,16 @@ developing GNU and promoting software freedom." -->
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -49,10 +49,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -60,15 +59,15 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Compiling-and-Injecting-Code"></a>
 <div class="header">
 <p>
 Previous: <a href="Patching.html#Patching" accesskey="p" rel="prev">Patching</a>, Up: <a href="Altering.html#Altering" accesskey="u" rel="up">Altering</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <hr>
-<a name="Compiling-and-injecting-code-in-GDB"></a>
-<h3 class="section">17.7 Compiling and injecting code in <small>GDB</small></h3>
+<a name="Compiling-and-Injecting-Code-in-GDB"></a>
+<h3 class="section">17.7 Compiling and Injecting Code in <small>GDB</small></h3>
 <a name="index-injecting-code"></a>
 <a name="index-writing-into-executables-1"></a>
 <a name="index-compiling-code"></a>
@@ -145,18 +144,19 @@ inferior symbols otherwise.
 </dl>
 
 <dl compact="compact">
-<dt><code>compile print <var>expr</var></code></dt>
-<dt><code>compile print /<var>f</var> <var>expr</var></code></dt>
+<dt><code>compile print [[<var>options</var>] --] <var>expr</var></code></dt>
+<dt><code>compile print [[<var>options</var>] --] /<var>f</var> <var>expr</var></code></dt>
 <dd><p>Compile and execute <var>expr</var> with the compiler language found as the
 current language in <small>GDB</small> (see <a href="Languages.html#Languages">Languages</a>).  By default the
 value of <var>expr</var> is printed in a format appropriate to its data type;
 you can choose a different format by specifying &lsquo;<samp>/<var>f</var></samp>&rsquo;, where
 <var>f</var> is a letter specifying the format; see <a href="Output-Formats.html#Output-Formats">Output
-Formats</a>.
+Formats</a>.  The <code>compile print</code> command accepts the same options
+as the <code>print</code> command; see <a href="Data.html#print-options">print options</a>.
 </p>
 </dd>
-<dt><code>compile print</code></dt>
-<dt><code>compile print /<var>f</var></code></dt>
+<dt><code>compile print [[<var>options</var>] --]</code></dt>
+<dt><code>compile print [[<var>options</var>] --] /<var>f</var></code></dt>
 <dd><a name="index-reprint-the-last-value-1"></a>
 <p>Alternatively you can enter the expression (source code producing it) as
 multiple lines of text.  To enter this mode, invoke the &lsquo;<samp>compile print</samp>&rsquo;
@@ -178,11 +178,22 @@ injecting the code.  The default is off.
 <dt><code>show debug compile</code></dt>
 <dd><p>Displays the current state of displaying <small>GDB</small> process of
 compiling and injecting the code.
+</p>
+<a name="set-debug-compile_002dcplus_002dtypes"></a></dd>
+<dt><code>set debug compile-cplus-types</code></dt>
+<dd><a name="index-compile-C_002b_002b-type-conversion"></a>
+<p>Turns on or off the display of C<tt>++</tt> type conversion debugging information.
+The default is off.
+</p>
+</dd>
+<dt><code>show debug compile-cplus-types</code></dt>
+<dd><p>Displays the current state of displaying debugging information for
+C<tt>++</tt> type conversion.
 </p></dd>
 </dl>
 
-<a name="Compilation-options-for-the-compile-command"></a>
-<h4 class="subsection">17.7.1 Compilation options for the <code>compile</code> command</h4>
+<a name="Compilation-Options-for-the-compile-Command"></a>
+<h4 class="subsection">17.7.1 Compilation Options for the <code>compile</code> Command</h4>
 
 <p><small>GDB</small> needs to specify the right compilation options for the code
 to be injected, in part to make its ABI compatible with the inferior
@@ -229,8 +240,8 @@ use <a href="#set-debug-compile">set debug compile</a> for that.
 </p></dd>
 </dl>
 
-<a name="Caveats-when-using-the-compile-command"></a>
-<h4 class="subsection">17.7.2 Caveats when using the <code>compile</code> command</h4>
+<a name="Caveats-When-Using-the-compile-Command"></a>
+<h4 class="subsection">17.7.2 Caveats When Using the <code>compile</code> Command</h4>
 
 <p>There are a few caveats to keep in mind when using the <code>compile</code>
 command.  As the caveats are different per language, the table below
@@ -385,17 +396,19 @@ will print to the console.
 </p></dd>
 </dl>
 
-<a name="Compiler-search-for-the-compile-command"></a>
-<h4 class="subsection">17.7.3 Compiler search for the <code>compile</code> command</h4>
+<a name="Compiler-Search-for-the-compile-Command"></a>
+<h4 class="subsection">17.7.3 Compiler Search for the <code>compile</code> Command</h4>
 
-<p><small>GDB</small> needs to find <small>GCC</small> for the inferior being debugged which
-may not be obvious for remote targets of different architecture than where
-<small>GDB</small> is running.  Environment variable <code>PATH</code> (<code>PATH</code> from
-shell that executed <small>GDB</small>, not the one set by <small>GDB</small>
-command <code>set environment</code>).  See <a href="Environment.html#Environment">Environment</a>.  <code>PATH</code> on
+<p><small>GDB</small> needs to find <small>GCC</small> for the inferior being debugged
+which may not be obvious for remote targets of different architecture
+than where <small>GDB</small> is running.  Environment variable <code>PATH</code> on
 <small>GDB</small> host is searched for <small>GCC</small> binary matching the
-target architecture and operating system.
+target architecture and operating system.  This search can be overriden
+by <code>set compile-gcc</code> <small>GDB</small> command below.  <code>PATH</code> is
+taken from shell that executed <small>GDB</small>, it is not the value set by
+<small>GDB</small> command <code>set environment</code>).  See <a href="Environment.html#Environment">Environment</a>.
 </p>
+
 <p>Specifically <code>PATH</code> is searched for binaries matching regular expression
 <code><var>arch</var>(-[^-]*)?-<var>os</var>-gcc</code> according to the inferior target being
 debugged.  <var>arch</var> is processor name &mdash; multiarch is supported, so for
@@ -404,6 +417,30 @@ example both <code>i386</code> and <code>x86_64</code> targets look for pattern
 for pattern <code>s390x?</code>.  <var>os</var> is currently supported only for
 pattern <code>linux(-gnu)?</code>.
 </p>
+<p>On Posix hosts the compiler driver <small>GDB</small> needs to find also
+shared library <samp>libcc1.so</samp> from the compiler.  It is searched in
+default shared library search path (overridable with usual environment
+variable <code>LD_LIBRARY_PATH</code>), unrelated to <code>PATH</code> or <code>set
+compile-gcc</code> settings.  Contrary to it <samp>libcc1plugin.so</samp> is found
+according to the installation of the found compiler &mdash; as possibly
+specified by the <code>set compile-gcc</code> command.
+</p>
+<dl compact="compact">
+<dt><code>set compile-gcc</code></dt>
+<dd><a name="index-compile-command-driver-filename-override"></a>
+<p>Set compilation command used for compiling and injecting code with the
+<code>compile</code> commands.  If this option is not set (it is set to
+an empty string), the search described above will occur &mdash; that is the
+default.
+</p>
+</dd>
+<dt><code>show compile-gcc</code></dt>
+<dd><p>Displays the current compile command <small>GCC</small> driver filename.
+If set, it is the main command <code>gcc</code>, found usually for example
+under name <samp>x86_64-linux-gnu-gcc</samp>.
+</p></dd>
+</dl>
+
 <hr>
 <div class="header">
 <p>

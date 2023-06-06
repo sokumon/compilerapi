@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Copyright (C) 1987-2016 Free Software Foundation, Inc.
+<!-- Copyright (C) 1987-2020 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -20,16 +20,16 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>The C Preprocessor: Tokenization</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Tokenization (The C Preprocessor)</title>
 
-<meta name="description" content="The C Preprocessor: Tokenization">
-<meta name="keywords" content="The C Preprocessor: Tokenization">
+<meta name="description" content="Tokenization (The C Preprocessor)">
+<meta name="keywords" content="Tokenization (The C Preprocessor)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="index.html#Top" rel="start" title="Top">
 <link href="Index-of-Directives.html#Index-of-Directives" rel="index" title="Index of Directives">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
@@ -39,16 +39,16 @@ You have freedom to copy and modify this GNU Manual, like GNU
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -57,10 +57,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -68,7 +67,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Tokenization"></a>
 <div class="header">
 <p>
@@ -128,8 +127,7 @@ preprocessor.  See <a href="C_002b_002b-Named-Operators.html#C_002b_002b-Named-O
 part of the &ldquo;basic source character set&rdquo;, at the implementation&rsquo;s
 discretion (such as accented Latin letters, Greek letters, or Chinese
 ideograms).  This may be done with an extended character set, or the
-&lsquo;<samp>\u</samp>&rsquo; and &lsquo;<samp>\U</samp>&rsquo; escape sequences.  GCC only accepts such
-characters in the &lsquo;<samp>\u</samp>&rsquo; and &lsquo;<samp>\U</samp>&rsquo; forms.
+&lsquo;<samp>\u</samp>&rsquo; and &lsquo;<samp>\U</samp>&rsquo; escape sequences.
 </p>
 <p>As an extension, GCC treats &lsquo;<samp>$</samp>&rsquo; as a letter.  This is for
 compatibility with some systems, such as VMS, where &lsquo;<samp>$</samp>&rsquo; is commonly
@@ -147,8 +145,8 @@ with an optional period, a required decimal digit, and then continue
 with any sequence of letters, digits, underscores, periods, and
 exponents.  Exponents are the two-character sequences &lsquo;<samp>e+</samp>&rsquo;,
 &lsquo;<samp>e-</samp>&rsquo;, &lsquo;<samp>E+</samp>&rsquo;, &lsquo;<samp>E-</samp>&rsquo;, &lsquo;<samp>p+</samp>&rsquo;, &lsquo;<samp>p-</samp>&rsquo;, &lsquo;<samp>P+</samp>&rsquo;, and
-&lsquo;<samp>P-</samp>&rsquo;.  (The exponents that begin with &lsquo;<samp>p</samp>&rsquo; or &lsquo;<samp>P</samp>&rsquo; are new
-to C99.  They are used for hexadecimal floating-point constants.)
+&lsquo;<samp>P-</samp>&rsquo;.  (The exponents that begin with &lsquo;<samp>p</samp>&rsquo; or &lsquo;<samp>P</samp>&rsquo; are 
+used for hexadecimal floating-point constants.)
 </p>
 <p>The purpose of this unusual definition is to isolate the preprocessor
 from the full complexity of numeric constants.  It does not have to
@@ -182,9 +180,8 @@ backslash is an ordinary character.  There is no way to escape the
 closing quote or angle bracket.  The preprocessor looks for the header
 file in different places depending on which form you use.  See <a href="Include-Operation.html#Include-Operation">Include Operation</a>.
 </p>
-<p>No string literal may extend past the end of a line.  Older versions
-of GCC accepted multi-line string constants.  You may use continued
-lines instead, or string constant concatenation.  See <a href="Differences-from-previous-versions.html#Differences-from-previous-versions">Differences from previous versions</a>.
+<p>No string literal may extend past the end of a line.  You may use continued
+lines instead, or string constant concatenation.
 </p>
 <a name="index-punctuators"></a>
 <a name="index-digraphs"></a>
@@ -206,15 +203,15 @@ Punctuator:      {   }   [   ]   #    ##
 </pre></div>
 
 <a name="index-other-tokens"></a>
-<p>Any other single character is considered &ldquo;other&rdquo;.  It is passed on to
-the preprocessor&rsquo;s output unmolested.  The C compiler will almost
-certainly reject source code containing &ldquo;other&rdquo; tokens.  In ASCII, the
-only other characters are &lsquo;<samp>@</samp>&rsquo;, &lsquo;<samp>$</samp>&rsquo;, &lsquo;<samp>`</samp>&rsquo;, and control
+<p>Any other single byte is considered &ldquo;other&rdquo; and passed on to the
+preprocessor&rsquo;s output unchanged.  The C compiler will almost certainly
+reject source code containing &ldquo;other&rdquo; tokens.  In ASCII, the only
+&ldquo;other&rdquo; characters are &lsquo;<samp>@</samp>&rsquo;, &lsquo;<samp>$</samp>&rsquo;, &lsquo;<samp>`</samp>&rsquo;, and control
 characters other than NUL (all bits zero).  (Note that &lsquo;<samp>$</samp>&rsquo; is
-normally considered a letter.)  All characters with the high bit set
-(numeric range 0x7F&ndash;0xFF) are also &ldquo;other&rdquo; in the present
-implementation.  This will change when proper support for international
-character sets is added to GCC.
+normally considered a letter.)  All bytes with the high bit set
+(numeric range 0x7F&ndash;0xFF) that were not succesfully interpreted as
+part of an extended character in the input encoding are also &ldquo;other&rdquo;
+in the present implementation.
 </p>
 <p>NUL is a special case because of the high probability that its
 appearance is accidental, and because it may be invisible to the user

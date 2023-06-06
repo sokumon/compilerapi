@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Copyright (C) 1988-2016 Free Software Foundation, Inc.
+<!-- Copyright (C) 1988-2020 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -19,16 +19,16 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Compiler Collection (GCC) Internals: Storage Layout</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Storage Layout (GNU Compiler Collection (GCC) Internals)</title>
 
-<meta name="description" content="GNU Compiler Collection (GCC) Internals: Storage Layout">
-<meta name="keywords" content="GNU Compiler Collection (GCC) Internals: Storage Layout">
+<meta name="description" content="Storage Layout (GNU Compiler Collection (GCC) Internals)">
+<meta name="keywords" content="Storage Layout (GNU Compiler Collection (GCC) Internals)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="index.html#Top" rel="start" title="Top">
 <link href="Option-Index.html#Option-Index" rel="index" title="Option Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
@@ -38,16 +38,16 @@ You have freedom to copy and modify this GNU Manual, like GNU
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -56,10 +56,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -67,7 +66,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Storage-Layout"></a>
 <div class="header">
 <p>
@@ -75,7 +74,7 @@ Next: <a href="Type-Layout.html#Type-Layout" accesskey="n" rel="next">Type Layou
 </div>
 <hr>
 <a name="Storage-Layout-1"></a>
-<h3 class="section">17.5 Storage Layout</h3>
+<h3 class="section">18.5 Storage Layout</h3>
 <a name="index-storage-layout"></a>
 
 <p>Note that the definitions of the macros in this table which are sizes or
@@ -202,6 +201,11 @@ sign-extend the result to 64 bits.  On such machines, set
 </p></dd></dl>
 
 <dl>
+<dt><a name="index-TARGET_005fC_005fEXCESS_005fPRECISION"></a>Target Hook: <em>enum flt_eval_method</em> <strong>TARGET_C_EXCESS_PRECISION</strong> <em>(enum excess_precision_type <var>type</var>)</em></dt>
+<dd><p>Return a value, with the same meaning as the C99 macro <code>FLT_EVAL_METHOD</code> that describes which excess precision should be applied.  <var>type</var> is either <code>EXCESS_PRECISION_TYPE_IMPLICIT</code>, <code>EXCESS_PRECISION_TYPE_FAST</code>, or <code>EXCESS_PRECISION_TYPE_STANDARD</code>.  For <code>EXCESS_PRECISION_TYPE_IMPLICIT</code>, the target should return which precision and range operations will be implictly evaluated in regardless of the excess precision explicitly added.  For <code>EXCESS_PRECISION_TYPE_STANDARD</code> and <code>EXCESS_PRECISION_TYPE_FAST</code>, the target should return the explicit excess precision that should be added depending on the value set for <samp>-fexcess-precision=<span class="roman">[</span>standard<span class="roman">|</span>fast<span class="roman">]</span></samp>. Note that unpredictable explicit excess precision does not make sense, so a target should never return <code>FLT_EVAL_METHOD_UNPREDICTABLE</code> when <var>type</var> is <code>EXCESS_PRECISION_TYPE_STANDARD</code> or <code>EXCESS_PRECISION_TYPE_FAST</code>.
+</p></dd></dl>
+
+<dl>
 <dt><a name="index-TARGET_005fPROMOTE_005fFUNCTION_005fMODE"></a>Target Hook: <em>machine_mode</em> <strong>TARGET_PROMOTE_FUNCTION_MODE</strong> <em>(const_tree <var>type</var>, machine_mode <var>mode</var>, int *<var>punsignedp</var>, const_tree <var>funtype</var>, int <var>for_return</var>)</em></dt>
 <dd><p>Like <code>PROMOTE_MODE</code>, but it is applied to outgoing function arguments or
 function return values.  The target hook should return the new mode
@@ -305,13 +309,15 @@ by the <code>__attribute__ ((aligned (<var>n</var>)))</code> construct.
 </p></dd></dl>
 
 <dl>
-<dt><a name="index-ADJUST_005fFIELD_005fALIGN"></a>Macro: <strong>ADJUST_FIELD_ALIGN</strong> <em>(<var>field</var>, <var>computed</var>)</em></dt>
-<dd><p>An expression for the alignment of a structure field <var>field</var> if the
-alignment computed in the usual way (including applying of
-<code>BIGGEST_ALIGNMENT</code> and <code>BIGGEST_FIELD_ALIGNMENT</code> to the
+<dt><a name="index-ADJUST_005fFIELD_005fALIGN"></a>Macro: <strong>ADJUST_FIELD_ALIGN</strong> <em>(<var>field</var>, <var>type</var>, <var>computed</var>)</em></dt>
+<dd><p>An expression for the alignment of a structure field <var>field</var> of
+type <var>type</var> if the alignment computed in the usual way (including
+applying of <code>BIGGEST_ALIGNMENT</code> and <code>BIGGEST_FIELD_ALIGNMENT</code> to the
 alignment) is <var>computed</var>.  It overrides alignment only if the
 field alignment has not been set by the
-<code>__attribute__ ((aligned (<var>n</var>)))</code> construct.
+<code>__attribute__ ((aligned (<var>n</var>)))</code> construct.  Note that <var>field</var>
+may be <code>NULL_TREE</code> in case we just query for the minimum alignment
+of a field of type <var>type</var> in structure context.
 </p></dd></dl>
 
 <dl>
@@ -327,14 +333,25 @@ to specify the maximum alignment of a variable on stack.
 <dt><a name="index-MAX_005fOFILE_005fALIGNMENT"></a>Macro: <strong>MAX_OFILE_ALIGNMENT</strong></dt>
 <dd><p>Biggest alignment supported by the object file format of this machine.
 Use this macro to limit the alignment which can be specified using the
-<code>__attribute__ ((aligned (<var>n</var>)))</code> construct.  If not defined,
-the default value is <code>BIGGEST_ALIGNMENT</code>.
+<code>__attribute__ ((aligned (<var>n</var>)))</code> construct for functions and
+objects with static storage duration.  The alignment of automatic
+objects may exceed the object file format maximum up to the maximum
+supported by GCC.  If not defined, the default value is
+<code>BIGGEST_ALIGNMENT</code>.
 </p>
 <p>On systems that use ELF, the default (in <samp>config/elfos.h</samp>) is
 the largest supported 32-bit ELF section alignment representable on
 a 32-bit host e.g. &lsquo;<samp>(((uint64_t) 1 &lt;&lt; 28) * 8)</samp>&rsquo;.
 On 32-bit ELF the largest supported section alignment in bits is
 &lsquo;<samp>(0x80000000 * 8)</samp>&rsquo;, but this is not representable on 32-bit hosts.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-TARGET_005fSTATIC_005fRTX_005fALIGNMENT"></a>Target Hook: <em>HOST_WIDE_INT</em> <strong>TARGET_STATIC_RTX_ALIGNMENT</strong> <em>(machine_mode <var>mode</var>)</em></dt>
+<dd><p>This hook returns the preferred alignment in bits for a
+statically-allocated rtx, such as a constant pool entry.  <var>mode</var>
+is the mode of the rtx.  The default implementation returns
+&lsquo;<samp>GET_MODE_ALIGNMENT (<var>mode</var>)</samp>&rsquo;.
 </p></dd></dl>
 
 <dl>
@@ -363,18 +380,17 @@ must be aligned to 16 byte boundaries.
 </p></dd></dl>
 
 <dl>
-<dt><a name="index-CONSTANT_005fALIGNMENT"></a>Macro: <strong>CONSTANT_ALIGNMENT</strong> <em>(<var>constant</var>, <var>basic-align</var>)</em></dt>
-<dd><p>If defined, a C expression to compute the alignment given to a constant
-that is being placed in memory.  <var>constant</var> is the constant and
-<var>basic-align</var> is the alignment that the object would ordinarily
-have.  The value of this macro is used instead of that alignment to
-align the object.
+<dt><a name="index-TARGET_005fCONSTANT_005fALIGNMENT"></a>Target Hook: <em>HOST_WIDE_INT</em> <strong>TARGET_CONSTANT_ALIGNMENT</strong> <em>(const_tree <var>constant</var>, HOST_WIDE_INT <var>basic_align</var>)</em></dt>
+<dd><p>This hook returns the alignment in bits of a constant that is being
+placed in memory.  <var>constant</var> is the constant and <var>basic_align</var>
+is the alignment that the object would ordinarily have.
 </p>
-<p>The default definition just returns <var>basic-align</var>.
+<p>The default definition just returns <var>basic_align</var>.
 </p>
-<p>The typical use of this macro is to increase alignment for string
+<p>The typical use of this hook is to increase alignment for string
 constants to be word aligned so that <code>strcpy</code> calls that copy
-constants can be done inline.
+constants can be done inline.  The function
+<code>constant_alignment_word_strings</code> provides such a definition.
 </p></dd></dl>
 
 <dl>
@@ -618,7 +634,7 @@ pattern needs to support both a 32- and a 64-bit mode.
 </p></dd></dl>
 
 <dl>
-<dt><a name="index-TARGET_005fLIBGCC_005fCMP_005fRETURN_005fMODE"></a>Target Hook: <em>machine_mode</em> <strong>TARGET_LIBGCC_CMP_RETURN_MODE</strong> <em>(void)</em></dt>
+<dt><a name="index-TARGET_005fLIBGCC_005fCMP_005fRETURN_005fMODE"></a>Target Hook: <em>scalar_int_mode</em> <strong>TARGET_LIBGCC_CMP_RETURN_MODE</strong> <em>(void)</em></dt>
 <dd><p>This target hook should return the mode to be used for the return value
 of compare instructions expanded to libgcc calls.  If not defined
 <code>word_mode</code> is returned which is the right choice for a majority of
@@ -626,7 +642,7 @@ targets.
 </p></dd></dl>
 
 <dl>
-<dt><a name="index-TARGET_005fLIBGCC_005fSHIFT_005fCOUNT_005fMODE"></a>Target Hook: <em>machine_mode</em> <strong>TARGET_LIBGCC_SHIFT_COUNT_MODE</strong> <em>(void)</em></dt>
+<dt><a name="index-TARGET_005fLIBGCC_005fSHIFT_005fCOUNT_005fMODE"></a>Target Hook: <em>scalar_int_mode</em> <strong>TARGET_LIBGCC_SHIFT_COUNT_MODE</strong> <em>(void)</em></dt>
 <dd><p>This target hook should return the mode to be used for the shift count operand
 of shift instructions expanded to libgcc calls.  If not defined
 <code>word_mode</code> is returned which is the right choice for a majority of
@@ -634,7 +650,7 @@ targets.
 </p></dd></dl>
 
 <dl>
-<dt><a name="index-TARGET_005fUNWIND_005fWORD_005fMODE"></a>Target Hook: <em>machine_mode</em> <strong>TARGET_UNWIND_WORD_MODE</strong> <em>(void)</em></dt>
+<dt><a name="index-TARGET_005fUNWIND_005fWORD_005fMODE"></a>Target Hook: <em>scalar_int_mode</em> <strong>TARGET_UNWIND_WORD_MODE</strong> <em>(void)</em></dt>
 <dd><p>Return machine mode to be used for <code>_Unwind_Word</code> type.
 The default is to use <code>word_mode</code>.
 </p></dd></dl>

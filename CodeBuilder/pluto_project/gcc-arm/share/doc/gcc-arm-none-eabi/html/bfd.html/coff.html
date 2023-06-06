@@ -2,7 +2,7 @@
 <html>
 <!-- This file documents the BFD library.
 
-Copyright (C) 1991-2016 Free Software Foundation, Inc.
+Copyright (C) 1991-2020 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -21,16 +21,16 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Untitled Document: coff</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>coff (Untitled Document)</title>
 
-<meta name="description" content="Untitled Document: coff">
-<meta name="keywords" content="Untitled Document: coff">
+<meta name="description" content="coff (Untitled Document)">
+<meta name="keywords" content="coff (Untitled Document)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="index.html#Top" rel="start" title="Top">
 <link href="BFD-Index.html#BFD-Index" rel="index" title="BFD Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
@@ -40,16 +40,16 @@ You have freedom to copy and modify this GNU Manual, like GNU
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -58,10 +58,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -69,7 +68,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="coff"></a>
 <div class="header">
 <p>
@@ -85,18 +84,13 @@ extra field.
 </p>
 <p>Coff in all its varieties is implemented with a few common
 files and a number of implementation specific files. For
-example, The 88k bcs coff format is implemented in the file
-<samp>coff-m88k.c</samp>. This file <code>#include</code>s
-<samp>coff/m88k.h</samp> which defines the external structure of the
-coff format for the 88k, and <samp>coff/internal.h</samp> which
-defines the internal structure. <samp>coff-m88k.c</samp> also
-defines the relocations used by the 88k format
+example, the i386 coff format is implemented in the file
+<samp>coff-i386.c</samp>.  This file <code>#include</code>s
+<samp>coff/i386.h</samp> which defines the external structure of the
+coff format for the i386, and <samp>coff/internal.h</samp> which
+defines the internal structure. <samp>coff-i386.c</samp> also
+defines the relocations used by the i386 coff format
 See <a href="Relocations.html#Relocations">Relocations</a>.
-</p>
-<p>The Intel i960 processor version of coff is implemented in
-<samp>coff-i960.c</samp>. This file has the same structure as
-<samp>coff-m88k.c</samp>, except that it includes <samp>coff/i960.h</samp>
-rather than <samp>coff-m88k.h</samp>.
 </p>
 <a name="Porting-to-a-new-version-of-coff"></a>
 <h4 class="subsection">3.3.1 Porting to a new version of coff</h4>
@@ -148,15 +142,6 @@ then include <samp>coffcode.h</samp>.
 </p>
 <p>Some of the Coff targets then also have additional routines in
 the target source file itself.
-</p>
-<p>For example, <samp>coff-i960.c</samp> includes
-<samp>coff/internal.h</samp> and <samp>coff/i960.h</samp>.  It then
-defines a few constants, such as <code>I960</code>, and includes
-<samp>coffcode.h</samp>.  Since the i960 has complex relocation
-types, <samp>coff-i960.c</samp> also includes some code to
-manipulate the i960 relocs.  This code is not in
-<samp>coffcode.h</samp> because it would not be used by any other
-target.
 </p>
 <a name="Coff-long-section-names"></a>
 <h4 class="subsubsection">3.3.2.2 Coff long section names</h4>
@@ -352,6 +337,7 @@ The hidden information for an <code>asymbol</code> is described in a
 
 <div class="example">
 <pre class="example">
+
 typedef struct coff_ptr_struct
 {
   /* Remembers the offset from the first symbol in the file for
@@ -522,19 +508,19 @@ typedef asection * (*coff_gc_mark_hook_fn)
 
   bfd_boolean (*_bfd_coff_pointerize_aux_hook)
     (bfd *, combined_entry_type *, combined_entry_type *,
-            unsigned int, combined_entry_type *);
+     unsigned int, combined_entry_type *);
 
   bfd_boolean (*_bfd_coff_print_aux)
     (bfd *, FILE *, combined_entry_type *, combined_entry_type *,
-            combined_entry_type *, unsigned int);
+     combined_entry_type *, unsigned int);
 
   void (*_bfd_coff_reloc16_extra_cases)
     (bfd *, struct bfd_link_info *, struct bfd_link_order *, arelent *,
-           bfd_byte *, unsigned int *, unsigned int *);
+     bfd_byte *, unsigned int *, unsigned int *);
 
   int (*_bfd_coff_reloc16_estimate)
     (bfd *, asection *, arelent *, unsigned int,
-            struct bfd_link_info *);
+     struct bfd_link_info *);
 
   enum coff_symbol_classification (*_bfd_coff_classify_symbol)
     (bfd *, struct internal_syment *);
@@ -547,21 +533,20 @@ typedef asection * (*coff_gc_mark_hook_fn)
 
   bfd_boolean (*_bfd_coff_relocate_section)
     (bfd *, struct bfd_link_info *, bfd *, asection *, bfd_byte *,
-            struct internal_reloc *, struct internal_syment *, asection **);
+     struct internal_reloc *, struct internal_syment *, asection **);
 
   reloc_howto_type *(*_bfd_coff_rtype_to_howto)
     (bfd *, asection *, struct internal_reloc *,
-            struct coff_link_hash_entry *, struct internal_syment *,
-            bfd_vma *);
+     struct coff_link_hash_entry *, struct internal_syment *, bfd_vma *);
 
   bfd_boolean (*_bfd_coff_adjust_symndx)
     (bfd *, struct bfd_link_info *, bfd *, asection *,
-            struct internal_reloc *, bfd_boolean *);
+     struct internal_reloc *, bfd_boolean *);
 
   bfd_boolean (*_bfd_coff_link_add_one_symbol)
     (struct bfd_link_info *, bfd *, const char *, flagword,
-            asection *, bfd_vma, const char *, bfd_boolean, bfd_boolean,
-            struct bfd_link_hash_entry **);
+     asection *, bfd_vma, const char *, bfd_boolean, bfd_boolean,
+     struct bfd_link_hash_entry **);
 
   bfd_boolean (*_bfd_coff_link_output_has_begun)
     (bfd *, struct coff_final_link_info *);
@@ -772,9 +757,8 @@ routine and save the result if a canonicalization hasn&rsquo;t been done.
 
 </li><li> The reloc index is turned into a pointer to a howto
 structure, in a back end specific way. For instance, the 386
-and 960 use the <code>r_type</code> to directly produce an index
-into a howto table vector; the 88k subtracts a number from the
-<code>r_type</code> field and creates an addend field.
+uses the <code>r_type</code> to directly produce an index
+into a howto table vector.
 </li></ul>
 
 

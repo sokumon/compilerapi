@@ -1,10 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <!-- This file documents the GNU linker LD
-(GNU Binutils)
-version 2.28.
+(GNU Arm Embedded Toolchain 10.3-2021.10)
+version 2.36.1.
 
-Copyright (C) 1991-2017 Free Software Foundation, Inc.
+Copyright (C) 1991-2021 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -12,16 +12,16 @@ or any later version published by the Free Software Foundation;
 with no Invariant Sections, with no Front-Cover Texts, and with no
 Back-Cover Texts.  A copy of the license is included in the
 section entitled "GNU Free Documentation License". -->
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>LD: LD Index</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>LD Index (LD)</title>
 
-<meta name="description" content="LD: LD Index">
-<meta name="keywords" content="LD: LD Index">
+<meta name="description" content="LD Index (LD)">
+<meta name="keywords" content="LD Index (LD)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="index.html#Top" rel="start" title="Top">
 <link href="#LD-Index" rel="index" title="LD Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
@@ -30,16 +30,16 @@ section entitled "GNU Free Documentation License". -->
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -48,10 +48,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -59,7 +58,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="LD-Index"></a>
 <div class="header">
 <p>
@@ -148,36 +147,44 @@ Previous: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-Li
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dadd_002dstdcall_002dalias"><code>--add-stdcall-alias</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dallow_002dmultiple_002ddefinition"><code>--allow-multiple-definition</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dallow_002dshlib_002dundefined"><code>--allow-shlib-undefined</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
-<tr><td></td><td valign="top"><a href="Options.html#index-_002d_002darchitecture_003darch"><code>--architecture=<var>arch</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002das_002dneeded"><code>--as-needed</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002daudit-AUDITLIB"><code>--audit <var>AUDITLIB</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dauxiliary_003dname"><code>--auxiliary=<var>name</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dbank_002dwindow"><code>--bank-window</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dbase_002dfile"><code>--base-file</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="ARM.html#index-_002d_002dbe8"><code>--be8</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="ARM.html#ARM">ARM</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dbranch_002dstub-on-C_002dSKY"><code>--branch-stub on C-SKY</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="PowerPC-ELF32.html#index-_002d_002dbss_002dplt"><code>--bss-plt</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC-ELF32.html#PowerPC-ELF32">PowerPC ELF32</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dbuild_002did"><code>--build-id</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dbuild_002did_003dstyle"><code>--build-id=<var>style</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dcheck_002dsections"><code>--check-sections</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="ARM.html#index-_002d_002dcmse_002dimplib"><code>--cmse-implib</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="ARM.html#ARM">ARM</a></td></tr>
+<tr><td></td><td valign="top"><a href="MSP430.html#index-_002d_002dcode_002dregion"><code>--code-region</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="MSP430.html#MSP430">MSP430</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dcompact_002dbranches"><code>--compact-branches</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dcompress_002ddebug_002dsections_003dnone"><code>--compress-debug-sections=none</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dcompress_002ddebug_002dsections_003dzlib"><code>--compress-debug-sections=zlib</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dcompress_002ddebug_002dsections_003dzlib_002dgabi"><code>--compress-debug-sections=zlib-gabi</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dcompress_002ddebug_002dsections_003dzlib_002dgnu"><code>--compress-debug-sections=zlib-gnu</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dcopy_002ddt_002dneeded_002dentries"><code>--copy-dt-needed-entries</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dcref"><code>--cref</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dctf_002dshare_002dtypes"><code>--ctf-share-types</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dctf_002dvariables"><code>--ctf-variables</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="MSP430.html#index-_002d_002ddata_002dregion"><code>--data-region</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="MSP430.html#MSP430">MSP430</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002ddefault_002dimported_002dsymver"><code>--default-imported-symver</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002ddefault_002dscript_003dscript"><code>--default-script=<var>script</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002ddefault_002dsymver"><code>--default-symver</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002ddefsym_003dsymbol_003dexp"><code>--defsym=<var>symbol</var>=<var>exp</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002ddemangle_005b_003dstyle_005d"><code>--demangle[=<var>style</var>]</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002ddepaudit-AUDITLIB"><code>--depaudit <var>AUDITLIB</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-_002d_002ddependency_002dfile_003ddepfile"><code>--dependency-file=<var>depfile</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002ddisable_002dauto_002dimage_002dbase"><code>--disable-auto-image-base</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002ddisable_002dauto_002dimport"><code>--disable-auto-import</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002ddisable_002dlarge_002daddress_002daware"><code>--disable-large-address-aware</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002ddisable_002dlong_002dsection_002dnames"><code>--disable-long-section-names</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-_002d_002ddisable_002dmultiple_002dabs_002ddefs"><code>--disable-multiple-abs-defs</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002ddisable_002dnew_002ddtags"><code>--disable-new-dtags</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002ddisable_002druntime_002dpseudo_002dreloc"><code>--disable-runtime-pseudo-reloc</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="MSP430.html#index-_002d_002ddisable_002dsec_002dtransformation"><code>--disable-sec-transformation</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="MSP430.html#MSP430">MSP430</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002ddisable_002dstdcall_002dfixup"><code>--disable-stdcall-fixup</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002ddiscard_002dall"><code>--discard-all</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002ddiscard_002dlocals"><code>--discard-locals</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
@@ -193,6 +200,7 @@ Previous: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-Li
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002ddynamic_002dlist_003ddynamic_002dlist_002dfile"><code>--dynamic-list=<var>dynamic-list-file</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002ddynamicbase"><code>--dynamicbase</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002deh_002dframe_002dhdr"><code>--eh-frame-hdr</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dembedded_002drelocs"><code>--embedded-relocs</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002demit_002drelocs"><code>--emit-relocs</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="SPU-ELF.html#index-_002d_002demit_002dstack_002dsyms"><code>--emit-stack-syms</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="SPU-ELF.html#SPU-ELF">SPU ELF</a></td></tr>
 <tr><td></td><td valign="top"><a href="PowerPC-ELF32.html#index-_002d_002demit_002dstub_002dsyms"><code>--emit-stub-syms</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC-ELF32.html#PowerPC-ELF32">PowerPC ELF32</a></td></tr>
@@ -203,9 +211,13 @@ Previous: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-Li
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002denable_002dextra_002dpe_002ddebug"><code>--enable-extra-pe-debug</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002denable_002dlong_002dsection_002dnames"><code>--enable-long-section-names</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002denable_002dnew_002ddtags"><code>--enable-new-dtags</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-_002d_002denable_002dnon_002dcontiguous_002dregions"><code>--enable-non-contiguous-regions</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-_002d_002denable_002dnon_002dcontiguous_002dregions_002dwarnings"><code>--enable-non-contiguous-regions-warnings</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-_002d_002denable_002dreloc_002dsection"><code>--enable-reloc-section</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002denable_002druntime_002dpseudo_002dreloc"><code>--enable-runtime-pseudo-reloc</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002denable_002dstdcall_002dfixup"><code>--enable-stdcall-fixup</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dentry_003dentry"><code>--entry=<var>entry</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-_002d_002derror_002dhandling_002dscript_003dscriptname"><code>--error-handling-script=<var>scriptname</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002derror_002dunresolved_002dsymbols"><code>--error-unresolved-symbols</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dexclude_002dall_002dsymbols"><code>--exclude-all-symbols</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dexclude_002dlibs"><code>--exclude-libs</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
@@ -213,6 +225,8 @@ Previous: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-Li
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dexclude_002dsymbols"><code>--exclude-symbols</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dexport_002dall_002dsymbols"><code>--export-all-symbols</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dexport_002ddynamic"><code>--export-dynamic</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dexport_002ddynamic_002dsymbol_002dlist_003dfile"><code>--export-dynamic-symbol-list=<var>file</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dexport_002ddynamic_002dsymbol_003dglob"><code>--export-dynamic-symbol=<var>glob</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="SPU-ELF.html#index-_002d_002dextra_002doverlay_002dstubs"><code>--extra-overlay-stubs</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="SPU-ELF.html#SPU-ELF">SPU ELF</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dfatal_002dwarnings"><code>--fatal-warnings</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dfile_002dalignment"><code>--file-alignment</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
@@ -225,6 +239,7 @@ Previous: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-Li
 <tr><td></td><td valign="top"><a href="ARM.html#index-_002d_002dfix_002dv4bx_002dinterworking"><code>--fix-v4bx-interworking</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="ARM.html#ARM">ARM</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dforce_002ddynamic"><code>--force-dynamic</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dforce_002dexe_002dsuffix"><code>--force-exe-suffix</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dforce_002dgroup_002dallocation"><code>--force-group-allocation</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dforceinteg"><code>--forceinteg</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dformat_003dformat"><code>--format=<var>format</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="TI-COFF.html#index-_002d_002dformat_003dversion"><code>--format=<var>version</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="TI-COFF.html#TI-COFF">TI COFF</a></td></tr>
@@ -241,6 +256,7 @@ Previous: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-Li
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dignore_002dbranch_002disa"><code>--ignore-branch-isa</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="MIPS.html#index-_002d_002dignore_002dbranch_002disa-1"><code>--ignore-branch-isa</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="MIPS.html#MIPS">MIPS</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dimage_002dbase"><code>--image-base</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dimagic"><code>--imagic</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="ARM.html#index-_002d_002din_002dimplib_003dfile"><code>--in-implib=<var>file</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="ARM.html#ARM">ARM</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dinsert_002dtimestamp"><code>--insert-timestamp</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dinsn32"><code>--insn32</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
@@ -264,6 +280,7 @@ Previous: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-Li
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dmri_002dscript_003dMRI_002dcmdfile"><code>--mri-script=<var>MRI-cmdfile</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="HPPA-ELF32.html#index-_002d_002dmulti_002dsubspace"><code>--multi-subspace</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="HPPA-ELF32.html#HPPA-ELF32">HPPA ELF32</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dnmagic"><code>--nmagic</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dnmagic-1"><code>--nmagic</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dno_002daccept_002dunknown_002dinput_002darch"><code>--no-accept-unknown-input-arch</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dno_002dadd_002dneeded"><code>--no-add-needed</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dno_002dallow_002dshlib_002dundefined"><code>--no-allow-shlib-undefined</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
@@ -271,7 +288,9 @@ Previous: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-Li
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dno_002das_002dneeded"><code>--no-as-needed</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dno_002dbind"><code>--no-bind</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dno_002dcheck_002dsections"><code>--no-check-sections</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dno_002dcompact_002dbranches"><code>--no-compact-branches</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dno_002dcopy_002ddt_002dneeded_002dentries"><code>--no-copy-dt-needed-entries</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dno_002dctf_002dvariables"><code>--no-ctf-variables</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dno_002ddefine_002dcommon"><code>--no-define-common</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dno_002ddemangle"><code>--no-demangle</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="PowerPC64-ELF64.html#index-_002d_002dno_002ddotsyms"><code>--no-dotsyms</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">PowerPC64 ELF64</a></td></tr>
@@ -286,6 +305,7 @@ Previous: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-Li
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dno_002dgc_002dsections"><code>--no-gc-sections</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dno_002dignore_002dbranch_002disa"><code>--no-ignore-branch-isa</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="MIPS.html#index-_002d_002dno_002dignore_002dbranch_002disa-1"><code>--no-ignore-branch-isa</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="MIPS.html#MIPS">MIPS</a></td></tr>
+<tr><td></td><td valign="top"><a href="PowerPC64-ELF64.html#index-_002d_002dno_002dinline_002doptimize"><code>--no-inline-optimize</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">PowerPC64 ELF64</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dno_002dinsn32"><code>--no-insn32</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="MIPS.html#index-_002d_002dno_002dinsn32-1"><code>--no-insn32</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="MIPS.html#MIPS">MIPS</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dno_002disolation"><code>--no-isolation</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
@@ -295,15 +315,21 @@ Previous: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-Li
 <tr><td></td><td valign="top"><a href="ARM.html#index-_002d_002dno_002dmerge_002dexidx_002dentries-1"><code>--no-merge-exidx-entries</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="ARM.html#ARM">ARM</a></td></tr>
 <tr><td></td><td valign="top"><a href="PowerPC64-ELF64.html#index-_002d_002dno_002dmulti_002dtoc"><code>--no-multi-toc</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">PowerPC64 ELF64</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dno_002domagic"><code>--no-omagic</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dno_002domagic-1"><code>--no-omagic</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="PowerPC64-ELF64.html#index-_002d_002dno_002dopd_002doptimize"><code>--no-opd-optimize</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">PowerPC64 ELF64</a></td></tr>
 <tr><td></td><td valign="top"><a href="SPU-ELF.html#index-_002d_002dno_002doverlays"><code>--no-overlays</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="SPU-ELF.html#SPU-ELF">SPU ELF</a></td></tr>
 <tr><td></td><td valign="top"><a href="PowerPC64-ELF64.html#index-_002d_002dno_002dplt_002dalign"><code>--no-plt-align</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">PowerPC64 ELF64</a></td></tr>
+<tr><td></td><td valign="top"><a href="PowerPC64-ELF64.html#index-_002d_002dno_002dplt_002dlocalentry"><code>--no-plt-localentry</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">PowerPC64 ELF64</a></td></tr>
 <tr><td></td><td valign="top"><a href="PowerPC64-ELF64.html#index-_002d_002dno_002dplt_002dstatic_002dchain"><code>--no-plt-static-chain</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">PowerPC64 ELF64</a></td></tr>
 <tr><td></td><td valign="top"><a href="PowerPC64-ELF64.html#index-_002d_002dno_002dplt_002dthread_002dsafe"><code>--no-plt-thread-safe</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">PowerPC64 ELF64</a></td></tr>
+<tr><td></td><td valign="top"><a href="PowerPC64-ELF64.html#index-_002d_002dno_002dpower10_002dstubs"><code>--no-power10-stubs</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">PowerPC64 ELF64</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dno_002dprint_002dgc_002dsections"><code>--no-print-gc-sections</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dno_002dprint_002dmap_002ddiscarded"><code>--no-print-map-discarded</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="PowerPC64-ELF64.html#index-_002d_002dno_002dsave_002drestore_002dfuncs"><code>--no-save-restore-funcs</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">PowerPC64 ELF64</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dno_002dseh"><code>--no-seh</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dno_002dstrip_002ddiscarded"><code>--no-strip-discarded</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="PowerPC64-ELF64.html#index-_002d_002dno_002dtls_002dget_002daddr_002doptimize"><code>--no-tls-get-addr-optimize</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">PowerPC64 ELF64</a></td></tr>
+<tr><td></td><td valign="top"><a href="PowerPC64-ELF64.html#index-_002d_002dno_002dtls_002dget_002daddr_002dregsave"><code>--no-tls-get-addr-regsave</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">PowerPC64 ELF64</a></td></tr>
 <tr><td></td><td valign="top"><a href="PowerPC-ELF32.html#index-_002d_002dno_002dtls_002doptimize"><code>--no-tls-optimize</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC-ELF32.html#PowerPC-ELF32">PowerPC ELF32</a></td></tr>
 <tr><td></td><td valign="top"><a href="PowerPC64-ELF64.html#index-_002d_002dno_002dtls_002doptimize-1"><code>--no-tls-optimize</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">PowerPC64 ELF64</a></td></tr>
 <tr><td></td><td valign="top"><a href="PowerPC64-ELF64.html#index-_002d_002dno_002dtoc_002doptimize"><code>--no-toc-optimize</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">PowerPC64 ELF64</a></td></tr>
@@ -320,6 +346,7 @@ Previous: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-Li
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dnxcompat"><code>--nxcompat</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002doformat_003doutput_002dformat"><code>--oformat=<var>output-format</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002domagic"><code>--omagic</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-_002d_002domagic-1"><code>--omagic</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dorphan_002dhandling_003dMODE"><code>--orphan-handling=<var>MODE</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dout_002dimplib"><code>--out-implib</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002doutput_002ddef"><code>--output-def</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
@@ -327,24 +354,27 @@ Previous: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-Li
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dpic_002dexecutable"><code>--pic-executable</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="ARM.html#index-_002d_002dpic_002dveneer"><code>--pic-veneer</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="ARM.html#ARM">ARM</a></td></tr>
 <tr><td></td><td valign="top"><a href="PowerPC64-ELF64.html#index-_002d_002dplt_002dalign"><code>--plt-align</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">PowerPC64 ELF64</a></td></tr>
+<tr><td></td><td valign="top"><a href="PowerPC64-ELF64.html#index-_002d_002dplt_002dlocalentry"><code>--plt-localentry</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">PowerPC64 ELF64</a></td></tr>
 <tr><td></td><td valign="top"><a href="PowerPC64-ELF64.html#index-_002d_002dplt_002dstatic_002dchain"><code>--plt-static-chain</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">PowerPC64 ELF64</a></td></tr>
 <tr><td></td><td valign="top"><a href="PowerPC64-ELF64.html#index-_002d_002dplt_002dthread_002dsafe"><code>--plt-thread-safe</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">PowerPC64 ELF64</a></td></tr>
 <tr><td></td><td valign="top"><a href="SPU-ELF.html#index-_002d_002dplugin"><code>--plugin</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="SPU-ELF.html#SPU-ELF">SPU ELF</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dpop_002dstate"><code>--pop-state</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="PowerPC64-ELF64.html#index-_002d_002dpower10_002dstubs"><code>--power10-stubs</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">PowerPC64 ELF64</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dprint_002dgc_002dsections"><code>--print-gc-sections</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dprint_002dmap"><code>--print-map</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dprint_002dmap_002ddiscarded"><code>--print-map-discarded</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dprint_002dmemory_002dusage"><code>--print-memory-usage</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dprint_002doutput_002dformat"><code>--print-output-format</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dpush_002dstate"><code>--push-state</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dreduce_002dmemory_002doverheads"><code>--reduce-memory-overheads</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002drelax"><code>--relax</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
-<tr><td></td><td valign="top"><a href="i960.html#index-_002d_002drelax-on-i960"><samp>--relax</samp> on i960</a>:</td><td>&nbsp;</td><td valign="top"><a href="i960.html#i960">i960</a></td></tr>
 <tr><td></td><td valign="top"><a href="Nios-II.html#index-_002d_002drelax-on-Nios-II"><code>--relax on Nios II</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Nios-II.html#Nios-II">Nios II</a></td></tr>
 <tr><td></td><td valign="top"><a href="PowerPC-ELF32.html#index-_002d_002drelax-on-PowerPC"><code>--relax on PowerPC</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC-ELF32.html#PowerPC-ELF32">PowerPC ELF32</a></td></tr>
 <tr><td></td><td valign="top"><a href="Xtensa.html#index-_002d_002drelax-on-Xtensa"><samp>--relax</samp> on Xtensa</a>:</td><td>&nbsp;</td><td valign="top"><a href="Xtensa.html#Xtensa">Xtensa</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002drelocatable"><code>--relocatable</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002drequire_002ddefined_003dsymbol"><code>--require-defined=<var>symbol</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dretain_002dsymbols_002dfile_003dfilename"><code>--retain-symbols-file=<var>filename</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="S_002f390-ELF.html#index-_002d_002ds390_002dpgste"><code>--s390-pgste</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="S_002f390-ELF.html#S_002f390-ELF">S/390 ELF</a></td></tr>
 <tr><td></td><td valign="top"><a href="PowerPC64-ELF64.html#index-_002d_002dsave_002drestore_002dfuncs"><code>--save-restore-funcs</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">PowerPC64 ELF64</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dscript_003dscript"><code>--script=<var>script</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="PowerPC-ELF32.html#index-_002d_002dsdata_002dgot"><code>--sdata-got</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC-ELF32.html#PowerPC-ELF32">PowerPC ELF32</a></td></tr>
@@ -354,6 +384,7 @@ Previous: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-Li
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dsort_002dcommon"><code>--sort-common</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dsort_002dsection_003dalignment"><code>--sort-section=alignment</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dsort_002dsection_003dname"><code>--sort-section=name</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dspare_002ddynamic_002dtags"><code>--spare-dynamic-tags</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dsplit_002dby_002dfile"><code>--split-by-file</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dsplit_002dby_002dreloc"><code>--split-by-reloc</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dstack"><code>--stack</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
@@ -361,7 +392,9 @@ Previous: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-Li
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dstats"><code>--stats</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dstrip_002dall"><code>--strip-all</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dstrip_002ddebug"><code>--strip-debug</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dstrip_002ddiscarded"><code>--strip-discarded</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="PowerPC64-ELF64.html#index-_002d_002dstub_002dgroup_002dsize"><code>--stub-group-size</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">PowerPC64 ELF64</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dstub_002dgroup_002dsize-on-C_002dSKY"><code>--stub-group-size on C-SKY</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="ARM.html#index-_002d_002dstub_002dgroup_002dsize_003dN"><code>--stub-group-size=<var>N</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="ARM.html#ARM">ARM</a></td></tr>
 <tr><td></td><td valign="top"><a href="HPPA-ELF32.html#index-_002d_002dstub_002dgroup_002dsize_003dN-1"><code>--stub-group-size=<var>N</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="HPPA-ELF32.html#HPPA-ELF32">HPPA ELF32</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dsubsystem"><code>--subsystem</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
@@ -371,8 +404,10 @@ Previous: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-Li
 <tr><td></td><td valign="top"><a href="ARM.html#index-_002d_002dtarget1_002dabs"><code>--target1-abs</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="ARM.html#ARM">ARM</a></td></tr>
 <tr><td></td><td valign="top"><a href="ARM.html#index-_002d_002dtarget1_002drel"><code>--target1-rel</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="ARM.html#ARM">ARM</a></td></tr>
 <tr><td></td><td valign="top"><a href="ARM.html#index-_002d_002dtarget2_003dtype"><code>--target2=<var>type</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="ARM.html#ARM">ARM</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dtask_002dlink"><code>--task-link</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="ARM.html#index-_002d_002dthumb_002dentry_003dentry"><code>--thumb-entry=<var>entry</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="ARM.html#ARM">ARM</a></td></tr>
 <tr><td></td><td valign="top"><a href="PowerPC64-ELF64.html#index-_002d_002dtls_002dget_002daddr_002doptimize"><code>--tls-get-addr-optimize</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">PowerPC64 ELF64</a></td></tr>
+<tr><td></td><td valign="top"><a href="PowerPC64-ELF64.html#index-_002d_002dtls_002dget_002daddr_002dregsave"><code>--tls-get-addr-regsave</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">PowerPC64 ELF64</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dtrace"><code>--trace</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dtrace_002dsymbol_003dsymbol"><code>--trace-symbol=<var>symbol</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dtraditional_002dformat"><code>--traditional-format</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
@@ -392,12 +427,11 @@ Previous: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-Li
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dwarn_002dmultiple_002dgp"><code>--warn-multiple-gp</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dwarn_002donce"><code>--warn-once</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dwarn_002dsection_002dalign"><code>--warn-section-align</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
-<tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dwarn_002dshared_002dtextrel"><code>--warn-shared-textrel</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dwarn_002dtextrel"><code>--warn-textrel</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dwarn_002dunresolved_002dsymbols"><code>--warn-unresolved-symbols</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dwdmdriver"><code>--wdmdriver</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dwhole_002darchive"><code>--whole-archive</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dwrap_003dsymbol"><code>--wrap=<var>symbol</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
-<tr><td></td><td valign="top"><a href="Options.html#index-_002dA-arch"><code>-A <var>arch</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002da-keyword"><code>-a <var>keyword</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002dassert-keyword"><code>-assert <var>keyword</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002db-format"><code>-b <var>format</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
@@ -435,6 +469,8 @@ Previous: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-Li
 <tr><td></td><td valign="top"><a href="Options.html#index-_002dMap_003dmapfile"><code>-Map=<var>mapfile</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002dn"><code>-n</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002dN"><code>-N</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-_002dN-1"><code>-N</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-_002dn-1"><code>-n</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002d_002dno_002drelax">&ndash;no-relax</a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002dnon_005fshared"><code>-non_shared</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002dnostdlib"><code>-nostdlib</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
@@ -442,6 +478,7 @@ Previous: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-Li
 <tr><td></td><td valign="top"><a href="Options.html#index-_002do-output"><code>-o <var>output</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002dP-AUDITLIB"><code>-P <var>AUDITLIB</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002dpie"><code>-pie</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-_002dplugin-name"><code>-plugin <var>name</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002dq"><code>-q</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002dqmagic"><code>-qmagic</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002dQy"><code>-Qy</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
@@ -470,9 +507,11 @@ Previous: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-Li
 <tr><td></td><td valign="top"><a href="Options.html#index-_002dX"><code>-X</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002dY-path"><code>-Y <var>path</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002dy-symbol"><code>-y <var>symbol</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-_002dz"><code>-z</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002dz-defs"><code>-z defs</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002dz-keyword"><code>-z <var>keyword</var></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-_002dz-muldefs"><code>-z muldefs</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-_002dz-undefs"><code>-z undefs</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="LD-Index_cp_symbol-3">.</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="Location-Counter.html#index-_002e"><code>.</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Location-Counter.html#Location-Counter">Location Counter</a></td></tr>
@@ -514,7 +553,6 @@ Previous: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-Li
 <tr><td></td><td valign="top"><a href="Builtin-Functions.html#index-ALIGNOF_0028section_0029"><code>ALIGNOF(<var>section</var>)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Builtin-Functions.html#Builtin-Functions">Builtin Functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="MEMORY.html#index-allocating-memory">allocating memory</a>:</td><td>&nbsp;</td><td valign="top"><a href="MEMORY.html#MEMORY">MEMORY</a></td></tr>
 <tr><td></td><td valign="top"><a href="Miscellaneous-Commands.html#index-architecture">architecture</a>:</td><td>&nbsp;</td><td valign="top"><a href="Miscellaneous-Commands.html#Miscellaneous-Commands">Miscellaneous Commands</a></td></tr>
-<tr><td></td><td valign="top"><a href="Options.html#index-architectures">architectures</a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-archive-files_002c-from-cmd-line">archive files, from cmd line</a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="File-Commands.html#index-archive-search-path-in-linker-script">archive search path in linker script</a>:</td><td>&nbsp;</td><td valign="top"><a href="File-Commands.html#File-Commands">File Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="Expressions.html#index-arithmetic">arithmetic</a>:</td><td>&nbsp;</td><td valign="top"><a href="Expressions.html#Expressions">Expressions</a></td></tr>
@@ -548,6 +586,8 @@ Previous: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-Li
 <tr><td></td><td valign="top"><a href="MRI.html#index-CHIP-_0028MRI_0029"><code>CHIP</code> (MRI)</a>:</td><td>&nbsp;</td><td valign="top"><a href="MRI.html#MRI">MRI</a></td></tr>
 <tr><td></td><td valign="top"><a href="Environment.html#index-COLLECT_005fNO_005fDEMANGLE"><code>COLLECT_NO_DEMANGLE</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Environment.html#Environment">Environment</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-combining-symbols_002c-warnings-on">combining symbols, warnings on</a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-COMDAT">COMDAT</a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="Miscellaneous-Commands.html#index-COMDAT-1">COMDAT</a>:</td><td>&nbsp;</td><td valign="top"><a href="Miscellaneous-Commands.html#Miscellaneous-Commands">Miscellaneous Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="Scripts.html#index-command-files">command files</a>:</td><td>&nbsp;</td><td valign="top"><a href="Scripts.html#Scripts">Scripts</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-command-line">command line</a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-common-allocation">common allocation</a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
@@ -571,6 +611,8 @@ Previous: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-Li
 <tr><td></td><td valign="top"><a href="Options.html#index-cross-reference-table">cross reference table</a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Miscellaneous-Commands.html#index-cross-references">cross references</a>:</td><td>&nbsp;</td><td valign="top"><a href="Miscellaneous-Commands.html#Miscellaneous-Commands">Miscellaneous Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="Miscellaneous-Commands.html#index-cross-references-1">cross references</a>:</td><td>&nbsp;</td><td valign="top"><a href="Miscellaneous-Commands.html#Miscellaneous-Commands">Miscellaneous Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-ctf-type-sharing">ctf type sharing</a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-ctf-variables">ctf variables</a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Location-Counter.html#index-current-output-location">current output location</a>:</td><td>&nbsp;</td><td valign="top"><a href="Location-Counter.html#Location-Counter">Location Counter</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="LD-Index_cp_letter-D">D</a></th><td></td><td></td></tr>
@@ -587,6 +629,7 @@ Previous: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-Li
 <tr><td></td><td valign="top"><a href="Options.html#index-deleting-local-symbols">deleting local symbols</a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Environment.html#index-demangling_002c-default">demangling, default</a>:</td><td>&nbsp;</td><td valign="top"><a href="Environment.html#Environment">Environment</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-demangling_002c-from-command-line">demangling, from command line</a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-dependency-file">dependency file</a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="WIN32.html#index-direct-linking-to-a-dll">direct linking to a dll</a>:</td><td>&nbsp;</td><td valign="top"><a href="WIN32.html#WIN32">WIN32</a></td></tr>
 <tr><td></td><td valign="top"><a href="Output-Section-Discarding.html#index-discarding-sections">discarding sections</a>:</td><td>&nbsp;</td><td valign="top"><a href="Output-Section-Discarding.html#Output-Section-Discarding">Output Section Discarding</a></td></tr>
 <tr><td></td><td valign="top"><a href="MEMORY.html#index-discontinuous-memory">discontinuous memory</a>:</td><td>&nbsp;</td><td valign="top"><a href="MEMORY.html#MEMORY">MEMORY</a></td></tr>
@@ -602,6 +645,7 @@ Previous: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-Li
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="LD-Index_cp_letter-E">E</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="PHDRS.html#index-ELF-program-headers">ELF program headers</a>:</td><td>&nbsp;</td><td valign="top"><a href="PHDRS.html#PHDRS">PHDRS</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-ELF-symbol-visibility">ELF symbol visibility</a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-emulation">emulation</a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Environment.html#index-emulation_002c-default">emulation, default</a>:</td><td>&nbsp;</td><td valign="top"><a href="Environment.html#Environment">Environment</a></td></tr>
 <tr><td></td><td valign="top"><a href="MRI.html#index-END-_0028MRI_0029"><code>END</code> (MRI)</a>:</td><td>&nbsp;</td><td valign="top"><a href="MRI.html#MRI">MRI</a></td></tr>
@@ -613,6 +657,8 @@ Previous: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-Li
 <tr><td></td><td valign="top"><a href="Bug-Criteria.html#index-error-on-valid-input">error on valid input</a>:</td><td>&nbsp;</td><td valign="top"><a href="Bug-Criteria.html#Bug-Criteria">Bug Criteria</a></td></tr>
 <tr><td></td><td valign="top"><a href="Simple-Example.html#index-example-of-linker-script">example of linker script</a>:</td><td>&nbsp;</td><td valign="top"><a href="Simple-Example.html#Simple-Example">Simple Example</a></td></tr>
 <tr><td></td><td valign="top"><a href="Input-Section-Basics.html#index-EXCLUDE_005fFILE">EXCLUDE_FILE</a>:</td><td>&nbsp;</td><td valign="top"><a href="Input-Section-Basics.html#Input-Section-Basics">Input Section Basics</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-export-dynamic-symbol">export dynamic symbol</a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-export-dynamic-symbol-list">export dynamic symbol list</a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="WIN32.html#index-exporting-DLL-symbols">exporting DLL symbols</a>:</td><td>&nbsp;</td><td valign="top"><a href="WIN32.html#WIN32">WIN32</a></td></tr>
 <tr><td></td><td valign="top"><a href="Evaluation.html#index-expression-evaluation-order">expression evaluation order</a>:</td><td>&nbsp;</td><td valign="top"><a href="Evaluation.html#Evaluation">Evaluation</a></td></tr>
 <tr><td></td><td valign="top"><a href="Expression-Section.html#index-expression-sections">expression sections</a>:</td><td>&nbsp;</td><td valign="top"><a href="Expression-Section.html#Expression-Section">Expression Section</a></td></tr>
@@ -633,6 +679,7 @@ Previous: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-Li
 <tr><td></td><td valign="top"><a href="ARM.html#index-FIX_005fV4BX">FIX_V4BX</a>:</td><td>&nbsp;</td><td valign="top"><a href="ARM.html#ARM">ARM</a></td></tr>
 <tr><td></td><td valign="top"><a href="ARM.html#index-FIX_005fV4BX_005fINTERWORKING">FIX_V4BX_INTERWORKING</a>:</td><td>&nbsp;</td><td valign="top"><a href="ARM.html#ARM">ARM</a></td></tr>
 <tr><td></td><td valign="top"><a href="Miscellaneous-Commands.html#index-FORCE_005fCOMMON_005fALLOCATION"><code>FORCE_COMMON_ALLOCATION</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Miscellaneous-Commands.html#Miscellaneous-Commands">Miscellaneous Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="Miscellaneous-Commands.html#index-FORCE_005fGROUP_005fALLOCATION"><code>FORCE_GROUP_ALLOCATION</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Miscellaneous-Commands.html#Miscellaneous-Commands">Miscellaneous Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="Forced-Input-Alignment.html#index-forcing-input-section-alignment">forcing input section alignment</a>:</td><td>&nbsp;</td><td valign="top"><a href="Forced-Input-Alignment.html#Forced-Input-Alignment">Forced Input Alignment</a></td></tr>
 <tr><td></td><td valign="top"><a href="Forced-Output-Alignment.html#index-forcing-output-section-alignment">forcing output section alignment</a>:</td><td>&nbsp;</td><td valign="top"><a href="Forced-Output-Alignment.html#Forced-Output-Alignment">Forced Output Alignment</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-forcing-the-creation-of-dynamic-sections">forcing the creation of dynamic sections</a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
@@ -647,6 +694,8 @@ Previous: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-Li
 <tr><td></td><td valign="top"><a href="Options.html#index-generating-optimized-output">generating optimized output</a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Overview.html#index-GNU-linker"><small>GNU</small> linker</a>:</td><td>&nbsp;</td><td valign="top"><a href="Overview.html#Overview">Overview</a></td></tr>
 <tr><td></td><td valign="top"><a href="Environment.html#index-GNUTARGET"><code>GNUTARGET</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Environment.html#Environment">Environment</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-group-allocation-in-linker-script">group allocation in linker script</a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="Miscellaneous-Commands.html#index-group-allocation-in-linker-script-1">group allocation in linker script</a>:</td><td>&nbsp;</td><td valign="top"><a href="Miscellaneous-Commands.html#Miscellaneous-Commands">Miscellaneous Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="File-Commands.html#index-GROUP_0028files_0029"><code>GROUP(<var>files</var>)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="File-Commands.html#File-Commands">File Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="File-Commands.html#index-grouping-input-files">grouping input files</a>:</td><td>&nbsp;</td><td valign="top"><a href="File-Commands.html#File-Commands">File Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-groups-of-archives">groups of archives</a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
@@ -663,7 +712,6 @@ Previous: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-Li
 <tr><td></td><td valign="top"><a href="HPPA-ELF32.html#index-HPPA-stub-grouping">HPPA stub grouping</a>:</td><td>&nbsp;</td><td valign="top"><a href="HPPA-ELF32.html#HPPA-ELF32">HPPA ELF32</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="LD-Index_cp_letter-I">I</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="i960.html#index-i960-support">i960 support</a>:</td><td>&nbsp;</td><td valign="top"><a href="i960.html#i960">i960</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-image-base">image base</a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Implicit-Linker-Scripts.html#index-implicit-linker-scripts">implicit linker scripts</a>:</td><td>&nbsp;</td><td valign="top"><a href="Implicit-Linker-Scripts.html#Implicit-Linker-Scripts">Implicit Linker Scripts</a></td></tr>
 <tr><td></td><td valign="top"><a href="WIN32.html#index-import-libraries">import libraries</a>:</td><td>&nbsp;</td><td valign="top"><a href="WIN32.html#WIN32">WIN32</a></td></tr>
@@ -710,8 +758,10 @@ Previous: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-Li
 <tr><td></td><td valign="top"><a href="Builtin-Functions.html#index-LENGTH_0028memory_0029"><code>LENGTH(<var>memory</var>)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="Builtin-Functions.html#Builtin-Functions">Builtin Functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="File-Commands.html#index-library-search-path-in-linker-script">library search path in linker script</a>:</td><td>&nbsp;</td><td valign="top"><a href="File-Commands.html#File-Commands">File Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-link-map">link map</a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-link-map-discarded">link map discarded</a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-link_002dtime-runtime-library-search-path">link-time runtime library search path</a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Bug-Criteria.html#index-linker-crash">linker crash</a>:</td><td>&nbsp;</td><td valign="top"><a href="Bug-Criteria.html#Bug-Criteria">Bug Criteria</a></td></tr>
+<tr><td></td><td valign="top"><a href="Plugins.html#index-linker-plugins">linker plugins</a>:</td><td>&nbsp;</td><td valign="top"><a href="Plugins.html#Plugins">Plugins</a></td></tr>
 <tr><td></td><td valign="top"><a href="Basic-Script-Concepts.html#index-linker-script-concepts">linker script concepts</a>:</td><td>&nbsp;</td><td valign="top"><a href="Basic-Script-Concepts.html#Basic-Script-Concepts">Basic Script Concepts</a></td></tr>
 <tr><td></td><td valign="top"><a href="Simple-Example.html#index-linker-script-example">linker script example</a>:</td><td>&nbsp;</td><td valign="top"><a href="Simple-Example.html#Simple-Example">Simple Example</a></td></tr>
 <tr><td></td><td valign="top"><a href="File-Commands.html#index-linker-script-file-commands">linker script file commands</a>:</td><td>&nbsp;</td><td valign="top"><a href="File-Commands.html#File-Commands">File Commands</a></td></tr>
@@ -751,6 +801,7 @@ Previous: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-Li
 <tr><td></td><td valign="top"><a href="M68K.html#index-Motorola-68K-GOT-generation">Motorola 68K GOT generation</a>:</td><td>&nbsp;</td><td valign="top"><a href="M68K.html#M68K">M68K</a></td></tr>
 <tr><td></td><td valign="top"><a href="MRI.html#index-MRI-compatibility">MRI compatibility</a>:</td><td>&nbsp;</td><td valign="top"><a href="MRI.html#MRI">MRI</a></td></tr>
 <tr><td></td><td valign="top"><a href="MSP430.html#index-MSP430-extra-sections">MSP430 extra sections</a>:</td><td>&nbsp;</td><td valign="top"><a href="MSP430.html#MSP430">MSP430</a></td></tr>
+<tr><td></td><td valign="top"><a href="MSP430.html#index-MSP430-Options">MSP430 Options</a>:</td><td>&nbsp;</td><td valign="top"><a href="MSP430.html#MSP430">MSP430</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="LD-Index_cp_letter-N">N</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="MRI.html#index-NAME-_0028MRI_0029"><code>NAME</code> (MRI)</a>:</td><td>&nbsp;</td><td valign="top"><a href="MRI.html#MRI">MRI</a></td></tr>
@@ -807,6 +858,7 @@ Previous: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-Li
 <tr><td></td><td valign="top"><a href="PHDRS.html#index-PHDRS-1"><code>PHDRS</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="PHDRS.html#PHDRS">PHDRS</a></td></tr>
 <tr><td></td><td valign="top"><a href="ARM.html#index-PIC_005fVENEER">PIC_VENEER</a>:</td><td>&nbsp;</td><td valign="top"><a href="ARM.html#ARM">ARM</a></td></tr>
 <tr><td></td><td valign="top"><a href="ARM.html#index-Placement-of-SG-veneers">Placement of SG veneers</a>:</td><td>&nbsp;</td><td valign="top"><a href="ARM.html#ARM">ARM</a></td></tr>
+<tr><td></td><td valign="top"><a href="Plugins.html#index-plugins">plugins</a>:</td><td>&nbsp;</td><td valign="top"><a href="Plugins.html#Plugins">Plugins</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-pop-state-governing-input-file-handling">pop state governing input file handling</a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-position-independent-executables">position independent executables</a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="PowerPC-ELF32.html#index-PowerPC-ELF32-options">PowerPC ELF32 options</a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC-ELF32.html#PowerPC-ELF32">PowerPC ELF32</a></td></tr>
@@ -817,12 +869,15 @@ Previous: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-Li
 <tr><td></td><td valign="top"><a href="PowerPC-ELF32.html#index-PowerPC-TLS-optimization">PowerPC TLS optimization</a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC-ELF32.html#PowerPC-ELF32">PowerPC ELF32</a></td></tr>
 <tr><td></td><td valign="top"><a href="PowerPC64-ELF64.html#index-PowerPC64-dot-symbols">PowerPC64 dot symbols</a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">PowerPC64 ELF64</a></td></tr>
 <tr><td></td><td valign="top"><a href="PowerPC64-ELF64.html#index-PowerPC64-ELF64-options">PowerPC64 ELF64 options</a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">PowerPC64 ELF64</a></td></tr>
+<tr><td></td><td valign="top"><a href="PowerPC64-ELF64.html#index-PowerPC64-ELFv2-PLT-localentry-optimization">PowerPC64 ELFv2 PLT localentry optimization</a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">PowerPC64 ELF64</a></td></tr>
+<tr><td></td><td valign="top"><a href="PowerPC64-ELF64.html#index-PowerPC64-inline-PLT-call-optimization">PowerPC64 inline PLT call optimization</a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">PowerPC64 ELF64</a></td></tr>
 <tr><td></td><td valign="top"><a href="PowerPC64-ELF64.html#index-PowerPC64-multi_002dTOC">PowerPC64 multi-TOC</a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">PowerPC64 ELF64</a></td></tr>
 <tr><td></td><td valign="top"><a href="PowerPC64-ELF64.html#index-PowerPC64-OPD-optimization">PowerPC64 OPD optimization</a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">PowerPC64 ELF64</a></td></tr>
 <tr><td></td><td valign="top"><a href="PowerPC64-ELF64.html#index-PowerPC64-OPD-spacing">PowerPC64 OPD spacing</a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">PowerPC64 ELF64</a></td></tr>
 <tr><td></td><td valign="top"><a href="PowerPC64-ELF64.html#index-PowerPC64-PLT-call-stub-static-chain">PowerPC64 PLT call stub static chain</a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">PowerPC64 ELF64</a></td></tr>
 <tr><td></td><td valign="top"><a href="PowerPC64-ELF64.html#index-PowerPC64-PLT-call-stub-thread-safety">PowerPC64 PLT call stub thread safety</a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">PowerPC64 ELF64</a></td></tr>
 <tr><td></td><td valign="top"><a href="PowerPC64-ELF64.html#index-PowerPC64-PLT-stub-alignment">PowerPC64 PLT stub alignment</a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">PowerPC64 ELF64</a></td></tr>
+<tr><td></td><td valign="top"><a href="PowerPC64-ELF64.html#index-PowerPC64-Power10-stubs">PowerPC64 Power10 stubs</a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">PowerPC64 ELF64</a></td></tr>
 <tr><td></td><td valign="top"><a href="PowerPC64-ELF64.html#index-PowerPC64-register-save_002frestore-functions">PowerPC64 register save/restore functions</a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">PowerPC64 ELF64</a></td></tr>
 <tr><td></td><td valign="top"><a href="PowerPC64-ELF64.html#index-PowerPC64-stub-grouping">PowerPC64 stub grouping</a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">PowerPC64 ELF64</a></td></tr>
 <tr><td></td><td valign="top"><a href="PowerPC64-ELF64.html#index-PowerPC64-stub-symbols">PowerPC64 stub symbols</a>:</td><td>&nbsp;</td><td valign="top"><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">PowerPC64 ELF64</a></td></tr>
@@ -855,7 +910,6 @@ Previous: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-Li
 <tr><td></td><td valign="top"><a href="Expression-Section.html#index-relative-expressions">relative expressions</a>:</td><td>&nbsp;</td><td valign="top"><a href="Expression-Section.html#Expression-Section">Expression Section</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-relaxing-addressing-modes">relaxing addressing modes</a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="H8_002f300.html#index-relaxing-on-H8_002f300">relaxing on H8/300</a>:</td><td>&nbsp;</td><td valign="top"><a href="H8_002f300.html#H8_002f300">H8/300</a></td></tr>
-<tr><td></td><td valign="top"><a href="i960.html#index-relaxing-on-i960">relaxing on i960</a>:</td><td>&nbsp;</td><td valign="top"><a href="i960.html#i960">i960</a></td></tr>
 <tr><td></td><td valign="top"><a href="M68HC11_002f68HC12.html#index-relaxing-on-M68HC11">relaxing on M68HC11</a>:</td><td>&nbsp;</td><td valign="top"><a href="M68HC11_002f68HC12.html#M68HC11_002f68HC12">M68HC11/68HC12</a></td></tr>
 <tr><td></td><td valign="top"><a href="NDS32.html#index-relaxing-on-NDS32"><code>relaxing on NDS32</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="NDS32.html#NDS32">NDS32</a></td></tr>
 <tr><td></td><td valign="top"><a href="Xtensa.html#index-relaxing-on-Xtensa">relaxing on Xtensa</a>:</td><td>&nbsp;</td><td valign="top"><a href="Xtensa.html#Xtensa">Xtensa</a></td></tr>
@@ -875,6 +929,8 @@ Previous: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-Li
 <tr><td></td><td valign="top"><a href="WIN32.html#index-runtime-pseudo_002drelocation">runtime pseudo-relocation</a>:</td><td>&nbsp;</td><td valign="top"><a href="WIN32.html#WIN32">WIN32</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="LD-Index_cp_letter-S">S</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="S_002f390-ELF.html#index-S_002f390">S/390</a>:</td><td>&nbsp;</td><td valign="top"><a href="S_002f390-ELF.html#S_002f390-ELF">S/390 ELF</a></td></tr>
+<tr><td></td><td valign="top"><a href="S_002f390-ELF.html#index-S_002f390-ELF-options">S/390 ELF options</a>:</td><td>&nbsp;</td><td valign="top"><a href="S_002f390-ELF.html#S_002f390-ELF">S/390 ELF</a></td></tr>
 <tr><td></td><td valign="top"><a href="Constants.html#index-scaled-integers">scaled integers</a>:</td><td>&nbsp;</td><td valign="top"><a href="Constants.html#Constants">Constants</a></td></tr>
 <tr><td></td><td valign="top"><a href="Input-Section-Common.html#index-scommon-section">scommon section</a>:</td><td>&nbsp;</td><td valign="top"><a href="Input-Section-Common.html#Input-Section-Common">Input Section Common</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-script-files">script files</a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
@@ -890,6 +946,8 @@ Previous: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-Li
 <tr><td></td><td valign="top"><a href="Options.html#index-section-alignment_002c-warnings-on">section alignment, warnings on</a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Output-Section-Data.html#index-section-data">section data</a>:</td><td>&nbsp;</td><td valign="top"><a href="Output-Section-Data.html#Output-Section-Data">Output Section Data</a></td></tr>
 <tr><td></td><td valign="top"><a href="Output-Section-Fill.html#index-section-fill-pattern">section fill pattern</a>:</td><td>&nbsp;</td><td valign="top"><a href="Output-Section-Fill.html#Output-Section-Fill">Output Section Fill</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-section-groups">section groups</a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="Miscellaneous-Commands.html#index-section-groups-1">section groups</a>:</td><td>&nbsp;</td><td valign="top"><a href="Miscellaneous-Commands.html#Miscellaneous-Commands">Miscellaneous Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="Output-Section-LMA.html#index-section-load-address">section load address</a>:</td><td>&nbsp;</td><td valign="top"><a href="Output-Section-LMA.html#Output-Section-LMA">Output Section LMA</a></td></tr>
 <tr><td></td><td valign="top"><a href="Builtin-Functions.html#index-section-load-address-in-expression">section load address in expression</a>:</td><td>&nbsp;</td><td valign="top"><a href="Builtin-Functions.html#Builtin-Functions">Builtin Functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="Output-Section-Name.html#index-section-name">section name</a>:</td><td>&nbsp;</td><td valign="top"><a href="Output-Section-Name.html#Output-Section-Name">Output Section Name</a></td></tr>
@@ -927,6 +985,7 @@ Previous: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-Li
 <tr><td></td><td valign="top"><a href="Options.html#index-standard-Unix-system">standard Unix system</a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Entry-Point.html#index-start-of-execution">start of execution</a>:</td><td>&nbsp;</td><td valign="top"><a href="Entry-Point.html#Entry-Point">Entry Point</a></td></tr>
 <tr><td></td><td valign="top"><a href="File-Commands.html#index-STARTUP_0028filename_0029"><code>STARTUP(<var>filename</var>)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="File-Commands.html#File-Commands">File Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="libdep-Plugin.html#index-static-library-dependencies">static library dependencies</a>:</td><td>&nbsp;</td><td valign="top"><a href="libdep-Plugin.html#libdep-Plugin">libdep Plugin</a></td></tr>
 <tr><td></td><td valign="top"><a href="ARM.html#index-STM32L4xx-erratum-workaround">STM32L4xx erratum workaround</a>:</td><td>&nbsp;</td><td valign="top"><a href="ARM.html#ARM">ARM</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-strip-all-symbols">strip all symbols</a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-strip-debugger-symbols">strip debugger symbols</a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
@@ -981,6 +1040,7 @@ Previous: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-Li
 <tr><td></td><td valign="top"><a href="VERSION.html#index-VERSION-_007bscript-text_007d"><code>VERSION {script text}</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="VERSION.html#VERSION">VERSION</a></td></tr>
 <tr><td></td><td valign="top"><a href="VERSION.html#index-versions-of-symbols">versions of symbols</a>:</td><td>&nbsp;</td><td valign="top"><a href="VERSION.html#VERSION">VERSION</a></td></tr>
 <tr><td></td><td valign="top"><a href="ARM.html#index-VFP11_005fDENORM_005fFIX">VFP11_DENORM_FIX</a>:</td><td>&nbsp;</td><td valign="top"><a href="ARM.html#ARM">ARM</a></td></tr>
+<tr><td></td><td valign="top"><a href="Options.html#index-visibility">visibility</a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="LD-Index_cp_letter-W">W</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="Options.html#index-warnings_002c-on-combining-symbols">warnings, on combining symbols</a>:</td><td>&nbsp;</td><td valign="top"><a href="Options.html#Options">Options</a></td></tr>

@@ -1,10 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <!-- This file documents the GNU linker LD
-(GNU Binutils)
-version 2.28.
+(GNU Arm Embedded Toolchain 10.3-2021.10)
+version 2.36.1.
 
-Copyright (C) 1991-2017 Free Software Foundation, Inc.
+Copyright (C) 1991-2021 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -12,35 +12,35 @@ or any later version published by the Free Software Foundation;
 with no Invariant Sections, with no Front-Cover Texts, and with no
 Back-Cover Texts.  A copy of the license is included in the
 section entitled "GNU Free Documentation License". -->
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>LD: PowerPC64 ELF64</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>PowerPC64 ELF64 (LD)</title>
 
-<meta name="description" content="LD: PowerPC64 ELF64">
-<meta name="keywords" content="LD: PowerPC64 ELF64">
+<meta name="description" content="PowerPC64 ELF64 (LD)">
+<meta name="keywords" content="PowerPC64 ELF64 (LD)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="index.html#Top" rel="start" title="Top">
 <link href="LD-Index.html#LD-Index" rel="index" title="LD Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
 <link href="Machine-Dependent.html#Machine-Dependent" rel="up" title="Machine Dependent">
-<link href="SPU-ELF.html#SPU-ELF" rel="next" title="SPU ELF">
+<link href="S_002f390-ELF.html#S_002f390-ELF" rel="next" title="S/390 ELF">
 <link href="PowerPC-ELF32.html#PowerPC-ELF32" rel="prev" title="PowerPC ELF32">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -49,10 +49,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -60,15 +59,15 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="PowerPC64-ELF64"></a>
 <div class="header">
 <p>
-Next: <a href="SPU-ELF.html#SPU-ELF" accesskey="n" rel="next">SPU ELF</a>, Previous: <a href="PowerPC-ELF32.html#PowerPC-ELF32" accesskey="p" rel="prev">PowerPC ELF32</a>, Up: <a href="Machine-Dependent.html#Machine-Dependent" accesskey="u" rel="up">Machine Dependent</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LD-Index.html#LD-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="S_002f390-ELF.html#S_002f390-ELF" accesskey="n" rel="next">S/390 ELF</a>, Previous: <a href="PowerPC-ELF32.html#PowerPC-ELF32" accesskey="p" rel="prev">PowerPC ELF32</a>, Up: <a href="Machine-Dependent.html#Machine-Dependent" accesskey="u" rel="up">Machine Dependent</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LD-Index.html#LD-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <hr>
 <a name="ld-and-PowerPC64-64_002dbit-ELF-Support"></a>
-<h3 class="section">4.13 <code>ld</code> and PowerPC64 64-bit ELF Support</h3>
+<h3 class="section">5.12 <code>ld</code> and PowerPC64 64-bit ELF Support</h3>
 
 <a name="index-PowerPC64-ELF64-options"></a>
 <dl compact="compact">
@@ -142,19 +141,28 @@ disable the optimization.
 <a name="index-PowerPC64-_005f_005ftls_005fget_005faddr-optimization"></a>
 <a name="index-_002d_002dtls_002dget_002daddr_002doptimize"></a>
 <a name="index-_002d_002dno_002dtls_002dget_002daddr_002doptimize"></a>
+<a name="index-_002d_002dtls_002dget_002daddr_002dregsave"></a>
+<a name="index-_002d_002dno_002dtls_002dget_002daddr_002dregsave"></a>
 </dd>
 <dt><samp>--tls-get-addr-optimize</samp></dt>
 <dt><samp>--no-tls-get-addr-optimize</samp></dt>
-<dd><p>These options control whether PowerPC64 <code>ld</code> uses a special
+<dd><p>These options control how PowerPC64 <code>ld</code> uses a special
 stub to call __tls_get_addr.  PowerPC64 glibc 2.22 and later support
 an optimization that allows the second and subsequent calls to
 <code>__tls_get_addr</code> for a given symbol to be resolved by the special
-stub without calling in to glibc.  By default the linker enables this
-option when glibc advertises the availability of __tls_get_addr_opt.
-Forcing this option on when using an older glibc won&rsquo;t do much besides
-slow down your applications, but may be useful if linking an
-application against an older glibc with the expectation that it will
-normally be used on systems having a newer glibc.
+stub without calling in to glibc.  By default the linker enables
+generation of the stub when glibc advertises the availability of
+__tls_get_addr_opt.
+Using <samp>--tls-get-addr-optimize</samp> with an older glibc won&rsquo;t do
+much besides slow down your applications, but may be useful if linking
+an application against an older glibc with the expectation that it
+will normally be used on systems having a newer glibc.
+<samp>--tls-get-addr-regsave</samp> forces generation of a stub that saves
+and restores volatile registers around the call into glibc.  Normally,
+this is done when the linker detects a call to __tls_get_addr_desc.
+Such calls then go via the register saving stub to __tls_get_addr_opt.
+<samp>--no-tls-get-addr-regsave</samp> disables generation of the
+register saves.
 </p>
 <a name="index-PowerPC64-OPD-optimization"></a>
 <a name="index-_002d_002dno_002dopd_002doptimize"></a>
@@ -190,6 +198,17 @@ discarded as per the nearest marked preceding word.  This works
 reliably for compiler generated code, but may be incorrect if assembly
 code is used to insert TOC entries.  Use this option to disable the
 optimization.
+</p>
+<a name="index-PowerPC64-inline-PLT-call-optimization"></a>
+<a name="index-_002d_002dno_002dinline_002doptimize"></a>
+</dd>
+<dt><samp>--no-inline-optimize</samp></dt>
+<dd><p>PowerPC64 <code>ld</code> normally replaces inline PLT call sequences
+marked with <code>R_PPC64_PLTSEQ</code>, <code>R_PPC64_PLTCALL</code>,
+<code>R_PPC64_PLT16_HA</code> and <code>R_PPC64_PLT16_LO_DS</code> relocations by
+a number of <code>nop</code>s and a direct call when the function is defined
+locally and can&rsquo;t be overridden by some other definition.  This option
+disables that optimization.
 </p>
 <a name="index-PowerPC64-multi_002dTOC"></a>
 <a name="index-_002d_002dno_002dmulti_002dtoc"></a>
@@ -227,10 +246,12 @@ off this feature.
 <dt><samp>--plt-align</samp></dt>
 <dt><samp>--no-plt-align</samp></dt>
 <dd><p>Use these options to control whether individual PLT call stubs are
-padded so that they don&rsquo;t cross a 32-byte boundary, or to the
-specified power of two boundary when using <code>--plt-align=</code>.  Note
-that this isn&rsquo;t alignment in the usual sense.  By default PLT call
-stubs are packed tightly.
+aligned to a 32-byte boundary, or to the specified power of two
+boundary when using <code>--plt-align=</code>.  A negative value may be
+specified to pad PLT call stubs so that they do not cross the
+specified power of two boundary (or the minimum number of boundaries
+if a PLT stub is so large that it must cross a boundary).  By default
+PLT call stubs are aligned to 32-byte boundaries.
 </p>
 <a name="index-PowerPC64-PLT-call-stub-static-chain"></a>
 <a name="index-_002d_002dplt_002dstatic_002dchain"></a>
@@ -247,7 +268,7 @@ chain since there is never any need to do so on a PLT call.
 <a name="index-_002d_002dno_002dplt_002dthread_002dsafe"></a>
 </dd>
 <dt><samp>--plt-thread-safe</samp></dt>
-<dt><samp>--no-thread-safe</samp></dt>
+<dt><samp>--no-plt-thread-safe</samp></dt>
 <dd><p>With power7&rsquo;s weakly ordered memory model, it is possible when using
 lazy binding for ld.so to update a plt entry in one thread and have
 another thread see the individual plt entry words update in the wrong
@@ -257,6 +278,41 @@ barrier in the call stub, or use LD_BIND_NOW=1.  By default, <code>ld</code>
 looks for calls to commonly used functions that create threads, and if
 seen, adds the necessary barriers.  Use these options to change the
 default behaviour.
+</p>
+<a name="index-PowerPC64-ELFv2-PLT-localentry-optimization"></a>
+<a name="index-_002d_002dplt_002dlocalentry"></a>
+<a name="index-_002d_002dno_002dplt_002dlocalentry"></a>
+</dd>
+<dt><samp>--plt-localentry</samp></dt>
+<dt><samp>--no-localentry</samp></dt>
+<dd><p>ELFv2 functions with localentry:0 are those with a single entry point,
+ie. global entry == local entry, and that have no requirement on r2
+(the TOC/GOT pointer) or r12, and guarantee r2 is unchanged on return.
+Such an external function can be called via the PLT without saving r2
+or restoring it on return, avoiding a common load-hit-store for small
+functions.   The optimization is attractive, with up to 40% reduction
+in execution time for a small function, but can result in symbol
+interposition failures.  Also, minor changes in a shared library,
+including system libraries, can cause a function that was localentry:0
+to become localentry:8.  This will result in a dynamic loader
+complaint and failure to run.  The option is experimental, use with
+care.  <samp>--no-plt-localentry</samp> is the default.
+</p>
+<a name="index-PowerPC64-Power10-stubs"></a>
+<a name="index-_002d_002dpower10_002dstubs"></a>
+<a name="index-_002d_002dno_002dpower10_002dstubs"></a>
+</dd>
+<dt><samp>--power10-stubs</samp></dt>
+<dt><samp>--no-power10-stubs</samp></dt>
+<dd><p>When PowerPC64 <code>ld</code> links input object files containing
+relocations used on power10 prefixed instructions it normally creates
+linkage stubs (PLT call and long branch) using power10 instructions
+for <code>@notoc</code> PLT calls where <code>r2</code> is not known.  The
+power10 notoc stubs are smaller and faster, so are preferred for
+power10.  <samp>--power10-stubs</samp> and <samp>--no-power10-stubs</samp>
+allow you to override the linker&rsquo;s selection of stub instructions.
+<samp>--power10-stubs=auto</samp> allows the user to select the default
+auto mode.
 </p></dd>
 </dl>
 
@@ -265,7 +321,7 @@ default behaviour.
 <hr>
 <div class="header">
 <p>
-Next: <a href="SPU-ELF.html#SPU-ELF" accesskey="n" rel="next">SPU ELF</a>, Previous: <a href="PowerPC-ELF32.html#PowerPC-ELF32" accesskey="p" rel="prev">PowerPC ELF32</a>, Up: <a href="Machine-Dependent.html#Machine-Dependent" accesskey="u" rel="up">Machine Dependent</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LD-Index.html#LD-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="S_002f390-ELF.html#S_002f390-ELF" accesskey="n" rel="next">S/390 ELF</a>, Previous: <a href="PowerPC-ELF32.html#PowerPC-ELF32" accesskey="p" rel="prev">PowerPC ELF32</a>, Up: <a href="Machine-Dependent.html#Machine-Dependent" accesskey="u" rel="up">Machine Dependent</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LD-Index.html#LD-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

@@ -2,7 +2,7 @@
 <html>
 <!-- This file documents the GNU Assembler "as".
 
-Copyright (C) 1991-2017 Free Software Foundation, Inc.
+Copyright (C) 1991-2021 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -11,16 +11,16 @@ with no Invariant Sections, with no Front-Cover Texts, and with no
 Back-Cover Texts.  A copy of the license is included in the
 section entitled "GNU Free Documentation License".
  -->
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Using as: Sparc-Opts</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Sparc-Opts (Using as)</title>
 
-<meta name="description" content="Using as: Sparc-Opts">
-<meta name="keywords" content="Using as: Sparc-Opts">
+<meta name="description" content="Sparc-Opts (Using as)">
+<meta name="keywords" content="Sparc-Opts (Using as)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="index.html#Top" rel="start" title="Top">
 <link href="AS-Index.html#AS-Index" rel="index" title="AS Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
@@ -30,16 +30,16 @@ section entitled "GNU Free Documentation License".
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -48,10 +48,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -59,7 +58,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Sparc_002dOpts"></a>
 <div class="header">
 <p>
@@ -67,7 +66,7 @@ Next: <a href="Sparc_002dAligned_002dData.html#Sparc_002dAligned_002dData" acces
 </div>
 <hr>
 <a name="Options-24"></a>
-<h4 class="subsection">9.43.1 Options</h4>
+<h4 class="subsection">9.44.1 Options</h4>
 
 <a name="index-options-for-SPARC"></a>
 <a name="index-SPARC-options"></a>
@@ -116,10 +115,11 @@ is explicitly requested.  SPARC v9 is always incompatible with sparclite.
 <a name="index-_002dAsparcvis3r"></a>
 </dd>
 <dt><code>-Av6 | -Av7 | -Av8 | -Aleon | -Asparclet | -Asparclite</code></dt>
-<dt><code>-Av8plus | -Av8plusa | -Av8plusb | -Av8plusc | -Av8plusd | -Av8plusv | -Av8plusm</code></dt>
-<dt><code>-Av9 | -Av9a | -Av9b | -Av9c | -Av9d | -Av9e | -Av9v | -Av9m</code></dt>
+<dt><code>-Av8plus | -Av8plusa | -Av8plusb | -Av8plusc | -Av8plusd |</code></dt>
+<dt><code>-Av8plusv | -Av8plusm | -Av8plusm8</code></dt>
+<dt><code>-Av9 | -Av9a | -Av9b | -Av9c | -Av9d | -Av9e | -Av9v | -Av9m | -Av9m8</code></dt>
 <dt><code>-Asparc | -Asparcvis | -Asparcvis2 | -Asparcfmaf | -Asparcima</code></dt>
-<dt><code>-Asparcvis3 | -Asparcvis3r | -Asparc5</code></dt>
+<dt><code>-Asparcvis3 | -Asparcvis3r | -Asparc5 | -Asparc6</code></dt>
 <dd><p>Use one of the &lsquo;<samp>-A</samp>&rsquo; options to select one of the SPARC
 architectures explicitly.  If you select an architecture explicitly,
 <code>as</code> reports a fatal error if it encounters an instruction
@@ -158,6 +158,10 @@ enabled by &lsquo;<samp>-Av8pluse</samp>&rsquo; and &lsquo;<samp>-Av9e</samp>&rs
 xmpmul, xmontmul and xmontsqr instructions, as well as the instructions
 enabled by &lsquo;<samp>-Av8plusv</samp>&rsquo; and &lsquo;<samp>-Av9v</samp>&rsquo;.
 </p>
+<p>&lsquo;<samp>-Av8plusm8</samp>&rsquo; and &lsquo;<samp>-Av9m8</samp>&rsquo; enable the instructions introduced
+in the Oracle SPARC Architecture 2017 and the M8 processor, as
+well as the instructions enabled by &lsquo;<samp>-Av8plusm</samp>&rsquo; and &lsquo;<samp>-Av9m</samp>&rsquo;.
+</p>
 <p>&lsquo;<samp>-Asparc</samp>&rsquo; specifies a v9 environment.  It is equivalent to
 &lsquo;<samp>-Av9</samp>&rsquo; if the word size is 64-bit, and &lsquo;<samp>-Av8plus</samp>&rsquo; otherwise.
 </p>
@@ -181,18 +185,23 @@ and floating point unfused multiply-add instructions enabled.
 </p>
 <p>&lsquo;<samp>-Asparc5</samp>&rsquo; is equivalent to &lsquo;<samp>-Av9m</samp>&rsquo;.
 </p>
+<p>&lsquo;<samp>-Asparc6</samp>&rsquo; is equivalent to &lsquo;<samp>-Av9m8</samp>&rsquo;.
+</p>
 </dd>
 <dt><code>-xarch=v8plus | -xarch=v8plusa | -xarch=v8plusb | -xarch=v8plusc</code></dt>
-<dt><code>-xarch=v8plusd | -xarch=v8plusv | -xarch=v8plusm | -xarch=v9 | -xarch=v9a</code></dt>
-<dt><code>-xarch=v9b | -xarch=v9c | -xarch=v9d | -xarch=v9e | -xarch=v9v | -xarch=v9m</code></dt>
+<dt><code>-xarch=v8plusd | -xarch=v8plusv | -xarch=v8plusm |</code></dt>
+<dt><code>-xarch=v8plusm8 | -xarch=v9 | -xarch=v9a | -xarch=v9b</code></dt>
+<dt><code>-xarch=v9c | -xarch=v9d | -xarch=v9e | -xarch=v9v</code></dt>
+<dt><code>-xarch=v9m | -xarch=v9m8</code></dt>
 <dt><code>-xarch=sparc | -xarch=sparcvis | -xarch=sparcvis2</code></dt>
 <dt><code>-xarch=sparcfmaf | -xarch=sparcima | -xarch=sparcvis3</code></dt>
-<dt><code>-xarch=sparcvis3r | -xarch=sparc5</code></dt>
+<dt><code>-xarch=sparcvis3r | -xarch=sparc5 | -xarch=sparc6</code></dt>
 <dd><p>For compatibility with the SunOS v9 assembler.  These options are
 equivalent to -Av8plus, -Av8plusa, -Av8plusb, -Av8plusc, -Av8plusd,
--Av8plusv, -Av8plusm, -Av9, -Av9a, -Av9b, -Av9c, -Av9d, -Av9e, -Av9v, -Av9m,
--Asparc, -Asparcvis, -Asparcvis2, -Asparcfmaf, -Asparcima,
--Asparcvis3, and -Asparcvis3r, respectively.
+-Av8plusv, -Av8plusm, -Av8plusm8, -Av9, -Av9a, -Av9b, -Av9c, -Av9d,
+-Av9e, -Av9v, -Av9m, -Av9m8, -Asparc, -Asparcvis, -Asparcvis2,
+-Asparcfmaf, -Asparcima, -Asparcvis3, -Asparcvis3r, -Asparc5 and
+-Asparc6 respectively.
 </p>
 </dd>
 <dt><code>-bump</code></dt>

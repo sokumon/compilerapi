@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Copyright (C) 1988-2017 Free Software Foundation, Inc.
+<!-- Copyright (C) 1988-2021 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -12,16 +12,16 @@ and with the Back-Cover Texts as in (a) below.
 (a) The FSF's Back-Cover Text is: "You are free to copy and modify
 this GNU Manual.  Buying copies from GNU Press supports the FSF in
 developing GNU and promoting software freedom." -->
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Debugging with GDB: Maintenance Commands</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Maintenance Commands (Debugging with GDB)</title>
 
-<meta name="description" content="Debugging with GDB: Maintenance Commands">
-<meta name="keywords" content="Debugging with GDB: Maintenance Commands">
+<meta name="description" content="Maintenance Commands (Debugging with GDB)">
+<meta name="keywords" content="Maintenance Commands (Debugging with GDB)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="index.html#Top" rel="start" title="Top">
 <link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
@@ -31,16 +31,16 @@ developing GNU and promoting software freedom." -->
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -49,10 +49,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -60,7 +59,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Maintenance-Commands"></a>
 <div class="header">
 <p>
@@ -103,7 +102,7 @@ If not, generate remote agent bytecode for current frame PC address.
 <dd><p>Translate the given format string and list of argument expressions
 into remote agent bytecodes and display them as a disassembled list.
 This command is useful for debugging the agent version of dynamic
-printf (see <a href="Dynamic-Printf.html#Dynamic-Printf">Dynamic Printf</a>).
+printf (see <a href="Dynamic-printf.html#Dynamic-printf">Dynamic printf</a>).
 </p>
 <a name="index-maint-info-breakpoints"></a>
 </dd>
@@ -394,12 +393,52 @@ checksum.
 <dd><p>Print the entire architecture configuration.  The optional argument
 <var>file</var> names the file where the output goes.
 </p>
-<a name="index-maint-print-c_002dtdesc"></a>
+<a name="index-maint-print-c_002dtdesc-_005bfile_005d"></a>
 </dd>
 <dt><code>maint print c-tdesc</code></dt>
-<dd><p>Print the current target description (see <a href="Target-Descriptions.html#Target-Descriptions">Target Descriptions</a>) as
-a C source file.  The created source file can be used in <small>GDB</small>
-when an XML parser is not available to parse the description.
+<dd><p>Print the target description (see <a href="Target-Descriptions.html#Target-Descriptions">Target Descriptions</a>) as
+a C source file.  By default, the target description is for the current
+target, but if the optional argument <var>file</var> is provided, that file
+is used to produce the description.  The <var>file</var> should be an XML
+document, of the form described in <a href="Target-Description-Format.html#Target-Description-Format">Target Description Format</a>.
+The created source file is built into <small>GDB</small> when <small>GDB</small> is
+built again.  This command is used by developers after they add or
+modify XML target descriptions.
+</p>
+<a name="index-maint-print-xml_002dtdesc"></a>
+</dd>
+<dt><code>maint print xml-tdesc  <span class="roman">[</span><var>file</var><span class="roman">]</span></code></dt>
+<dd><p>Print the target description (see <a href="Target-Descriptions.html#Target-Descriptions">Target Descriptions</a>) as an XML
+file.  By default print the target description for the current target,
+but if the optional argument <var>file</var> is provided, then that file is
+read in by GDB and then used to produce the description.  The
+<var>file</var> should be an XML document, of the form described in
+<a href="Target-Description-Format.html#Target-Description-Format">Target Description Format</a>.
+</p>
+<a name="index-maint-check-xml_002ddescriptions"></a>
+</dd>
+<dt><code>maint check xml-descriptions <var>dir</var></code></dt>
+<dd><p>Check that the target descriptions dynamically created by <small>GDB</small>
+equal the descriptions created from XML files found in <var>dir</var>.
+</p>
+<a name="maint-check-libthread_002ddb"></a><a name="index-maint-check-libthread_002ddb"></a>
+</dd>
+<dt><code>maint check libthread-db</code></dt>
+<dd><p>Run integrity checks on the current inferior&rsquo;s thread debugging
+library.  This exercises all <code>libthread_db</code> functionality used by
+<small>GDB</small> on GNU/Linux systems, and by extension also exercises the
+<code>proc_service</code> functions provided by <small>GDB</small> that
+<code>libthread_db</code> uses.  Note that parts of the test may be skipped
+on some platforms when debugging core files.
+</p>
+<a name="index-maint-print-core_002dfile_002dbacked_002dmappings"></a>
+<a name="index-memory-address-space-mappings-1"></a>
+</dd>
+<dt><code>maint print core-file-backed-mappings</code></dt>
+<dd><p>Print the file-backed mappings which were loaded from a core file note.
+This output represents state internal to <small>GDB</small> and should be
+similar to the mappings displayed by the <code>info proc mappings</code>
+command.
 </p>
 <a name="index-maint-print-dummy_002dframes"></a>
 </dd>
@@ -546,8 +585,18 @@ data structures, including its flags and contained types.
 </p>
 <a name="index-maint-selftest"></a>
 <a name="index-self-tests"></a>
-<p>Run any self tests that were compiled in to <small>GDB</small>.  This will
+</dd>
+<dt><code>maint selftest <span class="roman">[</span><var>filter</var><span class="roman">]</span></code></dt>
+<dd><p>Run any self tests that were compiled in to <small>GDB</small>.  This will
 print a message showing how many tests were run, and how many failed.
+If a <var>filter</var> is passed, only the tests with <var>filter</var> in their
+name will by ran.
+</p>
+<a name="index-maint-info-selftests"></a>
+<a name="index-self-tests-1"></a>
+</dd>
+<dt><code>maint info selftests</code></dt>
+<dd><p>List the selftests compiled in to <small>GDB</small>.
 </p>
 <a name="index-maint-set-dwarf-always_002ddisassemble"></a>
 <a name="index-maint-show-dwarf-always_002ddisassemble"></a>
@@ -591,6 +640,47 @@ cache if it is not referenced.  A higher limit means that cached
 compilation units will be stored in memory longer, and more total
 memory will be used.  Setting it to zero disables caching, which will
 slow down <small>GDB</small> startup, but reduce memory consumption.
+</p>
+<a name="index-maint-set-dwarf-unwinders"></a>
+<a name="index-maint-show-dwarf-unwinders"></a>
+</dd>
+<dt><code>maint set dwarf unwinders</code></dt>
+<dt><code>maint show dwarf unwinders</code></dt>
+<dd><p>Control use of the DWARF frame unwinders.
+</p>
+<a name="index-DWARF-frame-unwinders"></a>
+<p>Many targets that support DWARF debugging use <small>GDB</small>&rsquo;s DWARF
+frame unwinders to build the backtrace.  Many of these targets will
+also have a second mechanism for building the backtrace for use in
+cases where DWARF information is not available, this second mechanism
+is often an analysis of a function&rsquo;s prologue.
+</p>
+<p>In order to extend testing coverage of the second level stack
+unwinding mechanisms it is helpful to be able to disable the DWARF
+stack unwinders, this can be done with this switch.
+</p>
+<p>In normal use of <small>GDB</small> disabling the DWARF unwinders is not
+advisable, there are cases that are better handled through DWARF than
+prologue analysis, and the debug experience is likely to be better
+with the DWARF frame unwinders enabled.
+</p>
+<p>If DWARF frame unwinders are not supported for a particular target
+architecture, then enabling this flag does not cause them to be used.
+</p>
+<a name="index-maint-set-worker_002dthreads"></a>
+<a name="index-maint-show-worker_002dthreads"></a>
+</dd>
+<dt><code>maint set worker-threads</code></dt>
+<dt><code>maint show worker-threads</code></dt>
+<dd><p>Control the number of worker threads that may be used by <small>GDB</small>.
+On capable hosts, <small>GDB</small> may use multiple threads to speed up
+certain CPU-intensive operations, such as demangling symbol names.
+While the number of threads used by <small>GDB</small> may vary, this
+command can be used to set an upper bound on this number.  The default
+is <code>unlimited</code>, which lets <small>GDB</small> choose a reasonable
+number.  Note that this only controls worker threads started by
+<small>GDB</small> itself; libraries used by <small>GDB</small> may start threads
+of their own.
 </p>
 <a name="index-maint-set-profile"></a>
 <a name="index-maint-show-profile"></a>
@@ -669,6 +759,20 @@ target supports it.
 </p></dd>
 </dl>
 
+<a name="index-maint-set-tui_002dresize_002dmessage"></a>
+<a name="index-maint-show-tui_002dresize_002dmessage"></a>
+</dd>
+<dt><code>maint set tui-resize-message</code></dt>
+<dt><code>maint show tui-resize-message</code></dt>
+<dd><p>Control whether <small>GDB</small> displays a message each time the terminal
+is resized when in TUI mode.  The default is <code>off</code>, which means
+that <small>GDB</small> is silent during resizes.  When <code>on</code>,
+<small>GDB</small> will display a message after a resize is completed; the
+message will include a number indicating how many times the terminal
+has been resized.  This setting is intended for use by the test suite,
+where it would otherwise be difficult to determine when a resize and
+refresh has been completed.
+</p>
 <a name="index-maint-set-per_002dcommand"></a>
 <a name="index-maint-show-per_002dcommand"></a>
 </dd>
@@ -712,7 +816,7 @@ This can also be requested by invoking <small>GDB</small> with the
 for each command.
 If enabled, <small>GDB</small> will display the following information:
 </p>
-<ol>
+<ol type="a" start="1">
 <li> number of symbol tables
 </li><li> number of primary symbol tables
 </li><li> number of blocks in the blockvector
@@ -720,6 +824,18 @@ If enabled, <small>GDB</small> will display the following information:
 </dd>
 </dl>
 
+<a name="index-maint-set-check_002dlibthread_002ddb"></a>
+<a name="index-maint-show-check_002dlibthread_002ddb"></a>
+</dd>
+<dt><code>maint set check-libthread-db [on|off]</code></dt>
+<dt><code>maint show check-libthread-db</code></dt>
+<dd><p>Control whether <small>GDB</small> should run integrity checks on inferior
+specific thread debugging libraries as they are loaded.  The default
+is not to perform such checks.  If any check fails <small>GDB</small> will
+unload the library and continue searching for a suitable candidate as
+described in <a href="Threads.html#set-libthread_002ddb_002dsearch_002dpath">set libthread-db-search-path</a>.  For more information
+about the tests, see <a href="#maint-check-libthread_002ddb">maint check libthread-db</a>.
+</p>
 <a name="index-maint-space"></a>
 <a name="index-memory-used-by-commands"></a>
 </dd>
@@ -747,6 +863,45 @@ command also allows to find symbols in other sections.
 <p>If section was not specified, the section in which the symbol was found
 is also printed.  For dynamically linked executables, the name of
 executable or shared library containing the symbol is printed as well.
+</p>
+<a name="index-maint-test_002doptions"></a>
+</dd>
+<dt><code>maint test-options require-delimiter</code></dt>
+<dt><code>maint test-options unknown-is-error</code></dt>
+<dt><code>maint test-options unknown-is-operand</code></dt>
+<dd><p>These commands are used by the testsuite to validate the command
+options framework.  The <code>require-delimiter</code> variant requires a
+double-dash delimiter to indicate end of options.  The
+<code>unknown-is-error</code> and <code>unknown-is-operand</code> do not.  The
+<code>unknown-is-error</code> variant throws an error on unknown option,
+while <code>unknown-is-operand</code> treats unknown options as the start of
+the command&rsquo;s operands.  When run, the commands output the result of
+the processed options.  When completed, the commands store the
+internal result of completion in a variable exposed by the <code>maint
+show test-options-completion-result</code> command.
+</p>
+<a name="index-maint-show-test_002doptions_002dcompletion_002dresult"></a>
+</dd>
+<dt><code>maint show test-options-completion-result</code></dt>
+<dd><p>Shows the result of completing the <code>maint test-options</code>
+subcommands.  This is used by the testsuite to validate completion
+support in the command options framework.
+</p>
+<a name="index-maint-set-test_002dsettings"></a>
+<a name="index-maint-show-test_002dsettings"></a>
+</dd>
+<dt><code>maint set test-settings <var>kind</var></code></dt>
+<dt><code>maint show test-settings <var>kind</var></code></dt>
+<dd><p>These are representative commands for each <var>kind</var> of setting type
+<small>GDB</small> supports.  They are used by the testsuite for exercising
+the settings infrastructure.
+</p>
+<a name="index-maint-with"></a>
+</dd>
+<dt><code>maint with <var>setting</var> [<var>value</var>] [-- <var>command</var>]</code></dt>
+<dd><p>Like the <code>with</code> command, but works with <code>maintenance set</code>
+variables.  This is used by the testsuite to exercise the <code>with</code>
+command&rsquo;s infrastructure.
 </p>
 </dd>
 </dl>

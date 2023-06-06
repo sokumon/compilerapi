@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Copyright (C) 1988-2016 Free Software Foundation, Inc.
+<!-- Copyright (C) 1988-2020 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -19,16 +19,16 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Using the GNU Compiler Collection (GCC): Spec Files</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Spec Files (Using the GNU Compiler Collection (GCC))</title>
 
-<meta name="description" content="Using the GNU Compiler Collection (GCC): Spec Files">
-<meta name="keywords" content="Using the GNU Compiler Collection (GCC): Spec Files">
+<meta name="description" content="Spec Files (Using the GNU Compiler Collection (GCC))">
+<meta name="keywords" content="Spec Files (Using the GNU Compiler Collection (GCC))">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="index.html#Top" rel="start" title="Top">
 <link href="Option-Index.html#Option-Index" rel="index" title="Option Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
@@ -38,16 +38,16 @@ You have freedom to copy and modify this GNU Manual, like GNU
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -56,10 +56,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -67,7 +66,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Spec-Files"></a>
 <div class="header">
 <p>
@@ -75,7 +74,7 @@ Next: <a href="Environment-Variables.html#Environment-Variables" accesskey="n" r
 </div>
 <hr>
 <a name="Specifying-Subprocesses-and-the-Switches-to-Pass-to-Them"></a>
-<h3 class="section">3.19 Specifying Subprocesses and the Switches to Pass to Them</h3>
+<h3 class="section">3.20 Specifying Subprocesses and the Switches to Pass to Them</h3>
 <a name="index-Spec-Files"></a>
 
 <p><code>gcc</code> is a driver program.  It performs its job by invoking a
@@ -302,7 +301,7 @@ disposal mechanism.
 all.  These are the two most common ways to instruct a program that it
 should read from standard input or write to standard output.  If you
 need something more elaborate you can use an &lsquo;<samp>%{pipe:<code>X</code>}</samp>&rsquo;
-construct: see for example <samp>f/lang-specs.h</samp>.
+construct: see for example <samp>gcc/fortran/lang-specs.h</samp>.
 </p>
 </dd>
 <dt><code>%.<var>SUFFIX</var></code></dt>
@@ -463,7 +462,7 @@ Note that each comma in the substituted string is replaced by
 a single space.
 </p>
 </dd>
-<dt><code>%&lt;<code>S</code></code></dt>
+<dt><code>%&lt;S</code></dt>
 <dd><p>Remove all occurrences of <code>-S</code> from the command line.  Note&mdash;this
 command is position dependent.  &lsquo;<samp>%</samp>&rsquo; commands in the spec string
 before this one see <code>-S</code>, &lsquo;<samp>%</samp>&rsquo; commands in the spec string
@@ -570,7 +569,7 @@ in the <samp>--target-help</samp> output.
 </dl>
 
 </dd>
-<dt><code>%{<code>S</code>}</code></dt>
+<dt><code>%{S}</code></dt>
 <dd><p>Substitutes the <code>-S</code> switch, if that switch is given to GCC.
 If that switch is not specified, this substitutes nothing.  Note that
 the leading dash is omitted when specifying this option, and it is
@@ -579,12 +578,12 @@ string &lsquo;<samp>%{foo}</samp>&rsquo; matches the command-line option <samp>-
 and outputs the command-line option <samp>-foo</samp>.
 </p>
 </dd>
-<dt><code>%W{<code>S</code>}</code></dt>
+<dt><code>%W{S}</code></dt>
 <dd><p>Like %{<code>S</code>} but mark last argument supplied within as a file to be
 deleted on failure.
 </p>
 </dd>
-<dt><code>%{<code>S</code>*}</code></dt>
+<dt><code>%{S*}</code></dt>
 <dd><p>Substitutes all the switches specified to GCC whose names start
 with <code>-S</code>, but which also take an argument.  This is used for
 switches like <samp>-o</samp>, <samp>-D</samp>, <samp>-I</samp>, etc.
@@ -593,22 +592,22 @@ one switch whose name starts with &lsquo;<samp>o</samp>&rsquo;.  %{o*} substitut
 text, including the space.  Thus two arguments are generated.
 </p>
 </dd>
-<dt><code>%{<code>S</code>*&amp;<code>T</code>*}</code></dt>
+<dt><code>%{S*&amp;T*}</code></dt>
 <dd><p>Like %{<code>S</code>*}, but preserve order of <code>S</code> and <code>T</code> options
 (the order of <code>S</code> and <code>T</code> in the spec is not significant).
 There can be any number of ampersand-separated variables; for each the
 wild card is optional.  Useful for CPP as &lsquo;<samp>%{D*&amp;U*&amp;A*}</samp>&rsquo;.
 </p>
 </dd>
-<dt><code>%{<code>S</code>:<code>X</code>}</code></dt>
+<dt><code>%{S:X}</code></dt>
 <dd><p>Substitutes <code>X</code>, if the <samp>-S</samp> switch is given to GCC.
 </p>
 </dd>
-<dt><code>%{!<code>S</code>:<code>X</code>}</code></dt>
+<dt><code>%{!S:X}</code></dt>
 <dd><p>Substitutes <code>X</code>, if the <samp>-S</samp> switch is <em>not</em> given to GCC.
 </p>
 </dd>
-<dt><code>%{<code>S</code>*:<code>X</code>}</code></dt>
+<dt><code>%{S*:X}</code></dt>
 <dd><p>Substitutes <code>X</code> if one or more switches whose names start with
 <code>-S</code> are specified to GCC.  Normally <code>X</code> is substituted only
 once, no matter how many such switches appeared.  However, if <code>%*</code>
@@ -633,23 +632,23 @@ string.  For example, a spec string like this:
 </pre></div>
 
 </dd>
-<dt><code>%{.<code>S</code>:<code>X</code>}</code></dt>
+<dt><code>%{.S:X}</code></dt>
 <dd><p>Substitutes <code>X</code>, if processing a file with suffix <code>S</code>.
 </p>
 </dd>
-<dt><code>%{!.<code>S</code>:<code>X</code>}</code></dt>
+<dt><code>%{!.S:X}</code></dt>
 <dd><p>Substitutes <code>X</code>, if <em>not</em> processing a file with suffix <code>S</code>.
 </p>
 </dd>
-<dt><code>%{,<code>S</code>:<code>X</code>}</code></dt>
+<dt><code>%{,S:X}</code></dt>
 <dd><p>Substitutes <code>X</code>, if processing a file for language <code>S</code>.
 </p>
 </dd>
-<dt><code>%{!,<code>S</code>:<code>X</code>}</code></dt>
+<dt><code>%{!,S:X}</code></dt>
 <dd><p>Substitutes <code>X</code>, if not processing a file for language <code>S</code>.
 </p>
 </dd>
-<dt><code>%{<code>S</code>|<code>P</code>:<code>X</code>}</code></dt>
+<dt><code>%{S|P:X}</code></dt>
 <dd><p>Substitutes <code>X</code> if either <code>-S</code> or <code>-P</code> is given to
 GCC.  This may be combined with &lsquo;<samp>!</samp>&rsquo;, &lsquo;<samp>.</samp>&rsquo;, &lsquo;<samp>,</samp>&rsquo;, and
 <code>*</code> sequences as well, although they have a stronger binding than
@@ -685,7 +684,14 @@ be as many clauses as you need.  This may be combined with <code>.</code>,
 </dd>
 </dl>
 
-<p>The conditional text <code>X</code> in a %{<code>S</code>:<code>X</code>} or similar
+<p>The switch matching text <code>S</code> in a &lsquo;<samp>%{S}</samp>&rsquo;, &lsquo;<samp>%{S:X}</samp>&rsquo;
+or similar construct can use a backslash to ignore the special meaning
+of the character following it, thus allowing literal matching of a
+character that is otherwise specially treated.  For example,
+&lsquo;<samp>%{std=iso9899\:1999:X}</samp>&rsquo; substitutes <code>X</code> if the
+<samp>-std=iso9899:1999</samp> option is given.
+</p>
+<p>The conditional text <code>X</code> in a &lsquo;<samp>%{S:X}</samp>&rsquo; or similar
 construct may contain other nested &lsquo;<samp>%</samp>&rsquo; constructs or spaces, or
 even newlines.  They are processed as usual, as described above.
 Trailing white space in <code>X</code> is ignored.  White space may also

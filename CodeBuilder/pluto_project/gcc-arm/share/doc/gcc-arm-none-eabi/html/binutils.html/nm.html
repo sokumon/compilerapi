@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Copyright (C) 1991-2017 Free Software Foundation, Inc.
+<!-- Copyright (C) 1991-2021 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -9,16 +9,16 @@ with no Invariant Sections, with no Front-Cover Texts, and with no
 Back-Cover Texts.  A copy of the license is included in the
 section entitled "GNU Free Documentation License".
  -->
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Binary Utilities: nm</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>nm (GNU Binary Utilities)</title>
 
-<meta name="description" content="GNU Binary Utilities: nm">
-<meta name="keywords" content="GNU Binary Utilities: nm">
+<meta name="description" content="nm (GNU Binary Utilities)">
+<meta name="keywords" content="nm (GNU Binary Utilities)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="index.html#Top" rel="start" title="Top">
 <link href="Binutils-Index.html#Binutils-Index" rel="index" title="Binutils Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
@@ -28,16 +28,16 @@ section entitled "GNU Free Documentation License".
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -46,10 +46,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -57,7 +56,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="nm"></a>
 <div class="header">
 <p>
@@ -75,14 +74,18 @@ Next: <a href="objcopy.html#objcopy" accesskey="n" rel="next">objcopy</a>, Previ
    [<samp>-B</samp>|<samp>--format=bsd</samp>] [<samp>-C</samp>|<samp>--demangle</samp>[=<var>style</var>]]
    [<samp>-D</samp>|<samp>--dynamic</samp>] [<samp>-f</samp><var>format</var>|<samp>--format=</samp><var>format</var>]
    [<samp>-g</samp>|<samp>--extern-only</samp>] [<samp>-h</samp>|<samp>--help</samp>]
-   [<samp>-l</samp>|<samp>--line-numbers</samp>] [<samp>-n</samp>|<samp>-v</samp>|<samp>--numeric-sort</samp>]
+   [<samp>--ifunc-chars=<var>CHARS</var></samp>]
+   [<samp>-l</samp>|<samp>--line-numbers</samp>] [<samp>--inlines</samp>]
+   [<samp>-n</samp>|<samp>-v</samp>|<samp>--numeric-sort</samp>]
    [<samp>-P</samp>|<samp>--portability</samp>] [<samp>-p</samp>|<samp>--no-sort</samp>]
    [<samp>-r</samp>|<samp>--reverse-sort</samp>] [<samp>-S</samp>|<samp>--print-size</samp>]
    [<samp>-s</samp>|<samp>--print-armap</samp>] [<samp>-t</samp> <var>radix</var>|<samp>--radix=</samp><var>radix</var>]
    [<samp>-u</samp>|<samp>--undefined-only</samp>] [<samp>-V</samp>|<samp>--version</samp>]
    [<samp>-X 32_64</samp>] [<samp>--defined-only</samp>] [<samp>--no-demangle</samp>]
-   [<samp>--plugin</samp> <var>name</var>] [<samp>--size-sort</samp>] [<samp>--special-syms</samp>]
-   [<samp>--synthetic</samp>] [<samp>--with-symbol-versions</samp>] [<samp>--target=</samp><var>bfdname</var>]
+   [<samp>--plugin</samp> <var>name</var>]
+   [<samp>--no-recurse-limit</samp>|<samp>--recurse-limit</samp>]]
+   [<samp>--size-sort</samp>] [<samp>--special-syms</samp>]
+   [<samp>--synthetic</samp>] [<samp>--target=</samp><var>bfdname</var>]
    [<var>objfile</var>&hellip;]
 </pre></div>
 
@@ -110,16 +113,21 @@ linking.
 </dd>
 <dt><code>B</code></dt>
 <dt><code>b</code></dt>
-<dd><p>The symbol is in the uninitialized data section (known as BSS).
+<dd><p>The symbol is in the BSS data section.  This section typically
+contains zero-initialized or uninitialized data, although the exact
+behavior is system dependent.
 </p>
 </dd>
 <dt><code>C</code></dt>
+<dt><code>c</code></dt>
 <dd><p>The symbol is common.  Common symbols are uninitialized data.  When
 linking, multiple common symbols may appear with the same name.  If the
 symbol is defined anywhere, the common symbols are treated as undefined
 references.
 For more details on common symbols, see the discussion of
 &ndash;warn-common in <a href="http://sourceware.org/binutils/docs/ld/Options.html#Options">Linker options</a> in <cite>The GNU linker</cite>.
+The lower case <var>c</var> character is used when the symbol is in a
+special section for small commons.
 </p>
 </dd>
 <dt><code>D</code></dt>
@@ -136,12 +144,21 @@ such as a global int variable as opposed to a large global array.
 </dd>
 <dt><code>i</code></dt>
 <dd><p>For PE format files this indicates that the symbol is in a section
-specific to the implementation of DLLs.  For ELF format files this
-indicates that the symbol is an indirect function.  This is a GNU
-extension to the standard set of ELF symbol types.  It indicates a
-symbol which if referenced by a relocation does not evaluate to its
-address, but instead must be invoked at runtime.  The runtime
-execution will then return the value to be used in the relocation.
+specific to the implementation of DLLs.
+</p>
+<p>For ELF format files this indicates that the symbol is an indirect
+function.  This is a GNU extension to the standard set of ELF symbol
+types.  It indicates a symbol which if referenced by a relocation does
+not evaluate to its address, but instead must be invoked at runtime.
+The runtime execution will then return the value to be used in the
+relocation.
+</p>
+<p>Note - the actual symbols display for GNU indirect symbols is
+controlled by the <samp>--ifunc-chars</samp> command line option.  If this
+option has been provided then the first character in the string will
+be used for global indirect function symbols.  If the string contains
+a second character then that will be used for local indirect function
+symbols.
 </p>
 </dd>
 <dt><code>I</code></dt>
@@ -152,8 +169,12 @@ execution will then return the value to be used in the relocation.
 <dd><p>The symbol is a debugging symbol.
 </p>
 </dd>
+<dt><code>n</code></dt>
+<dd><p>The symbol is in the read-only data section.
+</p>
+</dd>
 <dt><code>p</code></dt>
-<dd><p>The symbols is in a stack unwind section.
+<dd><p>The symbol is in a stack unwind section.
 </p>
 </dd>
 <dt><code>R</code></dt>
@@ -163,7 +184,8 @@ execution will then return the value to be used in the relocation.
 </dd>
 <dt><code>S</code></dt>
 <dt><code>s</code></dt>
-<dd><p>The symbol is in an uninitialized data section for small objects.
+<dd><p>The symbol is in an uninitialized or zero-initialized data section
+for small objects.
 </p>
 </dd>
 <dt><code>T</code></dt>
@@ -213,7 +235,13 @@ the stab type.  Stabs symbols are used to hold debugging information.
 </p></dd>
 </dl>
 
-</li><li> The symbol name.
+</li><li> The symbol name.  If a symbol has version information associated with it,
+then the version information is displayed as well.  If the versioned
+symbol is undefined or hidden from linker, the version string is displayed
+as a suffix to the symbol name, preceded by an @ character.  For example
+&lsquo;<samp>foo@VER_1</samp>&rsquo;.  If the version is the default version to be used when
+resolving unversioned references to the symbol, then it is displayed as a
+suffix preceded by two @ characters.  For example &lsquo;<samp>foo@@VER_2</samp>&rsquo;.
 </li></ul>
 
 
@@ -260,6 +288,23 @@ for more information on demangling.
 <dd><p>Do not demangle low-level symbol names.  This is the default.
 </p>
 </dd>
+<dt><code>--recurse-limit</code></dt>
+<dt><code>--no-recurse-limit</code></dt>
+<dt><code>--recursion-limit</code></dt>
+<dt><code>--no-recursion-limit</code></dt>
+<dd><p>Enables or disables a limit on the amount of recursion performed
+whilst demangling strings.  Since the name mangling formats allow for
+an infinite level of recursion it is possible to create strings whose
+decoding will exhaust the amount of stack space available on the host
+machine, triggering a memory fault.  The limit tries to prevent this
+from happening by restricting recursion to 2048 levels of nesting.
+</p>
+<p>The default is for this limit to be enabled, but disabling it may be
+necessary in order to demangle truly complicated names.  Note however
+that if the recursion limit is disabled then stack exhaustion is
+possible and any bug reports about such an event will be rejected.
+</p>
+</dd>
 <dt><code>-D</code></dt>
 <dt><code>--dynamic</code></dt>
 <dd><a name="index-dynamic-symbols"></a>
@@ -289,6 +334,16 @@ either upper or lower case.
 <dd><p>Show a summary of the options to <code>nm</code> and exit.
 </p>
 </dd>
+<dt><code>--ifunc-chars=<var>CHARS</var></code></dt>
+<dd><p>When display GNU indirect function symbols <code>nm</code> will default
+to using the <code>i</code> character for both local indirect functions and
+global indirect functions.  The <samp>--ifunc-chars</samp> option allows
+the user to specify a string containing one or two characters. The
+first character will be used for global indirect function symbols and
+the second character, if present, will be used for local indirect
+function symbols.
+</p>
+</dd>
 <dt><code>-l</code></dt>
 <dt><code>--line-numbers</code></dt>
 <dd><a name="index-symbol-line-numbers"></a>
@@ -297,6 +352,17 @@ line number.  For a defined symbol, look for the line number of the
 address of the symbol.  For an undefined symbol, look for the line
 number of a relocation entry which refers to the symbol.  If line number
 information can be found, print it after the other symbol information.
+</p>
+</dd>
+<dt><code>--inlines</code></dt>
+<dd><a name="index-objdump-inlines"></a>
+<p>When option <samp>-l</samp> is active, if the address belongs to a
+function that was inlined, then this option causes the source 
+information for all enclosing scopes back to the first non-inlined
+function to be printed as well.  For example, if <code>main</code> inlines
+<code>callee1</code> which inlines <code>callee2</code>, and address is from
+<code>callee2</code>, the source information for <code>callee1</code> and <code>main</code>
+will also be printed.
 </p>
 </dd>
 <dt><code>-n</code></dt>
@@ -373,10 +439,24 @@ to <samp>-X 32</samp>, which is not supported by <small>GNU</small> <code>nm</co
 </p>
 </dd>
 <dt><code>--plugin <var>name</var></code></dt>
-<dd><a name="index-load-plugin"></a>
+<dd><a name="index-plugins-1"></a>
 <p>Load the plugin called <var>name</var> to add support for extra target
 types.  This option is only available if the toolchain has been built
 with plugin support enabled.
+</p>
+<p>If <samp>--plugin</samp> is not provided, but plugin support has been
+enabled then <code>nm</code> iterates over the files in
+<samp>${libdir}/bfd-plugins</samp> in alphabetic order and the first
+plugin that claims the object in question is used.
+</p>
+<p>Please note that this plugin search directory is <em>not</em> the one
+used by <code>ld</code>&rsquo;s <samp>-plugin</samp> option.  In order to make
+<code>nm</code> use the  linker plugin it must be copied into the
+<samp>${libdir}/bfd-plugins</samp> directory.  For GCC based compilations
+the linker plugin is called <samp>liblto_plugin.so.0.0.0</samp>.  For Clang
+based compilations it is called <samp>LLVMgold.so</samp>.  The GCC plugin
+is always backwards compatible with earlier versions, so it is
+sufficient to just copy the newest one.
 </p>
 </dd>
 <dt><code>--size-sort</code></dt>
@@ -400,15 +480,6 @@ used to mark transitions between ARM code, THUMB code and data.
 <dd><p>Include synthetic symbols in the output.  These are special symbols
 created by the linker for various purposes.  They are not shown by
 default since they are not part of the binary&rsquo;s original source code.
-</p>
-</dd>
-<dt><code>--with-symbol-versions</code></dt>
-<dd><p>Enables the display of symbol version information if any exists.  The
-version string is displayed as a suffix to the symbol name, preceeded by
-an @ character.  For example &lsquo;<samp>foo@VER_1</samp>&rsquo;.  If the version is
-the default version to be used when resolving unversioned references
-to the symbol then it is displayed as a suffix preceeded by two @
-characters.  For example &lsquo;<samp>foo@@VER_2</samp>&rsquo;.
 </p>
 </dd>
 <dt><code>--target=<var>bfdname</var></code></dt>

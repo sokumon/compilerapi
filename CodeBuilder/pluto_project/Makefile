@@ -80,8 +80,8 @@ CC		 = gcc-arm/bin/arm-none-eabi-g++
 C		 = gcc-arm/bin/arm-none-eabi-gcc
 OBJCOPY		 = gcc-arm/bin/arm-none-eabi-objcopy
 SIZE		 =gcc-arm/bin/arm-none-eabi-size
-MKDIR =    cygwin64/bin/mkdir
-ECHO =     cygwin64/bin/echo
+MKDIR =    mkdir
+ECHO =    echo
 
 ifeq ($(DEBUG),GDB)
 OPTIMIZE	 = -O0

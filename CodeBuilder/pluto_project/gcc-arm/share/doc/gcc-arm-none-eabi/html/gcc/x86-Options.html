@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Copyright (C) 1988-2016 Free Software Foundation, Inc.
+<!-- Copyright (C) 1988-2020 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -19,16 +19,16 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Using the GNU Compiler Collection (GCC): x86 Options</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>x86 Options (Using the GNU Compiler Collection (GCC))</title>
 
-<meta name="description" content="Using the GNU Compiler Collection (GCC): x86 Options">
-<meta name="keywords" content="Using the GNU Compiler Collection (GCC): x86 Options">
+<meta name="description" content="x86 Options (Using the GNU Compiler Collection (GCC))">
+<meta name="keywords" content="x86 Options (Using the GNU Compiler Collection (GCC))">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="index.html#Top" rel="start" title="Top">
 <link href="Option-Index.html#Option-Index" rel="index" title="Option Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
@@ -38,16 +38,16 @@ You have freedom to copy and modify this GNU Manual, like GNU
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -56,10 +56,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -67,7 +66,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="x86-Options"></a>
 <div class="header">
 <p>
@@ -75,14 +74,14 @@ Next: <a href="x86-Windows-Options.html#x86-Windows-Options" accesskey="n" rel="
 </div>
 <hr>
 <a name="x86-Options-1"></a>
-<h4 class="subsection">3.18.54 x86 Options</h4>
+<h4 class="subsection">3.19.59 x86 Options</h4>
 <a name="index-x86-Options"></a>
 
 <p>These &lsquo;<samp>-m</samp>&rsquo; options are defined for the x86 family of computers.
 </p>
 <dl compact="compact">
 <dt><code>-march=<var>cpu-type</var></code></dt>
-<dd><a name="index-march-11"></a>
+<dd><a name="index-march-14"></a>
 <p>Generate instructions for the machine type <var>cpu-type</var>.  In contrast to
 <samp>-mtune=<var>cpu-type</var></samp>, which merely tunes the generated code 
 for the specified <var>cpu-type</var>, <samp>-march=<var>cpu-type</var></samp> allows GCC
@@ -100,6 +99,10 @@ enables all instruction subsets supported by the local machine (hence
 the result might not run on different machines).  Using <samp>-mtune=native</samp>
 produces code optimized for the local machine under the constraints
 of the selected instruction set.  
+</p>
+</dd>
+<dt>&lsquo;<samp>x86-64</samp>&rsquo;</dt>
+<dd><p>A generic CPU with 64-bit extensions.
 </p>
 </dd>
 <dt>&lsquo;<samp>i386</samp>&rsquo;</dt>
@@ -198,15 +201,15 @@ BMI, BMI2 and F16C instruction set support.
 </dd>
 <dt>&lsquo;<samp>broadwell</samp>&rsquo;</dt>
 <dd><p>Intel Broadwell CPU with 64-bit extensions, MOVBE, MMX, SSE, SSE2, SSE3, SSSE3,
-SSE4.1, SSE4.2, POPCNT, AVX, AVX2, AES, PCLMUL, FSGSBASE, RDRND, FMA,
-BMI, BMI2, F16C, RDSEED, ADCX and PREFETCHW instruction set support.
+SSE4.1, SSE4.2, POPCNT, AVX, AVX2, AES, PCLMUL, FSGSBASE, RDRND, FMA, BMI, BMI2,
+F16C, RDSEED ADCX and PREFETCHW instruction set support.
 </p>
 </dd>
 <dt>&lsquo;<samp>skylake</samp>&rsquo;</dt>
 <dd><p>Intel Skylake CPU with 64-bit extensions, MOVBE, MMX, SSE, SSE2, SSE3, SSSE3,
 SSE4.1, SSE4.2, POPCNT, AVX, AVX2, AES, PCLMUL, FSGSBASE, RDRND, FMA,
-BMI, BMI2, F16C, RDSEED, ADCX, PREFETCHW, CLFLUSHOPT, XSAVEC and
-XSAVES instruction set support.
+BMI, BMI2, F16C, RDSEED, ADCX, PREFETCHW, CLFLUSHOPT, XSAVEC and XSAVES
+instruction set support.
 </p>
 </dd>
 <dt>&lsquo;<samp>bonnell</samp>&rsquo;</dt>
@@ -216,21 +219,100 @@ instruction set support.
 </dd>
 <dt>&lsquo;<samp>silvermont</samp>&rsquo;</dt>
 <dd><p>Intel Silvermont CPU with 64-bit extensions, MOVBE, MMX, SSE, SSE2, SSE3, SSSE3,
-SSE4.1, SSE4.2, POPCNT, AES, PCLMUL and RDRND instruction set support.
+SSE4.1, SSE4.2, POPCNT, AES, PREFETCHW, PCLMUL and RDRND instruction set support.
+</p>
+</dd>
+<dt>&lsquo;<samp>goldmont</samp>&rsquo;</dt>
+<dd><p>Intel Goldmont CPU with 64-bit extensions, MOVBE, MMX, SSE, SSE2, SSE3, SSSE3,
+SSE4.1, SSE4.2, POPCNT, AES, PREFETCHW, PCLMUL, RDRND, XSAVE, XSAVEC, XSAVES,
+XSAVEOPT and FSGSBASE instruction set support.
+</p>
+</dd>
+<dt>&lsquo;<samp>goldmont-plus</samp>&rsquo;</dt>
+<dd><p>Intel Goldmont Plus CPU with 64-bit extensions, MOVBE, MMX, SSE, SSE2, SSE3,
+SSSE3, SSE4.1, SSE4.2, POPCNT, AES, PREFETCHW, PCLMUL, RDRND, XSAVE, XSAVEC,
+XSAVES, XSAVEOPT, FSGSBASE, PTWRITE, RDPID, SGX and UMIP instruction set support.
+</p>
+</dd>
+<dt>&lsquo;<samp>tremont</samp>&rsquo;</dt>
+<dd><p>Intel Tremont CPU with 64-bit extensions, MOVBE, MMX, SSE, SSE2, SSE3, SSSE3,
+SSE4.1, SSE4.2, POPCNT, AES, PREFETCHW, PCLMUL, RDRND, XSAVE, XSAVEC, XSAVES,
+XSAVEOPT, FSGSBASE, PTWRITE, RDPID, SGX, UMIP, GFNI-SSE, CLWB, MOVDIRI,
+MOVDIR64B, CLDEMOTE and WAITPKG instruction set support.
 </p>
 </dd>
 <dt>&lsquo;<samp>knl</samp>&rsquo;</dt>
 <dd><p>Intel Knight&rsquo;s Landing CPU with 64-bit extensions, MOVBE, MMX, SSE, SSE2, SSE3,
 SSSE3, SSE4.1, SSE4.2, POPCNT, AVX, AVX2, AES, PCLMUL, FSGSBASE, RDRND, FMA,
-BMI, BMI2, F16C, RDSEED, ADCX, PREFETCHW, AVX512F, AVX512PF, AVX512ER and
-AVX512CD instruction set support.
+BMI, BMI2, F16C, RDSEED, ADCX, PREFETCHW, PREFETCHWT1, AVX512F, AVX512PF,
+AVX512ER and AVX512CD instruction set support.
+</p>
+</dd>
+<dt>&lsquo;<samp>knm</samp>&rsquo;</dt>
+<dd><p>Intel Knights Mill CPU with 64-bit extensions, MOVBE, MMX, SSE, SSE2, SSE3,
+SSSE3, SSE4.1, SSE4.2, POPCNT, AVX, AVX2, AES, PCLMUL, FSGSBASE, RDRND, FMA,
+BMI, BMI2, F16C, RDSEED, ADCX, PREFETCHW, PREFETCHWT1, AVX512F, AVX512PF,
+AVX512ER, AVX512CD, AVX5124VNNIW, AVX5124FMAPS and AVX512VPOPCNTDQ instruction
+set support.
 </p>
 </dd>
 <dt>&lsquo;<samp>skylake-avx512</samp>&rsquo;</dt>
 <dd><p>Intel Skylake Server CPU with 64-bit extensions, MOVBE, MMX, SSE, SSE2, SSE3,
 SSSE3, SSE4.1, SSE4.2, POPCNT, PKU, AVX, AVX2, AES, PCLMUL, FSGSBASE, RDRND, FMA,
 BMI, BMI2, F16C, RDSEED, ADCX, PREFETCHW, CLFLUSHOPT, XSAVEC, XSAVES, AVX512F,
-AVX512VL, AVX512BW, AVX512DQ and AVX512CD instruction set support.
+CLWB, AVX512VL, AVX512BW, AVX512DQ and AVX512CD instruction set support.
+</p>
+</dd>
+<dt>&lsquo;<samp>cannonlake</samp>&rsquo;</dt>
+<dd><p>Intel Cannonlake Server CPU with 64-bit extensions, MOVBE, MMX, SSE, SSE2,
+SSE3, SSSE3, SSE4.1, SSE4.2, POPCNT, PKU, AVX, AVX2, AES, PCLMUL, FSGSBASE,
+RDRND, FMA, BMI, BMI2, F16C, RDSEED, ADCX, PREFETCHW, CLFLUSHOPT, XSAVEC,
+XSAVES, AVX512F, AVX512VL, AVX512BW, AVX512DQ, AVX512CD, AVX512VBMI,
+AVX512IFMA, SHA and UMIP instruction set support.
+</p>
+</dd>
+<dt>&lsquo;<samp>icelake-client</samp>&rsquo;</dt>
+<dd><p>Intel Icelake Client CPU with 64-bit extensions, MOVBE, MMX, SSE, SSE2,
+SSE3, SSSE3, SSE4.1, SSE4.2, POPCNT, PKU, AVX, AVX2, AES, PCLMUL, FSGSBASE,
+RDRND, FMA, BMI, BMI2, F16C, RDSEED, ADCX, PREFETCHW, CLFLUSHOPT, XSAVEC,
+XSAVES, AVX512F, AVX512VL, AVX512BW, AVX512DQ, AVX512CD, AVX512VBMI,
+AVX512IFMA, SHA, CLWB, UMIP, RDPID, GFNI, AVX512VBMI2, AVX512VPOPCNTDQ,
+AVX512BITALG, AVX512VNNI, VPCLMULQDQ, VAES instruction set support.
+</p>
+</dd>
+<dt>&lsquo;<samp>icelake-server</samp>&rsquo;</dt>
+<dd><p>Intel Icelake Server CPU with 64-bit extensions, MOVBE, MMX, SSE, SSE2,
+SSE3, SSSE3, SSE4.1, SSE4.2, POPCNT, PKU, AVX, AVX2, AES, PCLMUL, FSGSBASE,
+RDRND, FMA, BMI, BMI2, F16C, RDSEED, ADCX, PREFETCHW, CLFLUSHOPT, XSAVEC,
+XSAVES, AVX512F, AVX512VL, AVX512BW, AVX512DQ, AVX512CD, AVX512VBMI,
+AVX512IFMA, SHA, CLWB, UMIP, RDPID, GFNI, AVX512VBMI2, AVX512VPOPCNTDQ,
+AVX512BITALG, AVX512VNNI, VPCLMULQDQ, VAES, PCONFIG and WBNOINVD instruction
+set support.
+</p>
+</dd>
+<dt>&lsquo;<samp>cascadelake</samp>&rsquo;</dt>
+<dd><p>Intel Cascadelake CPU with 64-bit extensions, MOVBE, MMX, SSE, SSE2, SSE3, SSSE3,
+SSE4.1, SSE4.2, POPCNT, PKU, AVX, AVX2, AES, PCLMUL, FSGSBASE, RDRND, FMA, BMI,
+BMI2, F16C, RDSEED, ADCX, PREFETCHW, CLFLUSHOPT, XSAVEC, XSAVES, AVX512F, CLWB,
+AVX512VL, AVX512BW, AVX512DQ, AVX512CD and AVX512VNNI instruction set support.
+</p>
+</dd>
+<dt>&lsquo;<samp>cooperlake</samp>&rsquo;</dt>
+<dd><p>Intel cooperlake CPU with 64-bit extensions, MOVBE, MMX, SSE, SSE2, SSE3, SSSE3,
+SSE4.1, SSE4.2, POPCNT, PKU, AVX, AVX2, AES, PCLMUL, FSGSBASE, RDRND, FMA, BMI,
+BMI2, F16C, RDSEED, ADCX, PREFETCHW, CLFLUSHOPT, XSAVEC, XSAVES, AVX512F, CLWB,
+AVX512VL, AVX512BW, AVX512DQ, AVX512CD, AVX512VNNI and AVX512BF16 instruction
+set support.
+</p>
+</dd>
+<dt>&lsquo;<samp>tigerlake</samp>&rsquo;</dt>
+<dd><p>Intel Tigerlake CPU with 64-bit extensions, MOVBE, MMX, SSE, SSE2, SSE3, SSSE3,
+SSE4.1, SSE4.2, POPCNT, PKU, AVX, AVX2, AES, PCLMUL, FSGSBASE, RDRND, FMA, BMI,
+BMI2, F16C, RDSEED, ADCX, PREFETCHW, CLFLUSHOPT, XSAVEC, XSAVES, AVX512F,
+AVX512VL, AVX512BW, AVX512DQ, AVX512CD, AVX512VBMI, AVX512IFMA, SHA, CLWB, UMIP,
+RDPID, GFNI, AVX512VBMI2, AVX512VPOPCNTDQ, AVX512BITALG, AVX512VNNI, VPCLMULQDQ,
+VAES, PCONFIG, WBNOINVD, MOVDIRI, MOVDIR64B, AVX512VP2INTERSECT and KEYLOCKER
+instruction set support.
 </p>
 </dd>
 <dt>&lsquo;<samp>k6</samp>&rsquo;</dt>
@@ -280,34 +362,53 @@ instruction set extensions.)
 </dd>
 <dt>&lsquo;<samp>bdver1</samp>&rsquo;</dt>
 <dd><p>CPUs based on AMD Family 15h cores with x86-64 instruction set support.  (This
-supersets FMA4, AVX, XOP, LWP, AES, PCL_MUL, CX16, MMX, SSE, SSE2, SSE3, SSE4A,
+supersets FMA4, AVX, XOP, LWP, AES, PCLMUL, CX16, MMX, SSE, SSE2, SSE3, SSE4A,
 SSSE3, SSE4.1, SSE4.2, ABM and 64-bit instruction set extensions.)
-</p></dd>
+</p>
+</dd>
 <dt>&lsquo;<samp>bdver2</samp>&rsquo;</dt>
 <dd><p>AMD Family 15h core based CPUs with x86-64 instruction set support.  (This
-supersets BMI, TBM, F16C, FMA, FMA4, AVX, XOP, LWP, AES, PCL_MUL, CX16, MMX,
+supersets BMI, TBM, F16C, FMA, FMA4, AVX, XOP, LWP, AES, PCLMUL, CX16, MMX,
 SSE, SSE2, SSE3, SSE4A, SSSE3, SSE4.1, SSE4.2, ABM and 64-bit instruction set 
 extensions.)
-</p></dd>
+</p>
+</dd>
 <dt>&lsquo;<samp>bdver3</samp>&rsquo;</dt>
 <dd><p>AMD Family 15h core based CPUs with x86-64 instruction set support.  (This
 supersets BMI, TBM, F16C, FMA, FMA4, FSGSBASE, AVX, XOP, LWP, AES, 
-PCL_MUL, CX16, MMX, SSE, SSE2, SSE3, SSE4A, SSSE3, SSE4.1, SSE4.2, ABM and 
-64-bit instruction set extensions.
-</p></dd>
+PCLMUL, CX16, MMX, SSE, SSE2, SSE3, SSE4A, SSSE3, SSE4.1, SSE4.2, ABM and
+64-bit instruction set extensions.)
+</p>
+</dd>
 <dt>&lsquo;<samp>bdver4</samp>&rsquo;</dt>
 <dd><p>AMD Family 15h core based CPUs with x86-64 instruction set support.  (This
 supersets BMI, BMI2, TBM, F16C, FMA, FMA4, FSGSBASE, AVX, AVX2, XOP, LWP, 
-AES, PCL_MUL, CX16, MOVBE, MMX, SSE, SSE2, SSE3, SSE4A, SSSE3, SSE4.1, 
-SSE4.2, ABM and 64-bit instruction set extensions.
+AES, PCLMUL, CX16, MOVBE, MMX, SSE, SSE2, SSE3, SSE4A, SSSE3, SSE4.1,
+SSE4.2, ABM and 64-bit instruction set extensions.)
 </p>
 </dd>
 <dt>&lsquo;<samp>znver1</samp>&rsquo;</dt>
 <dd><p>AMD Family 17h core based CPUs with x86-64 instruction set support.  (This
 supersets BMI, BMI2, F16C, FMA, FSGSBASE, AVX, AVX2, ADCX, RDSEED, MWAITX,
-SHA, CLZERO, AES, PCL_MUL, CX16, MOVBE, MMX, SSE, SSE2, SSE3, SSE4A, SSSE3,
+SHA, CLZERO, AES, PCLMUL, CX16, MOVBE, MMX, SSE, SSE2, SSE3, SSE4A, SSSE3,
 SSE4.1, SSE4.2, ABM, XSAVEC, XSAVES, CLFLUSHOPT, POPCNT, and 64-bit
-instruction set extensions.
+instruction set extensions.)
+</p>
+</dd>
+<dt>&lsquo;<samp>znver2</samp>&rsquo;</dt>
+<dd><p>AMD Family 17h core based CPUs with x86-64 instruction set support. (This
+supersets BMI, BMI2, CLWB, F16C, FMA, FSGSBASE, AVX, AVX2, ADCX, RDSEED,
+MWAITX, SHA, CLZERO, AES, PCLMUL, CX16, MOVBE, MMX, SSE, SSE2, SSE3, SSE4A,
+SSSE3, SSE4.1, SSE4.2, ABM, XSAVEC, XSAVES, CLFLUSHOPT, POPCNT, RDPID,
+WBNOINVD, and 64-bit instruction set extensions.)
+</p>
+</dd>
+<dt>&lsquo;<samp>znver3</samp>&rsquo;</dt>
+<dd><p>AMD Family 19h core based CPUs with x86-64 instruction set support. (This
+supersets BMI, BMI2, CLWB, F16C, FMA, FSGSBASE, AVX, AVX2, ADCX, RDSEED,
+MWAITX, SHA, CLZERO, AES, PCLMUL, CX16, MOVBE, MMX, SSE, SSE2, SSE3, SSE4A,
+SSSE3, SSE4.1, SSE4.2, ABM, XSAVEC, XSAVES, CLFLUSHOPT, POPCNT, RDPID,
+WBNOINVD, PKU, VPCLMULQDQ, VAES, and 64-bit instruction set extensions.)
 </p>
 </dd>
 <dt>&lsquo;<samp>btver1</samp>&rsquo;</dt>
@@ -318,7 +419,7 @@ instruction set extensions.)
 </dd>
 <dt>&lsquo;<samp>btver2</samp>&rsquo;</dt>
 <dd><p>CPUs based on AMD Family 16h cores with x86-64 instruction set support. This
-includes MOVBE, F16C, BMI, AVX, PCL_MUL, AES, SSE4.2, SSE4.1, CX16, ABM,
+includes MOVBE, F16C, BMI, AVX, PCLMUL, AES, SSE4.2, SSE4.1, CX16, ABM,
 SSE4A, SSSE3, SSE3, SSE2, SSE, MMX and 64-bit instruction set extensions.
 </p>
 </dd>
@@ -333,14 +434,80 @@ instruction set support.
 </p>
 </dd>
 <dt>&lsquo;<samp>c3</samp>&rsquo;</dt>
-<dd><p>VIA C3 CPU with MMX and 3DNow! instruction set support.  (No scheduling is
-implemented for this chip.)
+<dd><p>VIA C3 CPU with MMX and 3DNow! instruction set support.
+(No scheduling is implemented for this chip.)
 </p>
 </dd>
 <dt>&lsquo;<samp>c3-2</samp>&rsquo;</dt>
 <dd><p>VIA C3-2 (Nehemiah/C5XL) CPU with MMX and SSE instruction set support.
-(No scheduling is
-implemented for this chip.)
+(No scheduling is implemented for this chip.)
+</p>
+</dd>
+<dt>&lsquo;<samp>c7</samp>&rsquo;</dt>
+<dd><p>VIA C7 (Esther) CPU with MMX, SSE, SSE2 and SSE3 instruction set support.
+(No scheduling is implemented for this chip.)
+</p>
+</dd>
+<dt>&lsquo;<samp>samuel-2</samp>&rsquo;</dt>
+<dd><p>VIA Eden Samuel 2 CPU with MMX and 3DNow! instruction set support.
+(No scheduling is implemented for this chip.)
+</p>
+</dd>
+<dt>&lsquo;<samp>nehemiah</samp>&rsquo;</dt>
+<dd><p>VIA Eden Nehemiah CPU with MMX and SSE instruction set support.
+(No scheduling is implemented for this chip.)
+</p>
+</dd>
+<dt>&lsquo;<samp>esther</samp>&rsquo;</dt>
+<dd><p>VIA Eden Esther CPU with MMX, SSE, SSE2 and SSE3 instruction set support.
+(No scheduling is implemented for this chip.)
+</p>
+</dd>
+<dt>&lsquo;<samp>eden-x2</samp>&rsquo;</dt>
+<dd><p>VIA Eden X2 CPU with x86-64, MMX, SSE, SSE2 and SSE3 instruction set support.
+(No scheduling is implemented for this chip.)
+</p>
+</dd>
+<dt>&lsquo;<samp>eden-x4</samp>&rsquo;</dt>
+<dd><p>VIA Eden X4 CPU with x86-64, MMX, SSE, SSE2, SSE3, SSSE3, SSE4.1, SSE4.2,
+AVX and AVX2 instruction set support.
+(No scheduling is implemented for this chip.)
+</p>
+</dd>
+<dt>&lsquo;<samp>nano</samp>&rsquo;</dt>
+<dd><p>Generic VIA Nano CPU with x86-64, MMX, SSE, SSE2, SSE3 and SSSE3
+instruction set support.
+(No scheduling is implemented for this chip.)
+</p>
+</dd>
+<dt>&lsquo;<samp>nano-1000</samp>&rsquo;</dt>
+<dd><p>VIA Nano 1xxx CPU with x86-64, MMX, SSE, SSE2, SSE3 and SSSE3
+instruction set support.
+(No scheduling is implemented for this chip.)
+</p>
+</dd>
+<dt>&lsquo;<samp>nano-2000</samp>&rsquo;</dt>
+<dd><p>VIA Nano 2xxx CPU with x86-64, MMX, SSE, SSE2, SSE3 and SSSE3
+instruction set support.
+(No scheduling is implemented for this chip.)
+</p>
+</dd>
+<dt>&lsquo;<samp>nano-3000</samp>&rsquo;</dt>
+<dd><p>VIA Nano 3xxx CPU with x86-64, MMX, SSE, SSE2, SSE3, SSSE3 and SSE4.1
+instruction set support.
+(No scheduling is implemented for this chip.)
+</p>
+</dd>
+<dt>&lsquo;<samp>nano-x2</samp>&rsquo;</dt>
+<dd><p>VIA Nano Dual Core CPU with x86-64, MMX, SSE, SSE2, SSE3, SSSE3 and SSE4.1
+instruction set support.
+(No scheduling is implemented for this chip.)
+</p>
+</dd>
+<dt>&lsquo;<samp>nano-x4</samp>&rsquo;</dt>
+<dd><p>VIA Nano Quad Core CPU with x86-64, MMX, SSE, SSE2, SSE3, SSSE3 and SSE4.1
+instruction set support.
+(No scheduling is implemented for this chip.)
 </p>
 </dd>
 <dt>&lsquo;<samp>geode</samp>&rsquo;</dt>
@@ -350,7 +517,7 @@ implemented for this chip.)
 
 </dd>
 <dt><code>-mtune=<var>cpu-type</var></code></dt>
-<dd><a name="index-mtune-14"></a>
+<dd><a name="index-mtune-16"></a>
 <p>Tune to <var>cpu-type</var> everything applicable about the generated code, except
 for the ABI and the set of available instructions.  
 While picking a specific <var>cpu-type</var> schedules things appropriately
@@ -426,7 +593,7 @@ The temporary results are computed in 80-bit precision instead of the precision
 specified by the type, resulting in slightly different results compared to most
 of other chips.  See <samp>-ffloat-store</samp> for more detailed description.
 </p>
-<p>This is the default choice for x86-32 targets.
+<p>This is the default choice for non-Darwin x86-32 targets.
 </p>
 </dd>
 <dt>&lsquo;<samp>sse</samp>&rsquo;</dt>
@@ -447,7 +614,9 @@ effective.  For the x86-64 compiler, these extensions are enabled by default.
 the numerical instability problems of 387 code, but may break some existing
 code that expects temporaries to be 80 bits.
 </p>
-<p>This is the default choice for the x86-64 compiler.
+<p>This is the default choice for the x86-64 compiler, Darwin x86-32 targets,
+and the default choice for x86-32 targets with the SSE2 instruction set
+when <samp>-ffast-math</samp> is enabled.
 </p>
 </dd>
 <dt>&lsquo;<samp>sse,387</samp>&rsquo;</dt>
@@ -480,13 +649,22 @@ comparisons.  These correctly handle the case where the result of a
 comparison is unordered.
 </p>
 </dd>
+<dt><code>-m80387</code></dt>
+<dt><code>-mhard-float</code></dt>
+<dd><a name="index-80387"></a>
+<a name="index-mhard_002dfloat-11"></a>
+<p>Generate output containing 80387 instructions for floating point.
+</p>
+</dd>
+<dt><code>-mno-80387</code></dt>
 <dt><code>-msoft-float</code></dt>
-<dd><a name="index-msoft_002dfloat-13"></a>
+<dd><a name="index-no_002d80387"></a>
+<a name="index-msoft_002dfloat-15"></a>
 <p>Generate output containing library calls for floating point.
 </p>
 <p><strong>Warning:</strong> the requisite libraries are not part of GCC.
 Normally the facilities of the machine&rsquo;s usual C compiler are used, but
-this can&rsquo;t be done directly in cross-compilation.  You must make your
+this cannot be done directly in cross-compilation.  You must make your
 own arrangements to provide suitable library functions for
 cross-compilation.
 </p>
@@ -497,6 +675,7 @@ register stack, some floating-point opcodes may be emitted even if
 </dd>
 <dt><code>-mno-fp-ret-in-387</code></dt>
 <dd><a name="index-mno_002dfp_002dret_002din_002d387"></a>
+<a name="index-mfp_002dret_002din_002d387"></a>
 <p>Do not use the FPU registers for return values of functions.
 </p>
 <p>The usual calling convention has functions return values of types
@@ -510,10 +689,11 @@ in ordinary CPU registers instead.
 </dd>
 <dt><code>-mno-fancy-math-387</code></dt>
 <dd><a name="index-mno_002dfancy_002dmath_002d387"></a>
+<a name="index-mfancy_002dmath_002d387"></a>
 <p>Some 387 emulators do not support the <code>sin</code>, <code>cos</code> and
 <code>sqrt</code> instructions for the 387.  Specify this option to avoid
-generating those instructions.  This option is the default on
-OpenBSD and NetBSD.  This option is overridden when <samp>-march</samp>
+generating those instructions.
+This option is overridden when <samp>-march</samp>
 indicates that the target CPU always has an FPU and so the
 instruction does not need emulation.  These
 instructions are not generated unless you also use the
@@ -589,7 +769,7 @@ with code compiled without that switch.
 </p>
 </dd>
 <dt><code>-malign-data=<var>type</var></code></dt>
-<dd><a name="index-malign_002ddata"></a>
+<dd><a name="index-malign_002ddata-1"></a>
 <p>Control how GCC aligns variables.  Supported values for <var>type</var> are
 &lsquo;<samp>compat</samp>&rsquo; uses increased alignment value compatible uses GCC 4.8
 and earlier, &lsquo;<samp>abi</samp>&rsquo; uses alignment value as specified by the
@@ -660,12 +840,10 @@ the system libraries and startup modules.
 <dt><code>-mvect8-ret-in-mem</code></dt>
 <dd><a name="index-mvect8_002dret_002din_002dmem"></a>
 <p>Return 8-byte vectors in memory instead of MMX registers.  This is the
-default on Solaris&nbsp;8 and 9 and VxWorks to match the ABI of the Sun
-Studio compilers until version 12.  Later compiler versions (starting
-with Studio 12 Update&nbsp;1) follow the ABI used by other x86 targets, which
-is the default on Solaris&nbsp;10 and later.  <em>Only</em> use this option if
-you need to remain compatible with existing code produced by those
-previous compiler versions or older versions of GCC.
+default on VxWorks to match the ABI of the Sun Studio compilers until
+version 12.  <em>Only</em> use this option if you need to remain
+compatible with existing code produced by those previous compiler
+versions or older versions of GCC.
 </p>
 </dd>
 <dt><code>-mpc32</code></dt>
@@ -704,7 +882,7 @@ applicable to individual functions.
 </p>
 </dd>
 <dt><code>-mpreferred-stack-boundary=<var>num</var></code></dt>
-<dd><a name="index-mpreferred_002dstack_002dboundary"></a>
+<dd><a name="index-mpreferred_002dstack_002dboundary-1"></a>
 <p>Attempt to keep the stack boundary aligned to a 2 raised to <var>num</var>
 byte boundary.  If <samp>-mpreferred-stack-boundary</samp> is not specified,
 the default is 4 (16 bytes or 128 bits).
@@ -820,11 +998,17 @@ preferred alignment to <samp>-mpreferred-stack-boundary=2</samp>.
 <dt><code>-mpclmul</code></dt>
 <dd><a name="index-mpclmul"></a>
 </dd>
-<dt><code>-mclfushopt</code></dt>
-<dd><a name="index-mclfushopt"></a>
+<dt><code>-mclflushopt</code></dt>
+<dd><a name="index-mclflushopt"></a>
+</dd>
+<dt><code>-mclwb</code></dt>
+<dd><a name="index-mclwb"></a>
 </dd>
 <dt><code>-mfsgsbase</code></dt>
 <dd><a name="index-mfsgsbase"></a>
+</dd>
+<dt><code>-mptwrite</code></dt>
+<dd><a name="index-mptwrite"></a>
 </dd>
 <dt><code>-mrdrnd</code></dt>
 <dd><a name="index-mrdrnd"></a>
@@ -835,11 +1019,29 @@ preferred alignment to <samp>-mpreferred-stack-boundary=2</samp>.
 <dt><code>-mfma</code></dt>
 <dd><a name="index-mfma"></a>
 </dd>
+<dt><code>-mpconfig</code></dt>
+<dd><a name="index-mpconfig"></a>
+</dd>
+<dt><code>-mwbnoinvd</code></dt>
+<dd><a name="index-mwbnoinvd"></a>
+</dd>
 <dt><code>-mfma4</code></dt>
 <dd><a name="index-mfma4"></a>
 </dd>
+<dt><code>-mprfchw</code></dt>
+<dd><a name="index-mprfchw"></a>
+</dd>
+<dt><code>-mrdpid</code></dt>
+<dd><a name="index-mrdpid"></a>
+</dd>
 <dt><code>-mprefetchwt1</code></dt>
 <dd><a name="index-mprefetchwt1"></a>
+</dd>
+<dt><code>-mrdseed</code></dt>
+<dd><a name="index-mrdseed"></a>
+</dd>
+<dt><code>-msgx</code></dt>
+<dd><a name="index-msgx"></a>
 </dd>
 <dt><code>-mxop</code></dt>
 <dd><a name="index-mxop"></a>
@@ -850,16 +1052,24 @@ preferred alignment to <samp>-mpreferred-stack-boundary=2</samp>.
 <dt><code>-m3dnow</code></dt>
 <dd><a name="index-m3dnow"></a>
 </dd>
+<dt><code>-m3dnowa</code></dt>
+<dd><a name="index-m3dnowa"></a>
+</dd>
 <dt><code>-mpopcnt</code></dt>
 <dd><a name="index-mpopcnt"></a>
 </dd>
 <dt><code>-mabm</code></dt>
 <dd><a name="index-mabm"></a>
 </dd>
+<dt><code>-madx</code></dt>
+<dd><a name="index-madx"></a>
+</dd>
 <dt><code>-mbmi</code></dt>
 <dd><a name="index-mbmi"></a>
 </dd>
 <dt><code>-mbmi2</code></dt>
+<dd><a name="index-mbmi2"></a>
+</dd>
 <dt><code>-mlzcnt</code></dt>
 <dd><a name="index-mlzcnt"></a>
 </dd>
@@ -881,11 +1091,11 @@ preferred alignment to <samp>-mpreferred-stack-boundary=2</samp>.
 <dt><code>-mrtm</code></dt>
 <dd><a name="index-mrtm"></a>
 </dd>
+<dt><code>-mhle</code></dt>
+<dd><a name="index-mhle"></a>
+</dd>
 <dt><code>-mtbm</code></dt>
 <dd><a name="index-mtbm"></a>
-</dd>
-<dt><code>-mmpx</code></dt>
-<dd><a name="index-mmpx"></a>
 </dd>
 <dt><code>-mmwaitx</code></dt>
 <dd><a name="index-mmwaitx"></a>
@@ -895,13 +1105,65 @@ preferred alignment to <samp>-mpreferred-stack-boundary=2</samp>.
 </dd>
 <dt><code>-mpku</code></dt>
 <dd><a name="index-mpku"></a>
+</dd>
+<dt><code>-mavx512vbmi2</code></dt>
+<dd><a name="index-mavx512vbmi2"></a>
+</dd>
+<dt><code>-mavx512bf16</code></dt>
+<dd><a name="index-mavx512bf16"></a>
+</dd>
+<dt><code>-mgfni</code></dt>
+<dd><a name="index-mgfni"></a>
+</dd>
+<dt><code>-mvaes</code></dt>
+<dd><a name="index-mvaes"></a>
+</dd>
+<dt><code>-mwaitpkg</code></dt>
+<dd><a name="index-mwaitpkg"></a>
+</dd>
+<dt><code>-mvpclmulqdq</code></dt>
+<dd><a name="index-mvpclmulqdq"></a>
+</dd>
+<dt><code>-mavx512bitalg</code></dt>
+<dd><a name="index-mavx512bitalg"></a>
+</dd>
+<dt><code>-mmovdiri</code></dt>
+<dd><a name="index-mmovdiri"></a>
+</dd>
+<dt><code>-mmovdir64b</code></dt>
+<dd><a name="index-mmovdir64b"></a>
+</dd>
+<dt><code>-menqcmd</code></dt>
+<dd><a name="index-menqcmd"></a>
+</dd>
+<dt><code>-mavx512vpopcntdq</code></dt>
+<dd><a name="index-mavx512vpopcntdq"></a>
+</dd>
+<dt><code>-mavx512vp2intersect</code></dt>
+<dd><a name="index-mavx512vp2intersect"></a>
+</dd>
+<dt><code>-mavx5124fmaps</code></dt>
+<dd><a name="index-mavx5124fmaps"></a>
+</dd>
+<dt><code>-mavx512vnni</code></dt>
+<dd><a name="index-mavx512vnni"></a>
+</dd>
+<dt><code>-mavx5124vnniw</code></dt>
+<dd><a name="index-mavx5124vnniw"></a>
+</dd>
+<dt><code>-mcldemote</code></dt>
+<dd><a name="index-mcldemote"></a>
 <p>These switches enable the use of instructions in the MMX, SSE,
-SSE2, SSE3, SSSE3, SSE4.1, AVX, AVX2, AVX512F, AVX512PF, AVX512ER, AVX512CD,
-SHA, AES, PCLMUL, FSGSBASE, RDRND, F16C, FMA, SSE4A, FMA4, XOP, LWP, ABM,
-AVX512VL, AVX512BW, AVX512DQ, AVX512IFMA AVX512VBMI, BMI, BMI2, FXSR,
-XSAVE, XSAVEOPT, LZCNT, RTM, MPX, MWAITX, PKU or 3DNow!
-extended instruction sets.  Each has a corresponding <samp>-mno-</samp> option
-to disable use of these instructions.
+SSE2, SSE3, SSSE3, SSE4, SSE4A, SSE4.1, SSE4.2, AVX, AVX2, AVX512F, AVX512PF,
+AVX512ER, AVX512CD, AVX512VL, AVX512BW, AVX512DQ, AVX512IFMA, AVX512VBMI, SHA,
+AES, PCLMUL, CLFLUSHOPT, CLWB, FSGSBASE, PTWRITE, RDRND, F16C, FMA, PCONFIG,
+WBNOINVD, FMA4, PREFETCHW, RDPID, PREFETCHWT1, RDSEED, SGX, XOP, LWP,
+3DNow!, enhanced 3DNow!, POPCNT, ABM, ADX, BMI, BMI2, LZCNT, FXSR, XSAVE,
+XSAVEOPT, XSAVEC, XSAVES, RTM, HLE, TBM, MWAITX, CLZERO, PKU, AVX512VBMI2,
+GFNI, VAES, WAITPKG, VPCLMULQDQ, AVX512BITALG, MOVDIRI, MOVDIR64B, AVX512BF16,
+ENQCMD, AVX512VPOPCNTDQ, AVX5124FMAPS, AVX512VNNI, AVX5124VNNIW, or CLDEMOTE
+extended instruction sets.  Each has a corresponding <samp>-mno-</samp> option to
+disable use of these instructions.
 </p>
 <p>These extensions are also available as built-in functions: see
 <a href="x86-Built_002din-Functions.html#x86-Built_002din-Functions">x86 Built-in Functions</a>, for details of the functions enabled and
@@ -975,15 +1237,38 @@ intrinsics.
 256-bit AVX instructions in the auto-vectorizer.
 </p>
 </dd>
+<dt><code>-mprefer-vector-width=<var>opt</var></code></dt>
+<dd><a name="index-mprefer_002dvector_002dwidth"></a>
+<p>This option instructs GCC to use <var>opt</var>-bit vector width in instructions
+instead of default on the selected platform.
+</p>
+<dl compact="compact">
+<dt>&lsquo;<samp>none</samp>&rsquo;</dt>
+<dd><p>No extra limitations applied to GCC other than defined by the selected platform.
+</p>
+</dd>
+<dt>&lsquo;<samp>128</samp>&rsquo;</dt>
+<dd><p>Prefer 128-bit vector width for instructions.
+</p>
+</dd>
+<dt>&lsquo;<samp>256</samp>&rsquo;</dt>
+<dd><p>Prefer 256-bit vector width for instructions.
+</p>
+</dd>
+<dt>&lsquo;<samp>512</samp>&rsquo;</dt>
+<dd><p>Prefer 512-bit vector width for instructions.
+</p></dd>
+</dl>
+
+</dd>
 <dt><code>-mcx16</code></dt>
 <dd><a name="index-mcx16"></a>
-<p>This option enables GCC to generate <code>CMPXCHG16B</code> instructions.
-<code>CMPXCHG16B</code> allows for atomic operations on 128-bit double quadword
-(or oword) data types.  
-This is useful for high-resolution counters that can be updated
-by multiple processors (or cores).  This instruction is generated as part of
-atomic built-in functions: see <a href="_005f_005fsync-Builtins.html#g_t_005f_005fsync-Builtins">__sync Builtins</a> or
-<a href="_005f_005fatomic-Builtins.html#g_t_005f_005fatomic-Builtins">__atomic Builtins</a> for details.
+<p>This option enables GCC to generate <code>CMPXCHG16B</code> instructions in 64-bit
+code to implement compare-and-exchange operations on 16-byte aligned 128-bit
+objects.  This is useful for atomic updates of data structures exceeding one
+machine word in size.  The compiler uses this instruction to implement
+<a href="_005f_005fsync-Builtins.html#g_t_005f_005fsync-Builtins">__sync Builtins</a>.  However, for <a href="_005f_005fatomic-Builtins.html#g_t_005f_005fatomic-Builtins">__atomic Builtins</a> operating on
+128-bit integers, a library call is always used.
 </p>
 </dd>
 <dt><code>-msahf</code></dt>
@@ -1003,6 +1288,12 @@ see <a href="Other-Builtins.html#Other-Builtins">Other Builtins</a> for details.
 <dd><a name="index-mmovbe"></a>
 <p>This option enables use of the <code>movbe</code> instruction to implement
 <code>__builtin_bswap32</code> and <code>__builtin_bswap64</code>.
+</p>
+</dd>
+<dt><code>-mshstk</code></dt>
+<dd><a name="index-mshstk"></a>
+<p>The <samp>-mshstk</samp> option enables shadow stack built-in functions
+from x86 Control-flow Enforcement Technology (CET).
 </p>
 </dd>
 <dt><code>-mcrc32</code></dt>
@@ -1087,11 +1378,11 @@ To use this option, both <samp>-ftree-vectorize</samp> and
 ABI-compatible library must be specified at link time.
 </p>
 <p>GCC currently emits calls to <code>vmldExp2</code>,
-<code>vmldLn2</code>, <code>vmldLog102</code>, <code>vmldLog102</code>, <code>vmldPow2</code>,
+<code>vmldLn2</code>, <code>vmldLog102</code>, <code>vmldPow2</code>,
 <code>vmldTanh2</code>, <code>vmldTan2</code>, <code>vmldAtan2</code>, <code>vmldAtanh2</code>,
 <code>vmldCbrt2</code>, <code>vmldSinh2</code>, <code>vmldSin2</code>, <code>vmldAsinh2</code>,
 <code>vmldAsin2</code>, <code>vmldCosh2</code>, <code>vmldCos2</code>, <code>vmldAcosh2</code>,
-<code>vmldAcos2</code>, <code>vmlsExp4</code>, <code>vmlsLn4</code>, <code>vmlsLog104</code>,
+<code>vmldAcos2</code>, <code>vmlsExp4</code>, <code>vmlsLn4</code>,
 <code>vmlsLog104</code>, <code>vmlsPow4</code>, <code>vmlsTanh4</code>, <code>vmlsTan4</code>,
 <code>vmlsAtan4</code>, <code>vmlsAtanh4</code>, <code>vmlsCbrt4</code>, <code>vmlsSinh4</code>,
 <code>vmlsSin4</code>, <code>vmlsAsinh4</code>, <code>vmlsAsin4</code>, <code>vmlsCosh4</code>,
@@ -1105,7 +1396,7 @@ when <samp>-mveclibabi=acml</samp> is used.
 </p>
 </dd>
 <dt><code>-mabi=<var>name</var></code></dt>
-<dd><a name="index-mabi-3"></a>
+<dd><a name="index-mabi-5"></a>
 <p>Generate code for the specified calling convention.  Permissible values
 are &lsquo;<samp>sysv</samp>&rsquo; for the ABI used on GNU/Linux and other systems, and
 &lsquo;<samp>ms</samp>&rsquo; for the Microsoft ABI.  The default is to use the Microsoft
@@ -1113,6 +1404,33 @@ ABI when targeting Microsoft Windows and the SysV ABI on all other systems.
 You can control this behavior for specific functions by
 using the function attributes <code>ms_abi</code> and <code>sysv_abi</code>.
 See <a href="Function-Attributes.html#Function-Attributes">Function Attributes</a>.
+</p>
+</dd>
+<dt><code>-mforce-indirect-call</code></dt>
+<dd><a name="index-mforce_002dindirect_002dcall"></a>
+<p>Force all calls to functions to be indirect. This is useful
+when using Intel Processor Trace where it generates more precise timing
+information for function calls.
+</p>
+</dd>
+<dt><code>-mmanual-endbr</code></dt>
+<dd><a name="index-mmanual_002dendbr"></a>
+<p>Insert ENDBR instruction at function entry only via the <code>cf_check</code>
+function attribute. This is useful when used with the option
+<samp>-fcf-protection=branch</samp> to control ENDBR insertion at the
+function entry.
+</p>
+</dd>
+<dt><code>-mcall-ms2sysv-xlogues</code></dt>
+<dd><a name="index-mcall_002dms2sysv_002dxlogues"></a>
+<a name="index-mno_002dcall_002dms2sysv_002dxlogues"></a>
+<p>Due to differences in 64-bit ABIs, any Microsoft ABI function that calls a
+System V ABI function must consider RSI, RDI and XMM6-15 as clobbered.  By
+default, the code for saving and restoring these registers is emitted inline,
+resulting in fairly lengthy prologues and epilogues.  Using
+<samp>-mcall-ms2sysv-xlogues</samp> emits prologues and epilogues that
+use stubs in the static portion of libgcc to perform these saves and restores,
+thus reducing function size at the cost of a few extra instructions.
 </p>
 </dd>
 <dt><code>-mtls-dialect=<var>type</var></code></dt>
@@ -1286,6 +1604,7 @@ still affect the alignment of the structure:
 </dd>
 <dt><code>-mno-align-stringops</code></dt>
 <dd><a name="index-mno_002dalign_002dstringops"></a>
+<a name="index-malign_002dstringops"></a>
 <p>Do not align the destination of inlined string operations.  This switch reduces
 code size and improves performance in case the destination is already aligned,
 but GCC doesn&rsquo;t know about it.
@@ -1297,8 +1616,9 @@ but GCC doesn&rsquo;t know about it.
 known to be aligned to least a 4-byte boundary.  
 This enables more inlining and increases code
 size, but may improve performance of code that depends on fast
-<code>memcpy</code>, <code>strlen</code>,
-and <code>memset</code> for short lengths.
+<code>memcpy</code> and <code>memset</code> for short lengths.
+The option enables inline expansion of <code>strlen</code> for all
+pointer alignments.
 </p>
 </dd>
 <dt><code>-minline-stringops-dynamically</code></dt>
@@ -1400,9 +1720,34 @@ automatically patching and out calls.
 <dt><code>-mno-nop-mcount</code></dt>
 <dd><a name="index-mnop_002dmcount"></a>
 <p>If profiling is active (<samp>-pg</samp>), generate the calls to
-the profiling functions as nops. This is useful when they
+the profiling functions as NOPs. This is useful when they
 should be patched in later dynamically. This is likely only
 useful together with <samp>-mrecord-mcount</samp>.
+</p>
+</dd>
+<dt><code>-minstrument-return=<var>type</var></code></dt>
+<dd><a name="index-minstrument_002dreturn"></a>
+<p>Instrument function exit in -pg -mfentry instrumented functions with
+call to specified function. This only instruments true returns ending
+with ret, but not sibling calls ending with jump. Valid types
+are <var>none</var> to not instrument, <var>call</var> to generate a call to __return__,
+or <var>nop5</var> to generate a 5 byte nop.
+</p>
+</dd>
+<dt><code>-mrecord-return</code></dt>
+<dt><code>-mno-record-return</code></dt>
+<dd><a name="index-mrecord_002dreturn"></a>
+<p>Generate a __return_loc section pointing to all return instrumentation code.
+</p>
+</dd>
+<dt><code>-mfentry-name=<var>name</var></code></dt>
+<dd><a name="index-mfentry_002dname"></a>
+<p>Set name of __fentry__ symbol called at function entry for -pg -mfentry functions.
+</p>
+</dd>
+<dt><code>-mfentry-section=<var>name</var></code></dt>
+<dd><a name="index-mfentry_002dsection"></a>
+<p>Set name of section to record -mrecord-mcount calls (default __mcount_loc).
 </p>
 </dd>
 <dt><code>-mskip-rax-setup</code></dt>
@@ -1437,19 +1782,77 @@ to 255, 8-bit unsigned integer divide is used instead of
 </p>
 </dd>
 <dt><code>-mstack-protector-guard=<var>guard</var></code></dt>
-<dd><a name="index-mstack_002dprotector_002dguard_003dguard"></a>
+<dt><code>-mstack-protector-guard-reg=<var>reg</var></code></dt>
+<dt><code>-mstack-protector-guard-offset=<var>offset</var></code></dt>
+<dd><a name="index-mstack_002dprotector_002dguard-3"></a>
+<a name="index-mstack_002dprotector_002dguard_002dreg-3"></a>
+<a name="index-mstack_002dprotector_002dguard_002doffset-3"></a>
 <p>Generate stack protection code using canary at <var>guard</var>.  Supported
 locations are &lsquo;<samp>global</samp>&rsquo; for global canary or &lsquo;<samp>tls</samp>&rsquo; for per-thread
 canary in the TLS block (the default).  This option has effect only when
 <samp>-fstack-protector</samp> or <samp>-fstack-protector-all</samp> is specified.
 </p>
+<p>With the latter choice the options
+<samp>-mstack-protector-guard-reg=<var>reg</var></samp> and
+<samp>-mstack-protector-guard-offset=<var>offset</var></samp> furthermore specify
+which segment register (<code>%fs</code> or <code>%gs</code>) to use as base register
+for reading the canary, and from what offset from that base register.
+The default for those is as specified in the relevant ABI.
+</p>
 </dd>
-<dt><code>-mmitigate-rop</code></dt>
-<dd><a name="index-mmitigate_002drop"></a>
-<p>Try to avoid generating code sequences that contain unintended return
-opcodes, to mitigate against certain forms of attack. At the moment,
-this option is limited in what it can do and should not be relied
-on to provide serious protection.
+<dt><code>-mgeneral-regs-only</code></dt>
+<dd><a name="index-mgeneral_002dregs_002donly-2"></a>
+<p>Generate code that uses only the general-purpose registers.  This
+prevents the compiler from using floating-point, vector, mask and bound
+registers.
+</p>
+</dd>
+<dt><code>-mindirect-branch=<var>choice</var></code></dt>
+<dd><a name="index-mindirect_002dbranch"></a>
+<p>Convert indirect call and jump with <var>choice</var>.  The default is
+&lsquo;<samp>keep</samp>&rsquo;, which keeps indirect call and jump unmodified.
+&lsquo;<samp>thunk</samp>&rsquo; converts indirect call and jump to call and return thunk.
+&lsquo;<samp>thunk-inline</samp>&rsquo; converts indirect call and jump to inlined call
+and return thunk.  &lsquo;<samp>thunk-extern</samp>&rsquo; converts indirect call and jump
+to external call and return thunk provided in a separate object file.
+You can control this behavior for a specific function by using the
+function attribute <code>indirect_branch</code>.  See <a href="Function-Attributes.html#Function-Attributes">Function Attributes</a>.
+</p>
+<p>Note that <samp>-mcmodel=large</samp> is incompatible with
+<samp>-mindirect-branch=thunk</samp> and
+<samp>-mindirect-branch=thunk-extern</samp> since the thunk function may
+not be reachable in the large code model.
+</p>
+<p>Note that <samp>-mindirect-branch=thunk-extern</samp> is compatible with
+<samp>-fcf-protection=branch</samp> since the external thunk can be made
+to enable control-flow check.
+</p>
+</dd>
+<dt><code>-mfunction-return=<var>choice</var></code></dt>
+<dd><a name="index-mfunction_002dreturn"></a>
+<p>Convert function return with <var>choice</var>.  The default is &lsquo;<samp>keep</samp>&rsquo;,
+which keeps function return unmodified.  &lsquo;<samp>thunk</samp>&rsquo; converts function
+return to call and return thunk.  &lsquo;<samp>thunk-inline</samp>&rsquo; converts function
+return to inlined call and return thunk.  &lsquo;<samp>thunk-extern</samp>&rsquo; converts
+function return to external call and return thunk provided in a separate
+object file.  You can control this behavior for a specific function by
+using the function attribute <code>function_return</code>.
+See <a href="Function-Attributes.html#Function-Attributes">Function Attributes</a>.
+</p>
+<p>Note that <samp>-mindirect-return=thunk-extern</samp> is compatible with
+<samp>-fcf-protection=branch</samp> since the external thunk can be made
+to enable control-flow check.
+</p>
+<p>Note that <samp>-mcmodel=large</samp> is incompatible with
+<samp>-mfunction-return=thunk</samp> and
+<samp>-mfunction-return=thunk-extern</samp> since the thunk function may
+not be reachable in the large code model.
+</p>
+
+</dd>
+<dt><code>-mindirect-branch-register</code></dt>
+<dd><a name="index-mindirect_002dbranch_002dregister"></a>
+<p>Force indirect call and jump via register.
 </p>
 </dd>
 </dl>
@@ -1492,6 +1895,7 @@ psABI.  It requires the <samp>-m32</samp> option to be turned on.
 </dd>
 <dt><code>-mno-red-zone</code></dt>
 <dd><a name="index-mno_002dred_002dzone"></a>
+<a name="index-mred_002dzone"></a>
 <p>Do not use a so-called &ldquo;red zone&rdquo; for x86-64 code.  The red zone is mandated
 by the x86-64 ABI; it is a 128-byte area beyond the location of the
 stack pointer that is not modified by signal or interrupt handlers
