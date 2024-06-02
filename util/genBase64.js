@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 var constants = require('../config')
 function generate(){
-    let compile_id = new Array(4);
+    let compile_id = new Array(8);
     let final_string="";
     let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_."
     for(let i=0;i<compile_id.length;i++){

@@ -2,3 +2,4 @@
 /CodeBuilder/pluto_project/gcc-arm/
 /CodeBuilder/pluto_project/src_*
 /CodeBuilder/pluto_project/obj/PB_*
+/CodeBuilder/pluto_project/obj/PLUTOX/src_*
