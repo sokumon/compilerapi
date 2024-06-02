@@ -7,45 +7,43 @@ const path = require('path')
 ncp.limit = 16;
  
 
-async function buildCode(code,id) {
-    try {
-      // Write the code to a file
-      console.log(code)
-      code = code.replace('"PlutoPilot.h"','"PlutoPilot.h"\n')
-      let old_state = process.cwd()
-      process.chdir("./CodeBuilder/pluto_project")
-      let src = "src_temp"
-      let destination = `src_${id}`;
-      ncp(src, destination, async function (err) {
-      if (err) {
-        return console.error(err);
+async function buildCode(code, id) {
+  return new Promise(async (resolve, reject) => {
+      try {
+          // Write the code to a file
+          console.log(code);
+          code = code.replace('"PlutoPilot.h"', '"PlutoPilot.h"\n');
+          let old_state = process.cwd();
+          process.chdir("./CodeBuilder/pluto_project");
+          let src = "src_temp";
+          let destination = `src_${id}`;
+          ncp(src, destination, async function (err) {
+              if (err) {
+                  reject(err);
+              }
+              console.log('done!');
+              let writetofile = path.join(process.cwd(), `src_${id}/main/PlutoPilot.cpp`);
+              await fs.promises.writeFile(writetofile, code);
+
+              console.log('Code file written successfully.');
+
+              // Execute the make command
+              exec('make ID=' + id, (error, stdout, stderr) => {
+                  if (error) {
+                      console.error(`Error executing make command: ${error}`);
+                      reject(error);
+                  } else {
+                      console.log(`Make command executed successfully.\n${stdout}`);
+                      process.chdir(old_state);
+                      console.log('Build process completed.');
+                      resolve(); // Resolve here after make command is done
+                  }
+              });
+          });
+      } catch (err) {
+          reject(err);
       }
-      console.log('done!');
-      let writetofile = path.join(process.cwd(),`src_${id}/main/PlutoPilot.cpp`);
-      await fs.promises.writeFile(writetofile, code);
-      
-      console.log('Code file written successfully.');
-      
-      // Execute the make command
-      await new Promise((resolve, reject) => {
-        exec('make ID='+id, (error, stdout, stderr) => {
-          if (error) {
-            console.error(`Error executing make command: ${error}`);
-            reject(error);
-          } else {
-            console.log(`Make command executed successfully.\n${stdout}`);
-	          process.chdir(old_state);
-            resolve();
-          }
-        });
-      });
-      });
-      
-  
-      console.log('Build process completed.');
-    } catch (err) {
-      console.error('An error occurred:', err);
-    }
+  });
 }
 // used to rebuild code
 async function rebuildCode(id) {

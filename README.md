@@ -32,6 +32,25 @@ Start the server
 node app.js
 ```
 
+Start redis
+```
+sudo apt-get update
+sudo apt-get install redis-server
+redis-server --daemonize yes
+```
+
+To check if Redis is setup properly
+```
+redis-cli ping
+```
+
+Install Redis
+```
+npm install -g pm2
+```
+
+
+
 ### Production Use
 
 This is an article for you to deploy it on a VM instance in the cloud 

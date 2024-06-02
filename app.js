@@ -7,9 +7,11 @@ const cors =require('cors')
 const app = express()
 const port = 3000
 const oneDay = 1000 * 60 * 60 * 24;
+const { Queue } = require('bullmq');
 
 const compileRouter = require('./Routes/compile.js');
 const fileRouter = require('./Routes/hexfilegive.js');
+const statusRouter = require("./Routes/status.js")
 
 app.use(logger('dev'));
 app.use(session({
@@ -33,8 +35,9 @@ app.use(bodyParser.json());     // to support JSON-encoded bodies
 
 app.use("/compile",compileRouter)
 app.use("/getthefile",fileRouter)
+app.use("/status",statusRouter)
 // app.use("/compile",adminRouter)
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
-  })
+})
