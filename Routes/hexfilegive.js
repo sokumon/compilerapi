@@ -15,13 +15,8 @@ router.all("/:id",function(req,res){
 	
 	console.log(id)
 	let filename = `PB_${id}_PLUTOX.hex`
-	if(checkFilename(filename)){
-		res.sendFile(filename,{root:dir_of_objs});
-	}else{
-		rebuildCode(id).then(()=>{
-			res.sendFile(filename,{root:"/home/sokumon/compilerapi/CodeBuilder/pluto_project/obj/"});
-		})
-	}
+	let file_path = path.join(filename,dir_of_objs)
+	res.download(file_path)
 
 
 	});	
