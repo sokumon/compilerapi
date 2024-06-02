@@ -15,7 +15,8 @@ router.all("/:id",function(req,res){
 	
 	console.log(id)
 	let filename = `PB_${id}_PLUTOX.hex`
-	let file_path = path.join(filename,dir_of_objs)
+	console.log(dir_of_objs)
+	let file_path = path.join(dir_of_objs,filename)
 	res.download(file_path)
 
 
