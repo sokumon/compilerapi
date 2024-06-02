@@ -12,7 +12,7 @@ DEBUG ?=
 FLASH_SIZE ?=
 
 
-NAME			 = Experience
+NAME			 = PB_${ID}
 
 VALID_TARGETS	 = PLUTOX 
 
@@ -28,7 +28,7 @@ endif
 
 
 ROOT		 := $(patsubst %/,%,$(dir $(lastword $(MAKEFILE_LIST))))
-SRC_DIR		 = $(ROOT)/src
+SRC_DIR		 = $(ROOT)/src_${ID}
 OBJECT_DIR	 = $(ROOT)/obj
 BIN_DIR		 = $(ROOT)/obj
 PLATFORM_DIR = $(ROOT)/platform
@@ -81,7 +81,7 @@ C		 = gcc-arm/bin/arm-none-eabi-gcc
 OBJCOPY		 = gcc-arm/bin/arm-none-eabi-objcopy
 SIZE		 =gcc-arm/bin/arm-none-eabi-size
 MKDIR =    mkdir
-ECHO =    echo
+ECHO =     echo
 
 ifeq ($(DEBUG),GDB)
 OPTIMIZE	 = -O0
