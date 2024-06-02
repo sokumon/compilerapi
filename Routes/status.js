@@ -9,7 +9,7 @@ router.all("/:id",async function(req,res){
 	let id = req.params.id;
     try {
         const jobStatus = await getJobStatus(id);
-        if (jobStatus) {
+        if (jobStatus === "completed") {
             res.send({
                 status: "success",
                 jobStatus: jobStatus
@@ -41,11 +41,7 @@ async function getJobStatus(jobId) {
         }else {
           const state = await job.getState();
           console.log('Job state is: ' + state);
-          if(state==="completed"){
-            return true
-          }else{
-            return false
-          }
+          return state
         }
 }
 module.exports = router
