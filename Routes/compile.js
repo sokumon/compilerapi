@@ -13,7 +13,6 @@ router.post("/",async function(req,res){
     },{
       jobId:compile_id
     });
-    console.log(jobs)
     let obj = {status:"Started Compiling",id:compile_id};
     res.send(obj);
 })
