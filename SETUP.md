@@ -13,7 +13,7 @@ wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/6_1-2017q1/gcc-arm
 ```
 tar -xf  gcc-arm-none-eabi-6-2017-q2-update-linux.tar.bz2
 ```
-
+- ### Note: Rename the "gcc-arm-none-eabi-6-2017-q1-update" to "gcc-arm" , Once inside the pluto_project
 - Now you have a gcc-arm folder rename it 
 mv gcc-arm-none-eabi-6-2017-q1-update gcc-arm
 
